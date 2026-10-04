@@ -1,0 +1,50 @@
+# Publish only the editable static website and repository documentation.
+# Root working folders (assets, frog-game, tmp, .openai) stay local.
+/*
+!/.gitignore
+!/.gitattributes
+!/README.md
+!/LICENSE
+!/dist/
+
+# The current dist directory contains the actual website source: keep it.
+# Private documents and recording working files
+*.pdf
+*.doc
+*.docx
+*.odt
+*.rtf
+~$*
+
+# Archives, logs, temporary files, and editor/OS clutter
+*.zip
+*.7z
+*.rar
+*.tar
+*.gz
+*.log
+*.tmp
+*.bak
+*.swp
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
+node_modules/
+__pycache__/
+*.pyc
+
+# Local environment and credentials (do not commit actual secrets)
+.env
+.env.*
+*.pem
+*.key
+credentials.json
+secrets.json
+
+# Unity import metadata is not needed by the browser game
+*.meta
+
+# Original recording masters; the website uses the MP3 versions
+*.m4a

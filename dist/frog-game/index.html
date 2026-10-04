@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#47306c" />
+    <title>FrogGame — Web Edition</title>
+    <link rel="icon" type="image/png" href="assets/greenfrog.png" />
+    <link rel="stylesheet" href="styles.css?v=12" />
+  </head>
+  <body>
+    <section id="intro" class="intro" aria-label="FrogGame introduction">
+      <div class="intro-card">
+        <div class="frog-cluster frog-cluster-large" role="img" aria-label="Three colourful Froggy Puzzle Pop frogs">
+          <img class="frog-face frog-face-blue" src="assets/bluefrog.png" alt="" />
+          <img class="frog-face frog-face-green" src="assets/greenfrog.png" alt="" />
+          <img class="frog-face frog-face-orange" src="assets/orangefrog.png" alt="" />
+        </div>
+        <img class="intro-logo" src="assets/title.png" alt="Froggy Puzzle Pop" />
+        <button id="play-video-sound" class="leaf-button" type="button">
+          <svg viewBox="0 0 600 320" aria-hidden="true"><path d="M25 267C89 220 98 89 230 47C346 8 454 63 569 22C610 4 570 100 541 154C475 286 306 333 179 284C98 252 62 288 25 267Z" fill="#b7df7b" stroke="#354c30" stroke-width="7" stroke-linejoin="round"/><path d="M55 259Q262 179 535 56" fill="none" stroke="#7ba85d" stroke-width="4"/></svg>
+          <span>▶ Watch video</span>
+        </button>
+        <div id="intro-video-panel" class="intro-video-panel" hidden>
+          <video id="intro-video" class="intro-video" playsinline controls preload="metadata">
+            <source src="assets/frog-intro.mp4" type="video/mp4" />
+            Your browser does not support the FrogGame introduction video.
+          </video>
+          <button id="back-to-menu" class="button" type="button">Back to menu</button>
+        </div>
+        <p class="intro-copy">A tiny, silly frog adventure.</p>
+        <div class="frog-menu">
+          <button id="start-game" class="menu-frog" type="button"><img src="assets/greenfrog.png" alt="" /><span>Start game</span></button>
+          <button id="top-scores" class="menu-frog" type="button"><img src="assets/yellowfrog.png" alt="" /><span>Top score</span></button>
+        </div>
+      </div>
+    </section>
+    <main class="game-shell" hidden>
+      <header class="game-header">
+        <button id="main-menu" class="hud-button" type="button">Menu</button>
+        <aside class="stats" aria-label="Game progress">
+          <div class="stat"><strong id="score" aria-label="Score" aria-live="polite">0</strong></div>
+          <div class="stat"><strong id="combo" aria-label="Top combo score">0</strong></div>
+        </aside>
+        <div class="header-controls">
+          <button id="game-top-scores" class="hud-button" type="button" aria-label="Show top scores">★</button>
+          <button id="sound-toggle" class="hud-button" type="button" aria-pressed="true" aria-label="Toggle sound">♪</button>
+        </div>
+      </header>
+
+      <section class="game-card" aria-label="FrogGame board">
+        <section class="play-area">
+          <p id="message" class="message" aria-live="polite">Click a column to drop a frog.</p>
+          <div id="board-stage" class="board-stage">
+            <div class="cloud-lane">
+              <div id="cloud-carrier" class="cloud-carrier">
+                <img id="evil-cloud" class="evil-cloud" src="assets/evil-cloud.png" alt="" />
+                <div id="next-frog" class="next-frog" aria-label="Next frog"></div>
+              </div>
+            </div>
+            <div id="falling-frog" class="falling-frog" aria-hidden="true"></div>
+            <div id="board" class="board" role="grid" aria-label="Frog puzzle board"></div>
+          </div>
+          <p id="score-breakdown" class="visually-hidden" aria-live="polite">Each frog = 10 points · chain reactions multiply your points.</p>
+        </section>
+
+        <aside class="actions">
+          <button id="new-game" class="hud-button" type="button">New game</button>
+          <button id="how-to-play" class="hud-button" type="button">How to play</button>
+        </aside>
+      </section>
+
+      <dialog id="help-dialog">
+        <button class="dialog-close" type="button" aria-label="Close help">×</button>
+        <h1>How to play</h1>
+        <p>Choose a column to drop the frog shown above the board.</p>
+        <p>Connect four or more matching frogs horizontally or vertically. Each frog earns 10 points, and chain reactions multiply your score.</p>
+        <button class="button button-primary dialog-close" type="button">Let’s hop!</button>
+      </dialog>
+    </main>
+    <dialog id="scores-dialog" aria-labelledby="scores-title">
+      <button class="scores-close dialog-close" type="button" aria-label="Close top scores">×</button>
+      <h1 id="scores-title">Score</h1>
+      <p class="top-score-number" id="top-score-value">0</p>
+      <h2>Top combo score</h2>
+      <p class="top-score-number" id="top-combo-value">0</p>
+      <button class="scores-close button" type="button">Back</button>
+    </dialog>
+    <audio id="background-music" src="assets/sounds/The Cloud of Dread.mp3" loop preload="auto" aria-hidden="true"></audio>
+    <div id="sound-bank" hidden aria-hidden="true">
+      <audio id="sound-blomp" preload="auto"><source src="assets/sounds/blomp.mp3" type="audio/mpeg" /></audio>
+      <audio id="sound-bleh" preload="auto"><source src="assets/sounds/bleh.mp3" type="audio/mpeg" /></audio>
+      <audio id="sound-fart" preload="auto"><source src="assets/sounds/fart.mp3" type="audio/mpeg" /></audio>
+      <audio id="sound-fart-2" preload="auto"><source src="assets/sounds/fart-2.mp3" type="audio/mpeg" /></audio>
+      <audio id="sound-fart-3" preload="auto"><source src="assets/sounds/fart-3.mp3" type="audio/mpeg" /></audio>
+      <audio id="sound-fart-4" preload="auto"><source src="assets/sounds/fart-4.mp3" type="audio/mpeg" /></audio>
+      <audio id="sound-fart-5" preload="auto"><source src="assets/sounds/fart-5.mp3" type="audio/mpeg" /></audio>
+      <audio id="sound-frog" preload="auto"><source src="assets/sounds/frog-1.mp3" type="audio/mpeg" /></audio>
+      <audio id="sound-wooo" preload="auto"><source src="assets/sounds/wooo.mp3" type="audio/mpeg" /></audio>
+      <audio id="sound-connect-1" preload="auto"><source src="assets/sounds/connecting/Click.mp3" type="audio/mpeg" /></audio>
+      <audio id="sound-connect-2" preload="auto"><source src="assets/sounds/connecting/Click(2).mp3" type="audio/mpeg" /></audio>
+      <audio id="sound-connect-3" preload="auto"><source src="assets/sounds/connecting/Click(3).mp3" type="audio/mpeg" /></audio>
+      <audio id="sound-connect-4" preload="auto"><source src="assets/sounds/connecting/Click(4).mp3" type="audio/mpeg" /></audio>
+      <audio id="sound-connect-5" preload="auto"><source src="assets/sounds/connecting/Click(5).mp3" type="audio/mpeg" /></audio>
+      <audio id="sound-combo-1" preload="auto"><source src="assets/sounds/combosounds/Combo.mp3" type="audio/mpeg" /></audio>
+      <audio id="sound-combo-2" preload="auto"><source src="assets/sounds/combosounds/Combo(2).mp3" type="audio/mpeg" /></audio>
+      <audio id="sound-combo-3" preload="auto"><source src="assets/sounds/combosounds/Combo(3).mp3" type="audio/mpeg" /></audio>
+      <audio id="sound-fantastic-1" preload="auto"><source src="assets/sounds/combosounds/Fantastic.mp3" type="audio/mpeg" /></audio>
+      <audio id="sound-fantastic-2" preload="auto"><source src="assets/sounds/combosounds/Fantastic(2).mp3" type="audio/mpeg" /></audio>
+      <audio id="sound-hurray-1" preload="auto"><source src="assets/sounds/combosounds/Hurray.mp3" type="audio/mpeg" /></audio>
+      <audio id="sound-hurray-2" preload="auto"><source src="assets/sounds/combosounds/Hurray(2).mp3" type="audio/mpeg" /></audio>
+      <audio id="sound-hurray-3" preload="auto"><source src="assets/sounds/combosounds/Hurray(3).mp3" type="audio/mpeg" /></audio>
+    </div>
+    <script src="unity-assets.js?v=14"></script>
+    <script src="frog-logic.js?v=13"></script>
+    <script src="grid-layout.js"></script>
+    <script src="score-store.js?v=12"></script>
+    <script src="audio.js?v=4"></script>
+    <script src="game.js?v=18"></script>
+  </body>
+</html>

@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Interactive CV for Marju Halmann, junior software developer with experience in QA, application support, and finance systems.">
+  <meta name="theme-color" content="#f7f1e7">
+  <title>Marju Halmann · Interactive CV</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="stylesheet" href="styles.css?v=20261004-7">
+  <script defer src="image-hit-areas.js?v=20261004-5"></script>
+  <script defer src="app.js?v=20261004-7"></script>
+</head>
+<body>
+  <a class="skip-link" href="#cv-scene">Skip to interactive CV</a>
+  <header class="masthead">
+    <div>
+      <p class="eyebrow">Interactive CV</p>
+      <h1>Marju Halmann</h1>
+      <p class="role">Junior Software Developer · QA · Application Support</p>
+    </div>
+    <div class="contact-links" aria-label="Contact links">
+      <a href="https://www.linkedin.com/in/marju-h-6b4b02116" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      <a href="https://github.com/mrfoxy-cyber" target="_blank" rel="noopener noreferrer">GitHub</a>
+      <span>Skövde, Sweden</span>
+    </div>
+  </header>
+
+  <main id="cv-scene" class="scene" tabindex="-1" aria-label="Explore Marju Halmann's CV">
+    <img class="scene__background" src="assets/cv/interactive/background/scene.png" alt="" aria-hidden="true">
+    <div class="sr-only">
+      <h2>How to explore this CV</h2>
+      <p>This is an illustrated CV. Marju's portrait opens her profile. Potatoes represent projects, a suitcase represents work experience, skill illustrations represent development and testing skills, speech bubbles represent languages, and books represent education. Each object is a labelled button that opens its details.</p>
+      <p>Use your screen reader's headings or buttons list to explore. With a keyboard, use Tab and Shift plus Tab to move between controls, and Enter or Space to open an item. When details open, reading starts at the heading. Press Escape or choose Close details to return to the same item. Course and project groups can be expanded. Language recordings play only when you choose Play.</p>
+    </div>
+
+    <section class="project-zone zone" aria-labelledby="projects-title">
+      <h2 id="projects-title" class="sr-only">Projects</h2>
+      <button class="art-button project-sack" type="button" data-kind="collection" data-key="projects" aria-label="Open potato bag with all projects" aria-haspopup="dialog" aria-describedby="description-projects">
+        <img src="assets/cv/interactive/projects/sack-empty.png" alt="">
+        <span id="description-projects" class="sr-only">A potato bag holding Marju's projects. Opens an expandable list of Goatly, Mental Model Graph, and Frog Game.</span>
+      </button>
+      <button class="art-button project project--goatly" data-kind="project" data-key="goatly" aria-label="Open Goatly project" aria-haspopup="dialog" aria-describedby="description-goatly">
+        <img src="assets/cv/interactive/projects/goatly.png" alt="">
+        <span id="description-goatly" class="sr-only">A project potato with a goat mascot, representing a concept-based learning platform for children.</span>
+      </button>
+      <button class="art-button project project--mmg" data-kind="project" data-key="mmg" aria-label="Open Mental Model Graph project" aria-haspopup="dialog" aria-describedby="description-mmg">
+        <img src="assets/cv/interactive/projects/mmg.png" alt="">
+        <span id="description-mmg" class="sr-only">A project potato with a graph symbol, representing a tool for exploring relationships in C plus plus source code.</span>
+      </button>
+      <button class="art-button project project--frog" data-kind="project" data-key="frog" aria-label="Open Frog Game project" aria-haspopup="dialog" aria-describedby="description-frog">
+        <img src="assets/cv/interactive/projects/frog-game.png" alt="">
+        <span id="description-frog" class="sr-only">A project potato with a frog mascot, representing a calm puzzle game originally made in Unity and recreated for the web.</span>
+      </button>
+    </section>
+
+    <button class="art-button portrait" data-kind="profile" data-key="marju" aria-label="Open Marju Halmann's profile" aria-haspopup="dialog" aria-describedby="description-profile">
+      <img src="assets/cv/interactive/character/marju-natural-v2.png" alt="">
+      <span id="description-profile" class="sr-only">An illustrated portrait of Marju seated comfortably in the centre of the scene. Opens her introduction as a junior software developer.</span>
+    </button>
+
+    <section class="language-zone zone" aria-labelledby="languages-title">
+      <h2 id="languages-title" class="zone-title">Languages</h2>
+      <div class="language-grid">
+        <button class="art-button" data-kind="language" data-key="estonian" aria-label="Open Estonian language proficiency" aria-haspopup="dialog" aria-describedby="description-estonian"><img src="assets/cv/interactive/languages/estonian-tail-right.png" alt=""><span id="description-estonian" class="sr-only">A speech bubble representing Estonian, Marju's native language. Includes an optional spoken recording.</span></button>
+        <button class="art-button" data-kind="language" data-key="english" aria-label="Open English language proficiency" aria-haspopup="dialog" aria-describedby="description-english"><img src="assets/cv/interactive/languages/english-tail-right.png" alt=""><span id="description-english" class="sr-only">A speech bubble representing English, with professional proficiency. Includes an optional spoken recording.</span></button>
+        <button class="art-button" data-kind="language" data-key="swedish" aria-label="Open Swedish language proficiency" aria-haspopup="dialog" aria-describedby="description-swedish"><img src="assets/cv/interactive/languages/swedish-tail-right.png" alt=""><span id="description-swedish" class="sr-only">A speech bubble representing Swedish, with professional proficiency. Includes an optional spoken recording.</span></button>
+        <button class="art-button" data-kind="language" data-key="german" aria-label="Open German language proficiency" aria-haspopup="dialog" aria-describedby="description-german"><img src="assets/cv/interactive/languages/german-tail-right.png" alt=""><span id="description-german" class="sr-only">A speech bubble representing German, with elementary proficiency. Includes an optional spoken recording.</span></button>
+      </div>
+    </section>
+
+    <section class="skill-zone zone" aria-labelledby="skills-title">
+      <h2 id="skills-title" class="zone-title">Skills</h2>
+      <div class="skill-grid">
+        <button class="art-button" data-kind="skill" data-key="testing" aria-label="Open software testing skills" aria-haspopup="dialog" aria-describedby="description-testing"><img src="assets/cv/interactive/skills/testing.png" alt=""><span id="description-testing" class="sr-only">A skill illustration representing manual and automated testing, debugging, and defect investigation.</span></button>
+        <button class="art-button" data-kind="skill" data-key="support" aria-label="Open application support skills" aria-haspopup="dialog" aria-describedby="description-support"><img src="assets/cv/interactive/skills/support.png" alt=""><span id="description-support" class="sr-only">A skill illustration representing customer support and troubleshooting in finance systems.</span></button>
+        <button class="art-button" data-kind="skill" data-key="cpp" aria-label="Open C plus plus skills" aria-haspopup="dialog" aria-describedby="description-cpp"><img src="assets/cv/interactive/skills/cpp.png" alt=""><span id="description-cpp" class="sr-only">A programming skill illustration representing modern C plus plus development through Mental Model Graph.</span></button>
+        <button class="art-button" data-kind="skill" data-key="csharp" aria-label="Open C sharp and dot net skills" aria-haspopup="dialog" aria-describedby="description-csharp"><img src="assets/cv/interactive/skills/csharp.png" alt=""><span id="description-csharp" class="sr-only">A programming skill illustration representing C sharp and dot net development through Goatly and Frog Game.</span></button>
+        <button class="art-button" data-kind="skill" data-key="python" aria-label="Open Python skills" aria-haspopup="dialog" aria-describedby="description-python"><img src="assets/cv/interactive/skills/python.png" alt=""><span id="description-python" class="sr-only">A programming skill illustration representing Python tooling for source-code extraction and development utilities.</span></button>
+        <button class="art-button" data-kind="skill" data-key="playwright" aria-label="Open Playwright testing skills" aria-haspopup="dialog" aria-describedby="description-playwright"><img src="assets/cv/interactive/skills/playwright.png" alt=""><span id="description-playwright" class="sr-only">A skill illustration representing automated browser testing with Playwright.</span></button>
+        <button class="art-button" data-kind="skill" data-key="gitlab" aria-label="Open Git GitHub and continuous delivery skills" aria-haspopup="dialog" aria-describedby="description-git"><img src="assets/cv/interactive/skills/gitlab.png" alt=""><span id="description-git" class="sr-only">A delivery skill illustration representing version control with Git, GitHub workflows, and continuous integration and delivery.</span></button>
+      </div>
+    </section>
+
+    <section class="work-zone zone" aria-labelledby="work-title">
+      <h2 id="work-title" class="sr-only">Work experience</h2>
+      <button class="art-button suitcase-button" data-kind="work" data-key="experience" aria-label="Open work experience suitcase" aria-haspopup="dialog" aria-describedby="description-work">
+        <img src="assets/cv/interactive/work/suitcase-closed.png" alt="">
+        <span id="description-work" class="sr-only">An old brown suitcase tagged work experience. Opens Marju's employment history, including testing, application support, and system development.</span>
+      </button>
+    </section>
+
+    <section class="education-zone zone" aria-labelledby="education-title">
+      <h2 id="education-title" class="zone-title">Education</h2>
+      <div class="book-stack">
+        <button class="art-button book book--skovde" data-kind="education" data-key="skovde" aria-label="Open University of Skövde education" aria-haspopup="dialog" aria-describedby="description-skovde"><img src="assets/cv/interactive/education/skovde-closed.png" alt=""><span id="description-skovde" class="sr-only">The top book in the education stack, representing a bachelor's degree in Informatics from the University of Skövde.</span></button>
+        <button class="art-button book book--tartu" data-kind="education" data-key="tartu" aria-label="Open University of Tartu education" aria-haspopup="dialog" aria-describedby="description-tartu"><img src="assets/cv/interactive/education/tartu-closed.png" alt=""><span id="description-tartu" class="sr-only">The second book in the education stack, representing Informatics studies at the University of Tartu in Estonia.</span></button>
+        <button class="art-button book book--gymnasium" data-kind="education" data-key="gymnasium" aria-label="Open Estonian gymnasium education" aria-haspopup="dialog" aria-describedby="description-gymnasium"><img src="assets/cv/interactive/education/gymnasium-closed.png" alt=""><span id="description-gymnasium" class="sr-only">The third book in the education stack, representing upper secondary education in Estonia.</span></button>
+        <button class="art-button book book--komvux" data-kind="education" data-key="komvux" aria-label="Open Komvux education" aria-haspopup="dialog" aria-describedby="description-komvux"><img src="assets/cv/interactive/education/komvux-closed.png" alt=""><span id="description-komvux" class="sr-only">The fourth book in the education stack, representing English and Swedish language studies at Komvux.</span></button>
+        <button class="art-button book book--lexicon" data-kind="education" data-key="lexicon" aria-label="Open Lexicon full stack developer education" aria-haspopup="dialog" aria-describedby="description-lexicon"><img src="assets/cv/interactive/education/lexicon-closed.png" alt=""><span id="description-lexicon" class="sr-only">The bottom book in the education stack, representing the full-stack developer programme through Lexicon and Luleå University of Technology.</span></button>
+      </div>
+      <button class="art-button course-papers" data-kind="education" data-key="courses" aria-label="Open standalone university courses" aria-haspopup="dialog" aria-describedby="description-courses"><img src="assets/cv/interactive/education/standalone-courses.png" alt=""><span id="description-courses" class="sr-only">Loose course papers beside the books, representing additional university studies in art, game design, and three-dimensional modelling.</span></button>
+    </section>
+  </main>
+
+  <p class="hint">Choose the potato bag, a potato, suitcase, skill, language, or book to explore.</p>
+
+  <dialog class="detail-dialog" id="detail-dialog" aria-labelledby="detail-title" aria-modal="true">
+    <button class="dialog-close" type="button" aria-label="Close details">×</button>
+    <div class="dialog-layout">
+      <div class="dialog-art" id="detail-art" aria-hidden="true"></div>
+      <article class="dialog-copy">
+        <p class="dialog-kicker" id="detail-kicker"></p>
+        <h2 id="detail-title" tabindex="-1"></h2>
+        <div id="detail-body"></div>
+      </article>
+    </div>
+  </dialog>
+
+  <footer>
+    <p>Built as an explorable CV. All controls work with keyboard, touch, and mouse.</p>
+  </footer>
+</body>
+</html>
