@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Marju · Audio-tour character layers</title>
+  <link rel="stylesheet" href="map.css">
+  <script defer src="layers.js"></script>
+  <style>
+    main.layer-workshop { display: block; }
+    .status-note { padding: 16px 20px; border: 1px solid #decdb5; background: #fff8eb; border-radius: 12px; line-height: 1.6; font-size: 14px; }
+    .layer-gallery { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 18px; margin: 24px 0; }
+    .asset-card { overflow: hidden; border: 1px solid #dcded5; border-radius: 14px; background: #fffdf8; }
+    .asset-card canvas { display: block; width: 100%; height: auto; background: repeating-conic-gradient(#e5e9df 0% 25%, #f5f5ed 0% 50%) 50% / 24px 24px; }
+    .asset-card .copy { padding: 14px 16px 18px; }
+    .asset-card h2 { font-size: 20px; }
+    .asset-card p { margin: 8px 0; font-size: 12px; line-height: 1.6; color: #68776f; }
+    .asset-card a { font-size: 12px; }
+    .pending { min-height: 190px; display: grid; place-items: center; background: #f2eee5; color: #8f6d44; font-size: 13px; }
+    .assembly { margin-top: 24px; }
+    .assembly .toolbar { flex-wrap: wrap; }
+    #assembly { display: block; max-width: 680px; width: 100%; margin: auto; height: auto; background: #edf0e9; }
+    .assembly-controls { display: flex; flex-wrap: wrap; gap: 12px; padding: 16px 20px; font-size: 12px; }
+    .assembly-controls label { display: flex; gap: 6px; align-items: center; }
+    @media(max-width:750px) { .layer-gallery { grid-template-columns: repeat(2,minmax(0,1fr)); } }
+    @media(max-width:450px) { .layer-gallery { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <header><div><p class="eyebrow">For the future audio tour · separate assets</p><h1>Marju’s character parts.</h1><p>Your original CV portrait stays exactly as it is.</p></div><a class="back" href="./">Back to coordinate map</a></header>
+  <main class="layer-workshop">
+    <p class="status-note"><a href="anchored.html">Try the new anchored character: hair, eyes and mouth only</a>. This older independently generated parts experiment is kept for reference.</p>
+    <p class="status-note" id="asset-status" role="status">Loading the draft character layers…</p>
+    <div id="gallery" class="layer-gallery" aria-label="Separate generated character assets"></div>
+    <section class="workspace assembly" aria-labelledby="assembly-title">
+      <div class="toolbar"><h2 id="assembly-title">Draft assembly · alignment check only</h2><label><input id="reference" type="checkbox"> Show original reference instead</label></div>
+      <canvas id="assembly" width="1261" height="1247" role="img" aria-label="Draft assembly of the generated audio-tour character parts. It is incomplete and needs alignment refinement."></canvas>
+      <div id="assembly-controls" class="assembly-controls" aria-label="Visible layers"></div>
+      <p class="caption">This preview registers different-sized generated PNGs on the original coordinate canvas. The joins and facial overlays still need refinement. No animation is running and nothing on the main CV has been replaced.</p>
+    </section>
+  </main>
+  <footer><p>These are editable draft assets, not a finished talking character. <a href="../assets/cv/interactive/audiotour/character-layers-v1/generation-prompts.json">Generation prompts</a></p></footer>
+</body>
+</html>

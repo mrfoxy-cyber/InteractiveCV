@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Marju · Character layer map</title>
+  <link rel="stylesheet" href="map.css">
+  <script defer src="map.js"></script>
+</head>
+<body>
+  <header>
+    <div><p class="eyebrow">Animation workshop · coordinate map</p><h1>One portrait. Separate layers.</h1><p>Every part shares the original image’s coordinates. Nothing moves on the CV yet.</p></div>
+    <a class="back" href="../#cv-scene">Back to the CV</a>
+  </header>
+  <main>
+    <section class="workspace" aria-label="Original portrait and layer guides">
+      <div class="toolbar"><label><input id="guides" type="checkbox" checked> Show all guides</label><output id="coordinates">1261 × 1247 original pixels</output></div>
+      <div id="stage" class="stage">
+        <img id="portrait" src="../assets/cv/interactive/character/marju-natural-v2.png" alt="Original illustrated portrait of Marju seated cross-legged, resting her head on one hand.">
+        <svg id="overlay" viewBox="0 0 1261 1247" aria-hidden="true"></svg>
+      </div>
+      <p class="caption">Outlines are rough selection guides, not finished cutout masks. Crosses mark where each part would rotate.</p>
+    </section>
+    <aside aria-label="Layer controls">
+      <p class="eyebrow">Choose a part</p>
+      <div id="layers" class="layer-list"></div>
+      <section class="selected-panel" aria-labelledby="selected-name">
+        <h2 id="selected-name">Loading layer map…</h2>
+        <p id="motion"></p>
+        <dl><div><dt>Parent</dt><dd id="parent"></dd></div><div><dt>Paint order</dt><dd id="z"></dd></div></dl>
+        <form id="pivot-form">
+          <fieldset><legend>Pivot in original-image pixels</legend><div class="pivot-fields"><label>X <input id="pivot-x" type="number" min="0" max="1261" step="1" required></label><label>Y <input id="pivot-y" type="number" min="0" max="1247" step="1" required></label></div></fieldset>
+          <button type="submit">Update pivot</button>
+        </form>
+        <button id="pick-pivot" type="button" aria-pressed="false">Pick pivot on portrait</button>
+        <p id="feedback" role="status"></p>
+      </section>
+      <button id="download" class="primary" type="button">Download coordinate map</button>
+      <p class="note">Changes stay in this preview until you download the JSON map. <a href="layers.html">View the separate audio-tour character assets</a>. Animation frames are not ready yet.</p>
+    </aside>
+  </main>
+  <footer><p>First motion layers: eyelids and loose hair. Mouth, hands, and feet come later.</p></footer>
+</body>
+</html>

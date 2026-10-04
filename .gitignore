@@ -6,6 +6,14 @@
 !/README.md
 !/LICENSE
 !/dist/
+!/tools/
+
+# Keep only the local lip-sync pipeline source; never vendor recognizer binaries.
+/tools/*
+!/tools/lip-sync/
+/tools/lip-sync/vendor/
+/tools/lip-sync/recordings/
+/tools/lip-sync/output/
 
 # The current dist directory contains the actual website source: keep it.
 # Private documents and recording working files

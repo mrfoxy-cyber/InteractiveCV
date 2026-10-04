@@ -1,0 +1,192 @@
+{
+  "version": 1,
+  "status": "visual-draft-not-audio-synced",
+  "atlas": {
+    "source": "mouth-atlas.png",
+    "width": 1916,
+    "height": 821,
+    "columns": 4,
+    "rows": 3
+  },
+  "target": {
+    "bounds": [
+      556,
+      292,
+      105,
+      60
+    ],
+    "feather": 10,
+    "pivot": [
+      609,
+      320
+    ]
+  },
+  "notes": [
+    "Labels follow the supplied chart as visual pose names, not literal letter-to-audio mappings.",
+    "Atlas patches are registered to the fixed mouth region; F/V and T/H use refined full-frame sources.",
+    "The resting pose uses the unchanged character anchor.",
+    "No automatic speech recognition or audio synchronization is included."
+  ],
+  "cycle": {
+    "holdMs": 480,
+    "transitionMs": 120
+  },
+  "poses": [
+    {
+      "id": "aei",
+      "label": "A, E, I",
+      "description": "Open broad vowel",
+      "index": 0,
+      "source": "mouth-atlas.png",
+      "sourceRect": [
+        76,
+        56.71428571428571,
+        330,
+        188.57142857142858
+      ]
+    },
+    {
+      "id": "o",
+      "label": "O",
+      "description": "Rounded open vowel",
+      "index": 1,
+      "source": "mouth-atlas.png",
+      "sourceRect": [
+        555,
+        48.71428571428571,
+        330,
+        188.57142857142858
+      ]
+    },
+    {
+      "id": "u",
+      "label": "U",
+      "description": "Small puckered vowel",
+      "index": 2,
+      "source": "mouth-atlas.png",
+      "sourceRect": [
+        1034,
+        51.71428571428571,
+        330,
+        188.57142857142858
+      ]
+    },
+    {
+      "id": "cdnstxyz",
+      "label": "C, D, N, S, T, X, Y, Z",
+      "description": "Narrow teeth opening",
+      "index": 3,
+      "source": "mouth-atlas.png",
+      "sourceRect": [
+        1496,
+        49.85714285714286,
+        340,
+        194.28571428571428
+      ]
+    },
+    {
+      "id": "gk",
+      "label": "G, K",
+      "description": "Open back-mouth shape",
+      "index": 4,
+      "source": "mouth-atlas.png",
+      "sourceRect": [
+        75,
+        312.7142857142857,
+        330,
+        188.57142857142858
+      ]
+    },
+    {
+      "id": "l",
+      "label": "L",
+      "description": "Raised tongue shape",
+      "index": 5,
+      "source": "mouth-atlas.png",
+      "sourceRect": [
+        559,
+        313.7142857142857,
+        330,
+        188.57142857142858
+      ]
+    },
+    {
+      "id": "bmp",
+      "label": "B, M, P",
+      "description": "Closed lips",
+      "index": 6,
+      "source": "mouth-atlas.png",
+      "sourceRect": [
+        1035,
+        306.7142857142857,
+        330,
+        188.57142857142858
+      ]
+    },
+    {
+      "id": "fv",
+      "label": "F, V",
+      "description": "Upper teeth against lower lip",
+      "index": 7,
+      "source": "mouth-fv.png",
+      "sourceRect": [
+        556,
+        292,
+        105,
+        60
+      ]
+    },
+    {
+      "id": "ee",
+      "label": "EE",
+      "description": "Wide narrow vowel",
+      "index": 8,
+      "source": "mouth-atlas.png",
+      "sourceRect": [
+        53,
+        557.4285714285714,
+        380,
+        217.14285714285714
+      ]
+    },
+    {
+      "id": "th",
+      "label": "T, H",
+      "description": "Tongue between teeth",
+      "index": 9,
+      "source": "mouth-th.png",
+      "sourceRect": [
+        556,
+        292,
+        105,
+        60
+      ]
+    },
+    {
+      "id": "chjsh",
+      "label": "CH, J, SH",
+      "description": "Slightly rounded consonant",
+      "index": 10,
+      "source": "mouth-atlas.png",
+      "sourceRect": [
+        1034,
+        569.7142857142857,
+        330,
+        188.57142857142858
+      ]
+    },
+    {
+      "id": "qw",
+      "label": "Q, W",
+      "description": "Rounded pursed shape",
+      "index": 11,
+      "source": "mouth-atlas.png",
+      "sourceRect": [
+        1498,
+        570.7142857142857,
+        330,
+        188.57142857142858
+      ]
+    }
+  ]
+}

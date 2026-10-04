@@ -1,0 +1,286 @@
+{
+  "version": 2,
+  "status": "anchored-visual-draft-not-audio-synced",
+  "canvas": {
+    "width": 1261,
+    "height": 1247
+  },
+  "defaultPose": "aei",
+  "target": {
+    "bounds": [
+      556,
+      292,
+      105,
+      60
+    ],
+    "feather": 10,
+    "pivot": [
+      609,
+      320
+    ]
+  },
+  "notes": [
+    "Every pose uses a complete anchored source image at native scale; no mouth atlas or generic skin patch is used.",
+    "A/E/I reuses the earlier user-preferred gentle open-mouth frame unchanged.",
+    "F/V and T/H reuse the previously generated full anchored source frames.",
+    "Nine other poses are edits of the same preferred gentle open-mouth image.",
+    "Labels follow the user's visual chart, not literal letter-to-audio synchronization."
+  ],
+  "cycle": {
+    "holdMs": 480,
+    "transitionMs": 120
+  },
+  "poses": [
+    {
+      "id": "aei",
+      "label": "A, E, I",
+      "description": "Original gentle open",
+      "index": 0,
+      "source": "mouth-aei.png",
+      "sourceRect": [
+        556,
+        292,
+        105,
+        60
+      ]
+    },
+    {
+      "id": "o",
+      "label": "O",
+      "description": "Rounded open vowel",
+      "index": 1,
+      "source": "mouth-o.png",
+      "sourceRect": [
+        553,
+        291,
+        105,
+        60
+      ],
+      "registration": {
+        "dx": -3,
+        "dy": -1,
+        "method": "median best RGB match of three unchanged eye/nose feature patches; manual visual QA follows"
+      }
+    },
+    {
+      "id": "u",
+      "label": "U",
+      "description": "Small puckered vowel",
+      "index": 2,
+      "source": "mouth-u.png",
+      "sourceRect": [
+        554,
+        292,
+        105,
+        60
+      ],
+      "registration": {
+        "dx": -2,
+        "dy": 0,
+        "method": "median best RGB match of three unchanged eye/nose feature patches; manual visual QA follows"
+      }
+    },
+    {
+      "id": "cdnstxyz",
+      "label": "C, D, N, S, T, X, Y, Z",
+      "description": "Narrow teeth opening",
+      "index": 3,
+      "source": "mouth-cdnstxyz.png",
+      "sourceRect": [
+        553,
+        291,
+        105,
+        60
+      ],
+      "registration": {
+        "dx": -3,
+        "dy": -1,
+        "method": "median best RGB match of three unchanged eye/nose feature patches; manual visual QA follows"
+      }
+    },
+    {
+      "id": "gk",
+      "label": "G, K",
+      "description": "Open back-mouth shape",
+      "index": 4,
+      "source": "mouth-gk.png",
+      "sourceRect": [
+        554,
+        291,
+        105,
+        60
+      ],
+      "registration": {
+        "dx": -2,
+        "dy": -1,
+        "method": "median best RGB match of three unchanged eye/nose feature patches; manual visual QA follows"
+      }
+    },
+    {
+      "id": "l",
+      "label": "L",
+      "description": "Raised tongue shape",
+      "index": 5,
+      "source": "mouth-l.png",
+      "sourceRect": [
+        553,
+        291,
+        105,
+        60
+      ],
+      "registration": {
+        "dx": -3,
+        "dy": -1,
+        "method": "median best RGB match of three unchanged eye/nose feature patches; manual visual QA follows"
+      }
+    },
+    {
+      "id": "bmp",
+      "label": "B, M, P",
+      "description": "Closed lips",
+      "index": 6,
+      "source": "mouth-bmp.png",
+      "sourceRect": [
+        555,
+        292,
+        105,
+        60
+      ],
+      "registration": {
+        "dx": -1,
+        "dy": 0,
+        "method": "median best RGB match of three unchanged eye/nose feature patches; manual visual QA follows"
+      }
+    },
+    {
+      "id": "fv",
+      "label": "F, V",
+      "description": "Upper teeth against lower lip",
+      "index": 7,
+      "source": "mouth-fv.png",
+      "sourceRect": [
+        556,
+        292,
+        105,
+        60
+      ]
+    },
+    {
+      "id": "ee",
+      "label": "EE",
+      "description": "Wide narrow vowel",
+      "index": 8,
+      "source": "mouth-ee.png",
+      "sourceRect": [
+        554,
+        291,
+        105,
+        60
+      ],
+      "registration": {
+        "dx": -2,
+        "dy": -1,
+        "method": "median best RGB match of three unchanged eye/nose feature patches; manual visual QA follows"
+      }
+    },
+    {
+      "id": "th",
+      "label": "T, H",
+      "description": "Tongue between teeth",
+      "index": 9,
+      "source": "mouth-th.png",
+      "sourceRect": [
+        556,
+        292,
+        105,
+        60
+      ]
+    },
+    {
+      "id": "chjsh",
+      "label": "CH, J, SH",
+      "description": "Slightly rounded consonant",
+      "index": 10,
+      "source": "mouth-chjsh.png",
+      "sourceRect": [
+        553,
+        291,
+        105,
+        60
+      ],
+      "registration": {
+        "dx": -3,
+        "dy": -1,
+        "method": "median best RGB match of three unchanged eye/nose feature patches; manual visual QA follows"
+      }
+    },
+    {
+      "id": "qw",
+      "label": "Q, W",
+      "description": "Rounded pursed shape",
+      "index": 11,
+      "source": "mouth-qw.png",
+      "sourceRect": [
+        554,
+        291,
+        105,
+        60
+      ],
+      "registration": {
+        "dx": -2,
+        "dy": -1,
+        "method": "median best RGB match of three unchanged eye/nose feature patches; manual visual QA follows"
+      }
+    }
+  ],
+  "sources": {
+    "mouth-aei.png": {
+      "width": 1261,
+      "height": 1247
+    },
+    "mouth-fv.png": {
+      "width": 1261,
+      "height": 1247
+    },
+    "mouth-th.png": {
+      "width": 1261,
+      "height": 1247
+    },
+    "mouth-o.png": {
+      "width": 1266,
+      "height": 1243
+    },
+    "mouth-u.png": {
+      "width": 1261,
+      "height": 1247
+    },
+    "mouth-cdnstxyz.png": {
+      "width": 1269,
+      "height": 1240
+    },
+    "mouth-gk.png": {
+      "width": 1261,
+      "height": 1247
+    },
+    "mouth-l.png": {
+      "width": 1261,
+      "height": 1247
+    },
+    "mouth-bmp.png": {
+      "width": 1261,
+      "height": 1247
+    },
+    "mouth-ee.png": {
+      "width": 1261,
+      "height": 1247
+    },
+    "mouth-chjsh.png": {
+      "width": 1261,
+      "height": 1247
+    },
+    "mouth-qw.png": {
+      "width": 1261,
+      "height": 1247
+    }
+  }
+}

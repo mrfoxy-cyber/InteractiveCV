@@ -43,6 +43,9 @@ dist/
   assets/               Website artwork and recordings
   frog-game/            Playable browser game and its assets
   voice-tour/           Planned voice-tour templates and recording guide
+  character-map/        Separate anchored character and audio timing workshop
+tools/
+  lip-sync/             Local-only audio-to-mouth authoring pipeline
 ```
 
 The current files in `dist/` are the editable website source, not generated build output.
@@ -53,7 +56,9 @@ The original game was made in Unity. The browser version recreates similar gamep
 
 ## Voice-tour experiment
 
-The voice-tour folder contains a recording plan and command templates. Voice recognition and the conversational audio tour are not implemented yet. Existing language recordings are separate from this planned experiment.
+The voice-tour folder contains a recording plan and command templates. Visitor voice-command recognition and the conversational audio tour are not implemented yet. Existing language recordings are separate from this planned experiment.
+
+The separate character workshop can now analyse recordings locally with Rhubarb Lip Sync and export millisecond mouth-pose timelines. Double-click `tools/lip-sync/start-workshop.cmd` and open http://127.0.0.1:4180/character-map/anchored.html. A transcript is not required; English mode accepts an optional script. See [setup and privacy details](tools/lip-sync/README.md). Timing is approximate; it is not a transcript or exact vowel identification. Saved timelines can be replayed on the static workshop without the recognizer. The original CV portrait is not replaced or animated, and the local authoring server must not be publicly hosted.
 
 ## Credits and public demos
 

@@ -1,0 +1,35 @@
+{
+  "version": 1,
+  "status": "draft-coordinate-map",
+  "source": {
+    "src": "../assets/cv/interactive/character/marju-natural-v2.png",
+    "width": 1261,
+    "height": 1247,
+    "coordinateSystem": "original-image-pixels",
+    "origin": "top-left",
+    "axis": "x-right-y-down"
+  },
+  "spriteContract": {
+    "defaultLayout": "full-canvas-transparent",
+    "canvasWidth": 1261,
+    "canvasHeight": 1247,
+    "croppedSpritePlacement": "Specify offset x/y in original-image pixels. The pivot remains in original-image coordinates.",
+    "frameRule": "Each frame of a layer must keep the same dimensions, offset and pivot. Do not auto-trim individual frames.",
+    "compositionRule": "Render by z order. Parent transforms are inherited once, around the parent pivot. Regions are selection guides, not final cutout masks.",
+    "fallback": "Keep the original portrait until clean separate sprites and coverage behind moving parts are ready."
+  },
+  "layers": [
+    { "id": "legs", "label": "Crossed legs", "parent": null, "z": 10, "color": "#7180c8", "pivot": [635, 895], "region": [[128, 817], [356, 805], [609, 875], [950, 836], [1094, 835], [1175, 910], [1168, 1040], [1060, 1163], [944, 1190], [408, 1200], [223, 1118], [142, 990]], "plannedMotion": "Still for the first experiment", "sprites": [] },
+    { "id": "foot-left", "label": "Foot · image left", "parent": "legs", "z": 12, "color": "#d09b28", "pivot": [468, 1160], "region": [[296, 1130], [392, 1116], [480, 1162], [508, 1222], [413, 1240], [298, 1223], [282, 1183]], "plannedMotion": "Later: small sock wiggle around the ankle", "sprites": [] },
+    { "id": "foot-right", "label": "Foot · image right", "parent": "legs", "z": 13, "color": "#d09b28", "pivot": [651, 1130], "region": [[640, 1103], [792, 1133], [867, 1119], [944, 1155], [968, 1216], [915, 1242], [740, 1215], [655, 1168]], "plannedMotion": "Later: small sock wiggle around the ankle", "sprites": [] },
+    { "id": "body", "label": "Body & sweater", "parent": null, "z": 20, "color": "#448a83", "pivot": [643, 828], "region": [[380, 465], [483, 450], [555, 516], [659, 566], [737, 409], [821, 411], [927, 499], [957, 650], [1040, 805], [1027, 908], [826, 972], [573, 935], [361, 876], [281, 758], [310, 582]], "plannedMotion": "Still; optional gentle breathing later", "sprites": [] },
+    { "id": "hand-resting", "label": "Resting hand · image right", "parent": "body", "z": 25, "color": "#bc715b", "pivot": [784, 875], "region": [[770, 846], [797, 917], [667, 958], [569, 1005], [535, 1081], [475, 1120], [395, 1111], [376, 1053], [421, 976], [505, 925], [639, 892]], "plannedMotion": "Later: small hand gesture", "sprites": [] },
+    { "id": "head", "label": "Head", "parent": "body", "z": 30, "color": "#c77a39", "pivot": [633, 434], "region": [[570, 47], [661, 26], [761, 66], [804, 159], [816, 300], [783, 391], [706, 444], [626, 428], [516, 367], [464, 278], [476, 181]], "plannedMotion": "Still for now; carries face, eyes and hair layers", "sprites": [] },
+    { "id": "hair-back", "label": "Hair · main shape", "parent": "head", "z": 31, "color": "#986aaf", "pivot": [646, 93], "region": [[495, 107], [570, 45], [659, 26], [756, 60], [798, 145], [816, 286], [779, 424], [744, 483], [689, 497], [719, 343], [750, 191], [674, 129], [574, 126], [509, 215], [461, 317], [451, 266], [470, 173]], "plannedMotion": "Keep crown still; later animate only loose strands", "sprites": [] },
+    { "id": "hair-left", "label": "Hair strand · image left", "parent": "head", "z": 43, "color": "#986aaf", "pivot": [484, 280], "region": [[478, 278], [493, 287], [474, 324], [462, 356], [468, 386], [493, 413], [491, 431], [461, 408], [442, 381], [442, 355], [450, 326]], "plannedMotion": "First: gentle sway from the root", "sprites": [] },
+    { "id": "hair-right", "label": "Hair strand · image right", "parent": "head", "z": 44, "color": "#986aaf", "pivot": [734, 384], "region": [[727, 374], [758, 389], [740, 443], [720, 499], [715, 553], [693, 597], [680, 615], [691, 582], [696, 538], [692, 483], [710, 436]], "plannedMotion": "First: gentle sway; not the whole head", "sprites": [] },
+    { "id": "eyes", "label": "Eyes / eyelids", "parent": "head", "z": 50, "color": "#c45b8c", "pivot": [627, 251], "region": [[544, 216], [582, 212], [611, 235], [630, 232], [672, 234], [708, 251], [722, 277], [680, 291], [645, 269], [610, 261], [571, 260], [542, 243]], "plannedMotion": "First: open → half closed → closed → open sprites", "sprites": [] },
+    { "id": "mouth", "label": "Mouth", "parent": "head", "z": 51, "color": "#c45b8c", "pivot": [600, 356], "region": [[557, 337], [603, 336], [650, 355], [641, 382], [592, 381], [555, 359]], "plannedMotion": "Later: sprite shapes timed to recorded speech", "sprites": [] },
+    { "id": "hand-supporting", "label": "Supporting hand · image left", "parent": "body", "z": 55, "color": "#bc715b", "pivot": [566, 474], "region": [[475, 316], [499, 318], [516, 359], [560, 400], [591, 429], [583, 488], [546, 492], [503, 446], [462, 404], [448, 365]], "plannedMotion": "Keep still while it supports the head", "sprites": [] }
+  ]
+}
