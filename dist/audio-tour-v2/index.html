@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Explore Marju Halmann’s CV through recorded narration and on-device voice commands.">
+  <title>Marju Halmann · Audio tour</title>
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="tour.css">
+  <script defer src="lib/lip-sync-timeline.js"></script>
+  <script defer src="lib/tour-config.js"></script>
+  <script defer src="lib/tour-renderer.js"></script>
+  <script defer src="lib/speech-commands.js?v=all-commands-1"></script>
+  <script defer src="lib/echo-microphone.js"></script>
+  <script defer src="lib/tour-flow.js?v=all-commands-1"></script>
+  <script type="module" src="js/app.js?v=all-commands-1"></script>
+</head>
+<body>
+  <a class="skip-link" href="#tour-controls">Skip to tour controls</a>
+  <header><div><p class="eyebrow">A little tour, in my own voice</p><h1>Let’s explore my CV.</h1><p>Listen to my story. Tell me where you’d like to go next.</p></div><a href="../#cv-scene">Back to interactive CV</a></header>
+  <main>
+    <section class="character" aria-label="Animated tour guide"><canvas id="tour-character" role="img" aria-label="Marju’s illustrated tour guide"></canvas></section>
+    <section id="tour-controls" class="controls" aria-labelledby="tour-title" tabindex="-1">
+      <p class="eyebrow">Audio tour · version 2</p><h2 id="tour-title">Welcome</h2>
+      <p id="tour-status" class="status" role="status">Loading your tour…</p>
+      <div class="actions"><button id="tour-start" class="microphone" type="button" disabled><img src="../assets/cv/interactive/audiotour/microphone-retro.png" alt=""><span id="tour-start-label">Start audio tour</span></button><button id="tour-stop" type="button" disabled>Stop tour</button></div>
+      <p class="small">Start once and allow microphone access. Every mapped command works while narration is playing too: say your choice and pause to switch immediately. Stop plays goodbye, then turns the microphone off. You can also use the buttons without voice input. Headphones help prevent the narration itself from triggering a choice.</p>
+      <p id="tour-input-status" class="small" role="status"></p><p id="tour-heard" class="small" aria-live="polite"></p>
+      <section aria-labelledby="choices-title"><h3 id="choices-title">Where shall we go?</h3><div id="tour-choices" class="choices"></div><p id="tour-missing" class="small"></p></section>
+      <details><summary>Voice settings and privacy</summary><p>Speech recognition runs on your device with no online fallback. The English pack may need a one-time download. Microphone audio and recognised words are not recorded or saved. Echo cancellation reduces speaker feedback, but headphones can still help. This experimental browser feature may not be available on every device.</p><button id="tour-prepare" type="button">Prepare English speech</button><p id="tour-language-status" role="status"></p><label><input id="tour-voice" type="checkbox" checked> Enable voice commands</label><label><input id="tour-animate" type="checkbox" checked> Animate the character</label></details>
+      <details><summary>Read the narration</summary><p id="tour-transcript" class="transcript"></p></details>
+      <audio id="tour-audio" preload="metadata"></audio>
+    </section>
+  </main>
+  <footer><a href="../#cv-scene">Explore the illustrated CV</a><p>Use Tab and Enter for the choices. Escape cancels audio and microphone immediately.</p></footer>
+</body>
+</html>

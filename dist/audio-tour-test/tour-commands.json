@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "commands": [
+    {"id":"menu","phrase":"menu","file":"welcome.narration.json","group":"main"},
+    {"id":"about-me","phrase":"about me","file":"about-me.narration.json","group":"main"},
+    {"id":"education","phrase":"education","file":"education.narration.json","group":"main"},
+    {"id":"projects","phrase":"projects","file":"projects.narration.json","group":"main"},
+    {"id":"work-experience","phrase":"work experience","file":"work-experience.narration.json","group":"main"},
+    {"id":"skills","phrase":"skills","file":"skills.narration.json","group":"main"},
+    {"id":"languages","phrase":"languages","file":"languages.narration.json","group":"main"},
+    {"id":"skovde","phrase":"Skövde","file":"education-skövde.narration.json","group":"education"},
+    {"id":"komvux","phrase":"Komvux","file":"komvux.narration.json","group":"education"},
+    {"id":"gymnasium","phrase":"gymnasium","file":"gymnasium.narration.json","group":"education"},
+    {"id":"standalone-courses","phrase":"standalone courses","file":"education-courses.narration.json","group":"education"},
+    {"id":"goatly","phrase":"Goatly","file":"goatly.narration.json","group":"projects"},
+    {"id":"mental-model-graph","phrase":"Mental Model Graph","file":"mental-model-graph.narration.json","group":"projects"},
+    {"id":"frog-game","phrase":"Frog Game","file":"frog-game.narration.json","group":"projects"},
+    {"id":"estonian","phrase":"Estonian","audio":"../assets/cv/interactive/languages/sound/Estonian.mp3","group":"languages"},
+    {"id":"english","phrase":"English","audio":"../assets/cv/interactive/languages/sound/English.mp3","group":"languages"},
+    {"id":"swedish","phrase":"Swedish","audio":"../assets/cv/interactive/languages/sound/Swedish.mp3","group":"languages"},
+    {"id":"german","phrase":"German","audio":"../assets/cv/interactive/languages/sound/German.mp3","group":"languages"},
+    {"id":"help","phrase":"help","file":"help.narration.json","group":"controls"},
+    {"id":"back","phrase":"back","group":"controls"},
+    {"id":"repeat","phrase":"repeat","group":"controls"},
+    {"id":"stop","phrase":"stop","file":"goodbye.narration.json","group":"controls","terminal":true}
+  ]
+}

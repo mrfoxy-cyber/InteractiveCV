@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 1,
+  "kind": "audio-tour-narration",
+  "title": "Welcome · blink and hair preview",
+  "character": "../anchored-character/character.json",
+  "audio": {"src": "../../voice-tour/audio/narration/welcome.mp3"},
+  "transcript": "Hello! Welcome to my page. I’m Marju, and this is my interactive CV.\n\nOn the page, my education lives in a stack of books, my work experience is packed into an old suitcase, and my projects are potatoes!\n\nYou don’t need to see those objects to explore them.\n\nWhat would you like to know about me? Say ‘about me,’ ‘education,’ ‘projects,’ ‘work experience,’ ‘skills,’ or ‘languages.’\n\nSay ‘help’ whenever you need to hear the choices again.",
+  "mouthTiming": null,
+  "animations": {
+    "blink": {"enabled": true, "cycleMs": 4800, "closeMs": 70, "holdMs": 60, "openMs": 100},
+    "hair": {"enabled": true, "cycleMs": 7200}
+  }
+}

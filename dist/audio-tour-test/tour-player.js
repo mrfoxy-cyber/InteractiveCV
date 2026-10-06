@@ -40,6 +40,7 @@
       $("tour-details").textContent=JSON.stringify(config,null,2);$("tour-audio-file").disabled=false;
       audio.src=audioUrl.href;audio.hidden=false;audio.load();
       status(config.mouthTiming ? "Narration loaded. Press Play to test the complete animation." : "Preview only: blink and hair are ready. Generate and export mouth timing in the workshop for lip sync.");
+      return true;
     }catch(error){if(id===version)status("Could not load narration: "+error.message);}
   }
   audio.addEventListener("loadedmetadata",()=>{
@@ -71,10 +72,18 @@
       if(!/^[^/\\]+\.narration\.json$/u.test(file)) throw new Error("Invalid saved narration filename.");
       const url=new URL("narrations/"+encodeURIComponent(file),location.href), response=await fetch(url);
       if(!response.ok)throw new Error("Saved narration could not load.");
-      const value=await response.json(); if(id===savedLoadVersion) await load(value,url);
+      const value=await response.json(); if(id===savedLoadVersion) return await load(value,url);
     } catch(error){if(id===savedLoadVersion)status(error.message);}
   };
   $("tour-saved").addEventListener("change",()=>{if($("tour-saved").value)loadSaved($("tour-saved").value);});
+  document.addEventListener('tour:play-saved',async event=>{
+    const file=event.detail?.file;
+    if(![...$("tour-saved").options].some(option=>option.value===file))return;
+    const loaded=await loadSaved(file);
+    if(!loaded)return;
+    try{await audio.play();status('Playing connected narration.');}
+    catch(error){status('Narration ready. Press Play narration if your browser blocked automatic playback.');}
+  });
   fetch("narrations/catalogue.json",{cache:"no-store"}).then(async response=>{
     if(!response.ok)throw new Error("Saved narration list unavailable.");
     const catalogue=await response.json();if(catalogue.schemaVersion!==1||!Array.isArray(catalogue.narrations))throw new Error("Invalid saved narration list.");

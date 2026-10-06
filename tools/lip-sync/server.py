@@ -11,6 +11,63 @@ import subprocess
 import tempfile
 import threading
 import wave
+import re
+from datetime import datetime, timezone
+
+
+def save_chunk_test(payload, root, folder_name='chunktest', report_name='analysis.json'):
+    report = payload.get('report')
+    if not isinstance(report, dict) or report.get('schemaVersion') != 1:
+        raise ValueError('Invalid chunk report.')
+    try:
+        encoded = json.dumps(report, ensure_ascii=False, allow_nan=False).encode('utf-8')
+        data = base64.b64decode(payload['audioBase64'], validate=True)
+    except (KeyError, TypeError, ValueError) as error:
+        raise ValueError('Invalid chunk test data.') from error
+    if len(encoded) > 1_000_000 or len(data) > 500_000:
+        raise ValueError('Chunk test is too large; use up to 15 seconds.')
+    with wave.open(io.BytesIO(data), 'rb') as recording:
+        if recording.getnchannels() != 1 or recording.getsampwidth() != 2 or recording.getframerate() != 16000 or recording.getcomptype() != 'NONE':
+            raise ValueError('Expected mono 16-bit 16 kHz WAV.')
+        duration = recording.getnframes() / 16000
+        if not .04 <= duration <= 15 or len(recording.readframes(recording.getnframes())) != recording.getnframes() * 2:
+            raise ValueError('Invalid or incomplete recording.')
+    pattern = report.get('pattern')
+    if pattern is not None:
+        if not isinstance(pattern, dict) or not isinstance(pattern.get('chunks'), list) or len(pattern['chunks']) > 300 or not isinstance(pattern.get('trace'), list) or len(pattern['trace']) > 1500:
+            raise ValueError('Invalid pitch trace or chunks.')
+        for chunk in pattern['chunks']:
+            if not isinstance(chunk, dict) or chunk.get('direction') not in ('rising', 'falling', 'stable'):
+                raise ValueError('Invalid chunk direction.')
+            start, end = chunk.get('startMs'), chunk.get('endMs')
+            if not isinstance(start, (int, float)) or not isinstance(end, (int, float)) or not 0 <= start < end <= duration * 1000 + 50:
+                raise ValueError('Chunk boundary is outside the recording.')
+    folder_root = root.resolve().parent / folder_name
+    folder_root.mkdir(parents=True, exist_ok=True)
+    test_id = datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%SZ') + '-' + secrets.token_hex(4)
+    folder = folder_root / test_id
+    folder.mkdir()
+    report['audioFile'] = 'recording.wav'
+    report['durationMs'] = round(duration * 1000)
+    (folder / 'recording.wav').write_bytes(data)
+    (folder / report_name).write_text(json.dumps(report, ensure_ascii=False, allow_nan=False, indent=2), encoding='utf-8')
+    return {'saved': True, 'folder': folder_name + '/' + test_id, 'report': report_name, 'audio': 'recording.wav'}
+
+
+def save_command_sample(payload, root):
+    report = payload.get('report')
+    if not isinstance(report, dict) or report.get('kind') != 'command-chunk-pattern':
+        raise ValueError('Expected a labelled command chunk pattern.')
+    command = report.get('commandId')
+    if not isinstance(command, str) or not re.fullmatch(r'[a-z0-9][a-z0-9_-]{0,79}', command):
+        raise ValueError('Invalid command identifier.')
+    chunks = report.get('chunks')
+    if not isinstance(chunks, list) or not chunks or report.get('chunkCount') != len(chunks):
+        raise ValueError('Invalid command chunks.')
+    report['pattern'] = {'chunks': [{'direction': chunk.get('type'), 'startMs': chunk.get('startMs'), 'endMs': chunk.get('endMs')} for chunk in chunks if isinstance(chunk, dict)], 'trace': []}
+    if len(report['pattern']['chunks']) != len(chunks):
+        raise ValueError('Invalid command chunk.')
+    return save_chunk_test(payload, root, 'voice-commands/' + command, 'pattern.json')
 
 SHAPES = {"A": "bmp", "B": "cdnstxyz", "C": "aei", "D": "aei", "E": "o",
           "F": "u", "G": "fv", "H": "l", "X": "rest"}
@@ -127,7 +184,7 @@ def make_handler(root, executable, port, token):
                 return self.send_json(403, {"error": "Local workshop access only."})
             if self.path == "/api/status":
                 return self.send_json(200, {"ready": executable.is_file(), "token": token,
-                                            "maxSeconds": MAX_SECONDS, "engine": "Rhubarb Lip Sync 1.14.0"})
+                                            "maxSeconds": MAX_SECONDS, "chunkTests": True, "commandSaving": True, "engine": "Rhubarb Lip Sync 1.14.0"})
             return super().do_GET()
 
         def do_HEAD(self):
@@ -139,7 +196,7 @@ def make_handler(root, executable, port, token):
             if (not self.host_allowed() or self.headers.get("Origin") not in origins
                     or not secrets.compare_digest(self.headers.get("X-Workshop-Token", "").encode("utf-8"), token.encode("utf-8"))):
                 return self.send_json(403, {"error": "Open the local workshop page before generating a timeline."})
-            if self.path != "/api/lipsync":
+            if self.path not in ("/api/lipsync", "/api/chunktest", "/api/command-sample"):
                 return self.send_json(404, {"error": "Unknown endpoint."})
             try:
                 size = int(self.headers.get("Content-Length", "0"))
@@ -157,7 +214,13 @@ def make_handler(root, executable, port, token):
                 payload = json.loads(data)
                 if not isinstance(payload, dict):
                     raise ValueError("Invalid upload.")
-                self.send_json(200, analyze(payload, executable))
+                if self.path == '/api/chunktest':
+                    result = save_chunk_test(payload, root)
+                elif self.path == '/api/command-sample':
+                    result = save_command_sample(payload, root)
+                else:
+                    result = analyze(payload, executable)
+                self.send_json(200, result)
             except (ValueError, wave.Error) as error:
                 self.send_json(400, {"error": str(error)})
             except subprocess.TimeoutExpired:

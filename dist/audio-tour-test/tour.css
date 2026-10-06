@@ -8,3 +8,4 @@
 #tour-microphone:disabled {opacity:.45;cursor:wait}
 @media(prefers-reduced-motion:reduce){#tour-microphone img{transition:none}#tour-microphone:hover:not(:disabled) img{transform:none}}
 .voice-command-panel {padding:20px 0;margin-bottom:20px;border-top:1px solid #d8dfd0;border-bottom:1px solid #d8dfd0}.voice-actions{display:flex;flex-wrap:wrap;gap:10px}.voice-command-panel select{width:100%;margin-bottom:12px}#voice-status{color:#37543f}#voice-result{overflow-wrap:anywhere}
+.tour-choices{display:flex;flex-wrap:wrap;gap:8px}.tour-choices button{padding:10px 14px;text-transform:capitalize}.tour-choices button:focus-visible,.voice-actions button:focus-visible{outline:3px solid #8a6835;outline-offset:3px}#tour-heard{min-height:1.5em}#tour-microphone img{width:76px}#tour-microphone{min-height:84px;margin-bottom:12px}

@@ -1,0 +1,579 @@
+{
+  "schemaVersion": 1,
+  "kind": "audio-tour-narration",
+  "title": "After an answer",
+  "character": "../anchored-character/character.json",
+  "audio": {
+    "src": "../../voice-tour/audio/narration/next-choice.mp3"
+  },
+  "transcript": "What would you like to explore next?\n\nSay “back” to return to the previous menu, “menu” for all sections, or “repeat” to hear this again.\n\nSay “stop” to end the audio tour.",
+  "mouthTiming": {
+    "schemaVersion": 1,
+    "audioFile": "next-choice.mp3",
+    "durationMs": 17000,
+    "engine": "Rhubarb Lip Sync 1.14.0",
+    "recognizer": "pocketSphinx",
+    "mapping": {
+      "A": "bmp",
+      "B": "cdnstxyz",
+      "C": "aei",
+      "D": "aei",
+      "E": "o",
+      "F": "u",
+      "G": "fv",
+      "H": "l",
+      "X": "rest"
+    },
+    "mouthCues": [
+      {
+        "startMs": 0,
+        "endMs": 580,
+        "pose": "rest",
+        "sourceShape": "X"
+      },
+      {
+        "startMs": 580,
+        "endMs": 730,
+        "pose": "u",
+        "sourceShape": "F"
+      },
+      {
+        "startMs": 730,
+        "endMs": 1010,
+        "pose": "cdnstxyz",
+        "sourceShape": "B"
+      },
+      {
+        "startMs": 1010,
+        "endMs": 1150,
+        "pose": "u",
+        "sourceShape": "F"
+      },
+      {
+        "startMs": 1150,
+        "endMs": 1220,
+        "pose": "o",
+        "sourceShape": "E"
+      },
+      {
+        "startMs": 1220,
+        "endMs": 1290,
+        "pose": "l",
+        "sourceShape": "H"
+      },
+      {
+        "startMs": 1290,
+        "endMs": 1430,
+        "pose": "aei",
+        "sourceShape": "C"
+      },
+      {
+        "startMs": 1430,
+        "endMs": 1610,
+        "pose": "cdnstxyz",
+        "sourceShape": "B"
+      },
+      {
+        "startMs": 1610,
+        "endMs": 1920,
+        "pose": "u",
+        "sourceShape": "F"
+      },
+      {
+        "startMs": 1920,
+        "endMs": 2130,
+        "pose": "cdnstxyz",
+        "sourceShape": "B"
+      },
+      {
+        "startMs": 2130,
+        "endMs": 2210,
+        "pose": "bmp",
+        "sourceShape": "A"
+      },
+      {
+        "startMs": 2210,
+        "endMs": 2400,
+        "pose": "o",
+        "sourceShape": "E"
+      },
+      {
+        "startMs": 2400,
+        "endMs": 2470,
+        "pose": "cdnstxyz",
+        "sourceShape": "B"
+      },
+      {
+        "startMs": 2470,
+        "endMs": 2610,
+        "pose": "aei",
+        "sourceShape": "C"
+      },
+      {
+        "startMs": 2610,
+        "endMs": 2820,
+        "pose": "cdnstxyz",
+        "sourceShape": "B"
+      },
+      {
+        "startMs": 2820,
+        "endMs": 3300,
+        "pose": "rest",
+        "sourceShape": "X"
+      },
+      {
+        "startMs": 3300,
+        "endMs": 3360,
+        "pose": "cdnstxyz",
+        "sourceShape": "B"
+      },
+      {
+        "startMs": 3360,
+        "endMs": 3420,
+        "pose": "aei",
+        "sourceShape": "C"
+      },
+      {
+        "startMs": 3420,
+        "endMs": 3500,
+        "pose": "bmp",
+        "sourceShape": "A"
+      },
+      {
+        "startMs": 3500,
+        "endMs": 3820,
+        "pose": "aei",
+        "sourceShape": "C"
+      },
+      {
+        "startMs": 3820,
+        "endMs": 4190,
+        "pose": "cdnstxyz",
+        "sourceShape": "B"
+      },
+      {
+        "startMs": 4190,
+        "endMs": 4400,
+        "pose": "u",
+        "sourceShape": "F"
+      },
+      {
+        "startMs": 4400,
+        "endMs": 4470,
+        "pose": "cdnstxyz",
+        "sourceShape": "B"
+      },
+      {
+        "startMs": 4470,
+        "endMs": 4890,
+        "pose": "o",
+        "sourceShape": "E"
+      },
+      {
+        "startMs": 4890,
+        "endMs": 5070,
+        "pose": "aei",
+        "sourceShape": "C"
+      },
+      {
+        "startMs": 5070,
+        "endMs": 5200,
+        "pose": "u",
+        "sourceShape": "F"
+      },
+      {
+        "startMs": 5200,
+        "endMs": 5270,
+        "pose": "cdnstxyz",
+        "sourceShape": "B"
+      },
+      {
+        "startMs": 5270,
+        "endMs": 5350,
+        "pose": "bmp",
+        "sourceShape": "A"
+      },
+      {
+        "startMs": 5350,
+        "endMs": 5500,
+        "pose": "cdnstxyz",
+        "sourceShape": "B"
+      },
+      {
+        "startMs": 5500,
+        "endMs": 5570,
+        "pose": "fv",
+        "sourceShape": "G"
+      },
+      {
+        "startMs": 5570,
+        "endMs": 5710,
+        "pose": "cdnstxyz",
+        "sourceShape": "B"
+      },
+      {
+        "startMs": 5710,
+        "endMs": 5790,
+        "pose": "bmp",
+        "sourceShape": "A"
+      },
+      {
+        "startMs": 5790,
+        "endMs": 5900,
+        "pose": "aei",
+        "sourceShape": "C"
+      },
+      {
+        "startMs": 5900,
+        "endMs": 6110,
+        "pose": "u",
+        "sourceShape": "F"
+      },
+      {
+        "startMs": 6110,
+        "endMs": 6530,
+        "pose": "rest",
+        "sourceShape": "X"
+      },
+      {
+        "startMs": 6530,
+        "endMs": 6630,
+        "pose": "bmp",
+        "sourceShape": "A"
+      },
+      {
+        "startMs": 6630,
+        "endMs": 6790,
+        "pose": "aei",
+        "sourceShape": "C"
+      },
+      {
+        "startMs": 6790,
+        "endMs": 7000,
+        "pose": "cdnstxyz",
+        "sourceShape": "B"
+      },
+      {
+        "startMs": 7000,
+        "endMs": 7140,
+        "pose": "u",
+        "sourceShape": "F"
+      },
+      {
+        "startMs": 7140,
+        "endMs": 7560,
+        "pose": "rest",
+        "sourceShape": "X"
+      },
+      {
+        "startMs": 7560,
+        "endMs": 7610,
+        "pose": "u",
+        "sourceShape": "F"
+      },
+      {
+        "startMs": 7610,
+        "endMs": 7870,
+        "pose": "o",
+        "sourceShape": "E"
+      },
+      {
+        "startMs": 7870,
+        "endMs": 8010,
+        "pose": "cdnstxyz",
+        "sourceShape": "B"
+      },
+      {
+        "startMs": 8010,
+        "endMs": 8080,
+        "pose": "aei",
+        "sourceShape": "C"
+      },
+      {
+        "startMs": 8080,
+        "endMs": 8220,
+        "pose": "cdnstxyz",
+        "sourceShape": "B"
+      },
+      {
+        "startMs": 8220,
+        "endMs": 8430,
+        "pose": "aei",
+        "sourceShape": "C"
+      },
+      {
+        "startMs": 8430,
+        "endMs": 8920,
+        "pose": "cdnstxyz",
+        "sourceShape": "B"
+      },
+      {
+        "startMs": 8920,
+        "endMs": 9060,
+        "pose": "o",
+        "sourceShape": "E"
+      },
+      {
+        "startMs": 9060,
+        "endMs": 9200,
+        "pose": "cdnstxyz",
+        "sourceShape": "B"
+      },
+      {
+        "startMs": 9200,
+        "endMs": 9280,
+        "pose": "bmp",
+        "sourceShape": "A"
+      },
+      {
+        "startMs": 9280,
+        "endMs": 10000,
+        "pose": "cdnstxyz",
+        "sourceShape": "B"
+      },
+      {
+        "startMs": 10000,
+        "endMs": 10210,
+        "pose": "u",
+        "sourceShape": "F"
+      },
+      {
+        "startMs": 10210,
+        "endMs": 10630,
+        "pose": "cdnstxyz",
+        "sourceShape": "B"
+      },
+      {
+        "startMs": 10630,
+        "endMs": 11190,
+        "pose": "aei",
+        "sourceShape": "C"
+      },
+      {
+        "startMs": 11190,
+        "endMs": 11330,
+        "pose": "cdnstxyz",
+        "sourceShape": "B"
+      },
+      {
+        "startMs": 11330,
+        "endMs": 11480,
+        "pose": "rest",
+        "sourceShape": "X"
+      },
+      {
+        "startMs": 11480,
+        "endMs": 11550,
+        "pose": "cdnstxyz",
+        "sourceShape": "B"
+      },
+      {
+        "startMs": 11550,
+        "endMs": 11620,
+        "pose": "aei",
+        "sourceShape": "C"
+      },
+      {
+        "startMs": 11620,
+        "endMs": 11760,
+        "pose": "cdnstxyz",
+        "sourceShape": "B"
+      },
+      {
+        "startMs": 11760,
+        "endMs": 11900,
+        "pose": "aei",
+        "sourceShape": "D"
+      },
+      {
+        "startMs": 11900,
+        "endMs": 11970,
+        "pose": "aei",
+        "sourceShape": "C"
+      },
+      {
+        "startMs": 11970,
+        "endMs": 12330,
+        "pose": "bmp",
+        "sourceShape": "A"
+      },
+      {
+        "startMs": 12330,
+        "endMs": 12410,
+        "pose": "cdnstxyz",
+        "sourceShape": "B"
+      },
+      {
+        "startMs": 12410,
+        "endMs": 12690,
+        "pose": "u",
+        "sourceShape": "F"
+      },
+      {
+        "startMs": 12690,
+        "endMs": 12830,
+        "pose": "aei",
+        "sourceShape": "C"
+      },
+      {
+        "startMs": 12830,
+        "endMs": 13040,
+        "pose": "cdnstxyz",
+        "sourceShape": "B"
+      },
+      {
+        "startMs": 13040,
+        "endMs": 13250,
+        "pose": "aei",
+        "sourceShape": "C"
+      },
+      {
+        "startMs": 13250,
+        "endMs": 13320,
+        "pose": "l",
+        "sourceShape": "H"
+      },
+      {
+        "startMs": 13320,
+        "endMs": 13510,
+        "pose": "aei",
+        "sourceShape": "C"
+      },
+      {
+        "startMs": 13510,
+        "endMs": 13560,
+        "pose": "o",
+        "sourceShape": "E"
+      },
+      {
+        "startMs": 13560,
+        "endMs": 13950,
+        "pose": "u",
+        "sourceShape": "F"
+      },
+      {
+        "startMs": 13950,
+        "endMs": 14360,
+        "pose": "rest",
+        "sourceShape": "X"
+      },
+      {
+        "startMs": 14360,
+        "endMs": 14690,
+        "pose": "u",
+        "sourceShape": "F"
+      },
+      {
+        "startMs": 14690,
+        "endMs": 14900,
+        "pose": "cdnstxyz",
+        "sourceShape": "B"
+      },
+      {
+        "startMs": 14900,
+        "endMs": 14970,
+        "pose": "aei",
+        "sourceShape": "C"
+      },
+      {
+        "startMs": 14970,
+        "endMs": 15050,
+        "pose": "bmp",
+        "sourceShape": "A"
+      },
+      {
+        "startMs": 15050,
+        "endMs": 15180,
+        "pose": "aei",
+        "sourceShape": "C"
+      },
+      {
+        "startMs": 15180,
+        "endMs": 15320,
+        "pose": "cdnstxyz",
+        "sourceShape": "B"
+      },
+      {
+        "startMs": 15320,
+        "endMs": 15530,
+        "pose": "aei",
+        "sourceShape": "C"
+      },
+      {
+        "startMs": 15530,
+        "endMs": 15670,
+        "pose": "cdnstxyz",
+        "sourceShape": "B"
+      },
+      {
+        "startMs": 15670,
+        "endMs": 15740,
+        "pose": "u",
+        "sourceShape": "F"
+      },
+      {
+        "startMs": 15740,
+        "endMs": 15810,
+        "pose": "cdnstxyz",
+        "sourceShape": "B"
+      },
+      {
+        "startMs": 15810,
+        "endMs": 15880,
+        "pose": "u",
+        "sourceShape": "F"
+      },
+      {
+        "startMs": 15880,
+        "endMs": 16160,
+        "pose": "cdnstxyz",
+        "sourceShape": "B"
+      },
+      {
+        "startMs": 16160,
+        "endMs": 16440,
+        "pose": "aei",
+        "sourceShape": "C"
+      },
+      {
+        "startMs": 16440,
+        "endMs": 16510,
+        "pose": "cdnstxyz",
+        "sourceShape": "B"
+      },
+      {
+        "startMs": 16510,
+        "endMs": 16720,
+        "pose": "o",
+        "sourceShape": "E"
+      },
+      {
+        "startMs": 16720,
+        "endMs": 16930,
+        "pose": "cdnstxyz",
+        "sourceShape": "B"
+      },
+      {
+        "startMs": 16930,
+        "endMs": 17000,
+        "pose": "rest",
+        "sourceShape": "X"
+      }
+    ],
+    "note": "Approximate visual mouth shapes, not a transcript or exact vowel labels. C and D share the preferred gentle open mouth. Nine recognizer shapes use eight existing poses; the other artwork remains available for manual refinement.",
+    "mouthOffsetMs": -30
+  },
+  "animations": {
+    "blink": {
+      "enabled": true,
+      "cycleMs": 4800,
+      "closeMs": 70,
+      "holdMs": 60,
+      "openMs": 100
+    },
+    "hair": {
+      "enabled": true,
+      "cycleMs": 7200
+    }
+  }
+}

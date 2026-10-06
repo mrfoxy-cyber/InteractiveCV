@@ -12,7 +12,7 @@
     for(let length=2;length<=size;length*=2){const angle=-2*Math.PI/length;for(let offset=0;offset<size;offset+=length)for(let j=0;j<length/2;j++){const a=offset+j,b=a+length/2,c=Math.cos(angle*j),s=Math.sin(angle*j),r=real[b]*c-imag[b]*s,v=real[b]*s+imag[b]*c;real[b]=real[a]-r;imag[b]=imag[a]-v;real[a]+=r;imag[a]+=v;}}
     return Array.from({length:size/2+1},(_,i)=>real[i]*real[i]+imag[i]*imag[i]);
   }
-  function features(input){
+  function features(input,allowTones=false){
     if(!input||input.length<windowSize||input.length>rate*15)throw new Error('Use one command, shorter than 15 seconds.');
     const rms=[];for(let start=0;start+windowSize<=input.length;start+=hop){let e=0;for(let j=0;j<windowSize;j++)e+=input[start+j]**2;rms.push(Math.sqrt(e/windowSize));}
     const peak=Math.max(...rms);if(peak<.001)throw new Error('No clear speech heard. Please try again.');
@@ -31,10 +31,10 @@
       frames.push(Array.from({length:dimensions},(_,c)=>logs.reduce((sum,x,b)=>sum+x*Math.cos(Math.PI*(c+1)*(b+.5)/bands),0)*Math.sqrt(2/bands)));
     }
     if(flatness/frames.length>.45)throw new Error('This sounds like steady noise, not a clear spoken command.');
-    if(narrowness/frames.length>.97)throw new Error('This sounds like a steady tone, not a spoken command.');
+    if(!allowTones&&narrowness/frames.length>.97)throw new Error('This sounds like a steady tone, not a spoken command.');
     const result=frames.map((frame,i)=>[...frame,...frame.map((_,c)=>(frames[Math.min(frames.length-1,i+2)][c]-frames[Math.max(0,i-2)][c])/4)]);
     const middle=result.slice(5,-5);
-    if(middle.length&&middle.reduce((sum,frame)=>sum+frame.slice(dimensions).reduce((s,v)=>s+Math.abs(v),0),0)/(middle.length*dimensions)<.03)throw new Error('This sounds like a steady tone, not a spoken command.');
+    if(!allowTones&&middle.length&&middle.reduce((sum,frame)=>sum+frame.slice(dimensions).reduce((s,v)=>s+Math.abs(v),0),0)/(middle.length*dimensions)<.03)throw new Error('This sounds like a steady tone, not a spoken command.');
     return result;
   }
   const normalize=(frames,scale)=>frames.map(frame=>frame.map((value,i)=>(value-scale.mean[i])/scale.std[i]));
@@ -58,5 +58,22 @@
     const limit=bank.thresholds[best.id]??bank.maxDistance;
     return {...best,margin,accepted:best.score<=limit&&margin>=bank.minMargin,reason:best.score>limit?'Too different from the recorded templates.':margin<bank.minMargin?'Two commands sound too similar.':'Template match.',alternatives:ranked.slice(0,3)};
   }
-  return {features,normalize,distance,rank,recognize,sampleRate:rate};
+  function rebuild(bank){
+    const templates=bank.templates.map(t=>({...t,rawFrames:t.rawFrames||t.frames.map(frame=>frame.map((v,i)=>v*bank.scale.std[i]+bank.scale.mean[i]))}));
+    if(!templates.length)return {...bank,thresholds:{},featureVersion:2};
+    const mean=Array(24).fill(0),std=Array(24).fill(0);let count=0;
+    for(const t of templates)for(const f of t.rawFrames){count++;f.forEach((v,i)=>mean[i]+=v);}
+    mean.forEach((v,i)=>mean[i]=v/count);
+    for(const t of templates)for(const f of t.rawFrames)f.forEach((v,i)=>std[i]+=(v-mean[i])**2);
+    std.forEach((v,i)=>std[i]=Math.max(.3,Math.sqrt(v/count)));
+    for(const t of templates)t.frames=normalize(t.rawFrames,{mean,std}).map(f=>f.map(v=>Math.round(v*1000)/1000));
+    const thresholds={};
+    for(const command of bank.commands){const group=templates.filter(t=>t.id===command.id);if(!group.length)continue;const pairs=[];
+      for(let i=0;i<group.length;i++)for(let j=i+1;j<group.length;j++)pairs.push(distance(group[i].frames,group[j].frames));
+      const finite=pairs.filter(Number.isFinite).sort((a,b)=>a-b);
+      thresholds[command.id]=finite.length?Math.min(1.6,Math.max(.35,finite[Math.floor(finite.length/2)]*1.6)):.9;
+    }
+    return {...bank,templates,scale:{mean,std},thresholds,featureVersion:2};
+  }
+  return {features,normalize,distance,rank,recognize,rebuild,sampleRate:rate};
 });
