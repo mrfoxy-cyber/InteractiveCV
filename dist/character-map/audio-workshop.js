@@ -6,6 +6,20 @@
   let ready = false, token = null, busy = false, raf = 0, lastFrame = -Infinity, loadVersion = 0;
   let catalogueLoading = false;
   let sourceReady = false;
+  let tourDownloadUrl = null;
+  const updateTourExport = () => {
+    if (tourDownloadUrl) URL.revokeObjectURL(tourDownloadUrl);
+    tourDownloadUrl = null; $("download-tour").hidden = true; $("tour-json").value = "";
+    if (!timeline) { $("tour-export-status").textContent = "Generate or load mouth timing to enable the complete export."; return; }
+    try {
+      const config = AudioTourConfig.create({filename: sourceName, title: narrationLabel(sourceName), transcript: $("speech-script").value, timeline, blink: $("eyes").checked, hair: $("hair").checked});
+      config.character = $("tour-character-path").value.trim(); config.audio.src = $("tour-audio-path").value.trim(); AudioTourConfig.validate(config);
+      const json = JSON.stringify(config, null, 2) + "\n"; $("tour-json").value = json;
+      tourDownloadUrl = URL.createObjectURL(new Blob([json], {type: "application/json"}));
+      const link = $("download-tour"); link.href = tourDownloadUrl; link.download = sourceName.replace(/\.[^.]+$/, "") + ".narration.json"; link.hidden = false;
+      $("tour-export-status").textContent = "Ready: character, sound, transcript, mouth timing, blink and hair are included. Paths are relative to the narrations folder.";
+    } catch(error) { $("tour-export-status").textContent = "Cannot export narration: " + error.message; }
+  };
   const scriptCatalogue = fetch("narration-scripts.json", { cache: "no-store" }).then(response => {
     if (!response.ok) throw new Error("Narration script unavailable"); return response.json();
   }).catch(() => null);
@@ -38,6 +52,7 @@
     $("download-timing").hidden = true;
     if (downloadUrl) URL.revokeObjectURL(downloadUrl);
     downloadUrl = null;
+    updateTourExport();
   };
   const dispatchFrame = (forceRest = false) => {
     const timeMs = audio.currentTime * 1000;
@@ -67,7 +82,7 @@
   reduced.addEventListener("change", event => { if (event.matches) { $("audio-animate").checked = false; dispatchFrame(true); } });
   document.addEventListener("visibilitychange", () => { if (document.hidden) stop(); });
   window.addEventListener("pagehide", () => {
-    stop(); if (audioUrl) URL.revokeObjectURL(audioUrl); if (downloadUrl) URL.revokeObjectURL(downloadUrl);
+    stop(); if (audioUrl) URL.revokeObjectURL(audioUrl); if (downloadUrl) URL.revokeObjectURL(downloadUrl); if (tourDownloadUrl) URL.revokeObjectURL(tourDownloadUrl);
   });
 
   const selectAudio = async (bytes, name, mime, version) => {
@@ -77,6 +92,7 @@
     stop(); resetTimeline();
     if (audioUrl) URL.revokeObjectURL(audioUrl);
     sourceBytes = bytes; sourceName = name;
+    $("tour-audio-path").value = "../../voice-tour/audio/narration/" + encodeURIComponent(name);
     audioUrl = URL.createObjectURL(new Blob([bytes], { type: mime || "audio/mpeg" }));
     audio.src = audioUrl; audio.load();
     $("selected-audio").textContent = name;
@@ -119,6 +135,7 @@
       const response = await fetch("../assets/cv/interactive/languages/sound/" + name + ".mp3");
       if (!response.ok) throw new Error("The example recording could not be loaded.");
       await selectAudio(await response.arrayBuffer(), name + ".mp3", "audio/mpeg", version);
+      if (version === loadVersion) $("tour-audio-path").value = "../../assets/cv/interactive/languages/sound/" + name + ".mp3";
       if (version === loadVersion) { $("speech-recognizer").value = name === "English" ? "pocketSphinx" : "phonetic"; controls(); }
     } catch (error) { if (version === loadVersion) message(error.message); }
   });
@@ -214,6 +231,7 @@
     $("timing-json").value = json;
     downloadUrl = URL.createObjectURL(new Blob([json], { type: "application/json" }));
     const link = $("download-timing"); link.href = downloadUrl; link.download = sourceName.replace(/\.[^.]+$/, "") + ".mouth-timing.json"; link.hidden = false;
+    updateTourExport();
   };
   offsetInput.addEventListener("input", () => {
     controls();
@@ -269,6 +287,7 @@
     finally { event.target.value = ""; }
   });
   controls();
+  for (const id of ["tour-character-path", "tour-audio-path", "speech-script", "eyes", "hair"]) $(id).addEventListener("input", updateTourExport);
   loadCatalogue();
   // No attempt to reach a visitor's localhost from a deployed site.
   if (["127.0.0.1", "localhost"].includes(location.hostname) && location.port === "4180") {

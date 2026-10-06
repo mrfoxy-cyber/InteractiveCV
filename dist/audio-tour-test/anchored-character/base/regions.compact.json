@@ -1,0 +1,131 @@
+{
+  "version": 2,
+  "status": "audio-tour-prototype",
+  "canvas": {
+    "width": 1261,
+    "height": 1247
+  },
+  "anchor": "anchor.png",
+  "coordinateSystem": "Top-left origin. X increases right, Y increases down. Source images share the exact full canvas. No whole-character transforms.",
+  "protected": "All pixels outside the union of the nonzero masks must match the anchor rendering. Main CV portrait is not consumed or changed.",
+  "layers": [
+    {
+      "id": "eyes-left",
+      "label": "Eye on image left",
+      "source": "eyes-left.patch.png",
+      "group": "blink",
+      "bounds": [
+        550,
+        188,
+        76,
+        47
+      ],
+      "feather": 8,
+      "pivot": [
+        588,
+        208
+      ],
+      "sourceRect": [
+        0,
+        0,
+        76,
+        47
+      ],
+      "sourceSize": {
+        "width": 76,
+        "height": 47
+      }
+    },
+    {
+      "id": "eyes-right",
+      "label": "Eye on image right",
+      "source": "eyes-right.patch.png",
+      "group": "blink",
+      "bounds": [
+        644,
+        207,
+        82,
+        50
+      ],
+      "feather": 8,
+      "pivot": [
+        684,
+        229
+      ],
+      "sourceRect": [
+        0,
+        0,
+        82,
+        50
+      ],
+      "sourceSize": {
+        "width": 82,
+        "height": 50
+      }
+    },
+    {
+      "id": "hair-left-tip",
+      "label": "Loose hair tip on image left",
+      "source": "hair-left-tip.patch.png",
+      "group": "hair",
+      "bounds": [
+        437,
+        410,
+        108,
+        140
+      ],
+      "feather": 12,
+      "rootFade": 32,
+      "pivot": [
+        517,
+        410
+      ],
+      "sourceRect": [
+        0,
+        0,
+        108,
+        140
+      ],
+      "sourceSize": {
+        "width": 108,
+        "height": 140
+      }
+    },
+    {
+      "id": "hair-right-tip",
+      "label": "Loose hair tip on image right",
+      "source": "hair-right-tip.patch.png",
+      "group": "hair",
+      "bounds": [
+        674,
+        414,
+        142,
+        177
+      ],
+      "feather": 12,
+      "rootFade": 35,
+      "pivot": [
+        718,
+        414
+      ],
+      "sourceRect": [
+        0,
+        0,
+        142,
+        177
+      ],
+      "sourceSize": {
+        "width": 142,
+        "height": 177
+      }
+    }
+  ],
+  "timing": {
+    "blinkCycleMs": 4800,
+    "blinkCloseMs": 70,
+    "blinkHoldMs": 60,
+    "blinkOpenMs": 100,
+    "hairCycleMs": 7200
+  },
+  "storage": "Lossless native-pixel patches. Destination bounds, feather and root fade unchanged."
+}

@@ -1,0 +1,107 @@
+{
+  "version": 2,
+  "status": "audio-tour-prototype",
+  "canvas": {
+    "width": 1261,
+    "height": 1247
+  },
+  "anchor": "anchor.png",
+  "coordinateSystem": "Top-left origin. X increases right, Y increases down. Source images share the exact full canvas. No whole-character transforms.",
+  "protected": "All pixels outside the union of the nonzero masks must match the anchor rendering. Main CV portrait is not consumed or changed.",
+  "layers": [
+    {
+      "id": "eyes-left",
+      "label": "Eye on image left",
+      "source": "blink.png",
+      "group": "blink",
+      "bounds": [
+        550,
+        188,
+        76,
+        47
+      ],
+      "feather": 8,
+      "pivot": [
+        588,
+        208
+      ]
+    },
+    {
+      "id": "eyes-right",
+      "label": "Eye on image right",
+      "source": "blink.png",
+      "group": "blink",
+      "bounds": [
+        644,
+        207,
+        82,
+        50
+      ],
+      "feather": 8,
+      "pivot": [
+        684,
+        229
+      ]
+    },
+    {
+      "id": "hair-left-tip",
+      "label": "Loose hair tip on image left",
+      "source": "hair.png",
+      "group": "hair",
+      "bounds": [
+        437,
+        410,
+        108,
+        140
+      ],
+      "feather": 12,
+      "rootFade": 32,
+      "pivot": [
+        517,
+        410
+      ]
+    },
+    {
+      "id": "hair-right-tip",
+      "label": "Loose hair tip on image right",
+      "source": "hair.png",
+      "group": "hair",
+      "bounds": [
+        674,
+        414,
+        142,
+        177
+      ],
+      "feather": 12,
+      "rootFade": 35,
+      "pivot": [
+        718,
+        414
+      ]
+    },
+    {
+      "id": "mouth",
+      "label": "Mouth",
+      "source": "mouth.png",
+      "group": "mouth",
+      "bounds": [
+        556,
+        292,
+        105,
+        60
+      ],
+      "feather": 10,
+      "pivot": [
+        609,
+        320
+      ]
+    }
+  ],
+  "timing": {
+    "blinkCycleMs": 4800,
+    "blinkCloseMs": 70,
+    "blinkHoldMs": 60,
+    "blinkOpenMs": 100,
+    "hairCycleMs": 7200
+  }
+}

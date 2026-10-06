@@ -1,0 +1,1083 @@
+{
+  "schemaVersion": 1,
+  "kind": "audio-tour-narration",
+  "title": "Welcome",
+  "character": "../anchored-character/character.json",
+  "audio": {
+    "src": "../../voice-tour/audio/narration/welcome.mp3"
+  },
+  "transcript": "Hello! Welcome to my page. I’m Marju, and this is my interactive CV.\n\nOn the page, my education lives in a stack of books, my work experience is packed into an old suitcase, and my projects are potatoes!\n\nYou don’t need to see those objects to explore them.\n\nWhat would you like to know about me? Say “about me,” “education,” “projects,” “work experience,” “skills,” or “languages.”\n\nSay “help” whenever you need to hear the choices again.",
+  "mouthTiming": {
+    "schemaVersion": 1,
+    "audioFile": "welcome.mp3",
+    "durationMs": 31500,
+    "engine": "Rhubarb Lip Sync 1.14.0",
+    "recognizer": "pocketSphinx",
+    "mapping": {
+      "A": "bmp",
+      "B": "cdnstxyz",
+      "C": "aei",
+      "D": "aei",
+      "E": "o",
+      "F": "u",
+      "G": "fv",
+      "H": "l",
+      "X": "rest"
+    },
+    "mouthCues": [
+      {
+        "startMs": 0,
+        "endMs": 240,
+        "pose": "rest",
+        "sourceShape": "X"
+      },
+      {
+        "startMs": 240,
+        "endMs": 420,
+        "pose": "u",
+        "sourceShape": "F"
+      },
+      {
+        "startMs": 420,
+        "endMs": 490,
+        "pose": "aei",
+        "sourceShape": "C"
+      },
+      {
+        "startMs": 490,
+        "endMs": 630,
+        "pose": "o",
+        "sourceShape": "E"
+      },
+      {
+        "startMs": 630,
+        "endMs": 700,
+        "pose": "u",
+        "sourceShape": "F"
+      },
+      {
+        "startMs": 700,
+        "endMs": 950,
+        "pose": "cdnstxyz",
+        "sourceShape": "B"
+      },
+      {
+        "startMs": 950,
+        "endMs": 1150,
+        "pose": "aei",
+        "sourceShape": "C"
+      },
+      {
+        "startMs": 1150,
+        "endMs": 1230,
+        "pose": "bmp",
+        "sourceShape": "A"
+      },
+      {
+        "startMs": 1230,
+        "endMs": 1320,
+        "pose": "u",
+        "sourceShape": "F"
+      },
+      {
+        "startMs": 1320,
+        "endMs": 1390,
+        "pose": "bmp",
+        "sourceShape": "A"
+      },
+      {
+        "startMs": 1390,
+        "endMs": 1460,
+        "pose": "aei",
+        "sourceShape": "C"
+      },
+      {
+        "startMs": 1460,
+        "endMs": 1520,
+        "pose": "bmp",
+        "sourceShape": "A"
+      },
+      {
+        "startMs": 1520,
+        "endMs": 1740,
+        "pose": "aei",
+        "sourceShape": "C"
+      },
+      {
+        "startMs": 1740,
+        "endMs": 2170,
+        "pose": "cdnstxyz",
+        "sourceShape": "B"
+      },
+      {
+        "startMs": 2170,
+        "endMs": 2230,
+        "pose": "aei",
+        "sourceShape": "C"
+      },
+      {
+        "startMs": 2230,
+        "endMs": 2280,
+        "pose": "cdnstxyz",
+        "sourceShape": "B"
+      },
+      {
+        "startMs": 2280,
+        "endMs": 2440,
+        "pose": "bmp",
+        "sourceShape": "A"
+      },
+      {
+        "startMs": 2440,
+        "endMs": 2510,
+        "pose": "aei",
+        "sourceShape": "C"
+      },
+      {
+        "startMs": 2510,
+        "endMs": 2780,
+        "pose": "u",
+        "sourceShape": "F"
+      },
+      {
+        "startMs": 2780,
+        "endMs": 3200,
+        "pose": "cdnstxyz",
+        "sourceShape": "B"
+      },
+      {
+        "startMs": 3200,
+        "endMs": 3270,
+        "pose": "aei",
+        "sourceShape": "C"
+      },
+      {
+        "startMs": 3270,
+        "endMs": 3720,
+        "pose": "cdnstxyz",
+        "sourceShape": "B"
+      },
+      {
+        "startMs": 3720,
+        "endMs": 3810,
+        "pose": "bmp",
+        "sourceShape": "A"
+      },
+      {
+        "startMs": 3810,
+        "endMs": 3850,
+        "pose": "aei",
+        "sourceShape": "C"
+      },
+      {
+        "startMs": 3850,
+        "endMs": 4030,
+        "pose": "cdnstxyz",
+        "sourceShape": "B"
+      },
+      {
+        "startMs": 4030,
+        "endMs": 4240,
+        "pose": "aei",
+        "sourceShape": "C"
+      },
+      {
+        "startMs": 4240,
+        "endMs": 4450,
+        "pose": "cdnstxyz",
+        "sourceShape": "B"
+      },
+      {
+        "startMs": 4450,
+        "endMs": 4520,
+        "pose": "fv",
+        "sourceShape": "G"
+      },
+      {
+        "startMs": 4520,
+        "endMs": 4730,
+        "pose": "cdnstxyz",
+        "sourceShape": "B"
+      },
+      {
+        "startMs": 4730,
+        "endMs": 4800,
+        "pose": "fv",
+        "sourceShape": "G"
+      },
+      {
+        "startMs": 4800,
+        "endMs": 5010,
+        "pose": "cdnstxyz",
+        "sourceShape": "B"
+      },
+      {
+        "startMs": 5010,
+        "endMs": 5430,
+        "pose": "rest",
+        "sourceShape": "X"
+      },
+      {
+        "startMs": 5430,
+        "endMs": 5520,
+        "pose": "aei",
+        "sourceShape": "D"
+      },
+      {
+        "startMs": 5520,
+        "endMs": 5590,
+        "pose": "cdnstxyz",
+        "sourceShape": "B"
+      },
+      {
+        "startMs": 5590,
+        "endMs": 5670,
+        "pose": "bmp",
+        "sourceShape": "A"
+      },
+      {
+        "startMs": 5670,
+        "endMs": 5870,
+        "pose": "aei",
+        "sourceShape": "C"
+      },
+      {
+        "startMs": 5870,
+        "endMs": 6250,
+        "pose": "cdnstxyz",
+        "sourceShape": "B"
+      },
+      {
+        "startMs": 6250,
+        "endMs": 6370,
+        "pose": "bmp",
+        "sourceShape": "A"
+      },
+      {
+        "startMs": 6370,
+        "endMs": 6930,
+        "pose": "cdnstxyz",
+        "sourceShape": "B"
+      },
+      {
+        "startMs": 6930,
+        "endMs": 7000,
+        "pose": "aei",
+        "sourceShape": "C"
+      },
+      {
+        "startMs": 7000,
+        "endMs": 7420,
+        "pose": "cdnstxyz",
+        "sourceShape": "B"
+      },
+      {
+        "startMs": 7420,
+        "endMs": 7490,
+        "pose": "aei",
+        "sourceShape": "C"
+      },
+      {
+        "startMs": 7490,
+        "endMs": 7560,
+        "pose": "cdnstxyz",
+        "sourceShape": "B"
+      },
+      {
+        "startMs": 7560,
+        "endMs": 7700,
+        "pose": "aei",
+        "sourceShape": "C"
+      },
+      {
+        "startMs": 7700,
+        "endMs": 7840,
+        "pose": "cdnstxyz",
+        "sourceShape": "B"
+      },
+      {
+        "startMs": 7840,
+        "endMs": 7920,
+        "pose": "bmp",
+        "sourceShape": "A"
+      },
+      {
+        "startMs": 7920,
+        "endMs": 8100,
+        "pose": "u",
+        "sourceShape": "F"
+      },
+      {
+        "startMs": 8100,
+        "endMs": 8380,
+        "pose": "cdnstxyz",
+        "sourceShape": "B"
+      },
+      {
+        "startMs": 8380,
+        "endMs": 8540,
+        "pose": "rest",
+        "sourceShape": "X"
+      },
+      {
+        "startMs": 8540,
+        "endMs": 8720,
+        "pose": "cdnstxyz",
+        "sourceShape": "B"
+      },
+      {
+        "startMs": 8720,
+        "endMs": 8800,
+        "pose": "bmp",
+        "sourceShape": "A"
+      },
+      {
+        "startMs": 8800,
+        "endMs": 8850,
+        "pose": "aei",
+        "sourceShape": "C"
+      },
+      {
+        "startMs": 8850,
+        "endMs": 8900,
+        "pose": "cdnstxyz",
+        "sourceShape": "B"
+      },
+      {
+        "startMs": 8900,
+        "endMs": 8970,
+        "pose": "u",
+        "sourceShape": "F"
+      },
+      {
+        "startMs": 8970,
+        "endMs": 9040,
+        "pose": "o",
+        "sourceShape": "E"
+      },
+      {
+        "startMs": 9040,
+        "endMs": 9250,
+        "pose": "cdnstxyz",
+        "sourceShape": "B"
+      },
+      {
+        "startMs": 9250,
+        "endMs": 9330,
+        "pose": "bmp",
+        "sourceShape": "A"
+      },
+      {
+        "startMs": 9330,
+        "endMs": 9570,
+        "pose": "cdnstxyz",
+        "sourceShape": "B"
+      },
+      {
+        "startMs": 9570,
+        "endMs": 9640,
+        "pose": "aei",
+        "sourceShape": "C"
+      },
+      {
+        "startMs": 9640,
+        "endMs": 9780,
+        "pose": "cdnstxyz",
+        "sourceShape": "B"
+      },
+      {
+        "startMs": 9780,
+        "endMs": 9860,
+        "pose": "bmp",
+        "sourceShape": "A"
+      },
+      {
+        "startMs": 9860,
+        "endMs": 9970,
+        "pose": "aei",
+        "sourceShape": "C"
+      },
+      {
+        "startMs": 9970,
+        "endMs": 10320,
+        "pose": "cdnstxyz",
+        "sourceShape": "B"
+      },
+      {
+        "startMs": 10320,
+        "endMs": 10600,
+        "pose": "u",
+        "sourceShape": "F"
+      },
+      {
+        "startMs": 10600,
+        "endMs": 10820,
+        "pose": "cdnstxyz",
+        "sourceShape": "B"
+      },
+      {
+        "startMs": 10820,
+        "endMs": 10910,
+        "pose": "aei",
+        "sourceShape": "C"
+      },
+      {
+        "startMs": 10910,
+        "endMs": 11050,
+        "pose": "o",
+        "sourceShape": "E"
+      },
+      {
+        "startMs": 11050,
+        "endMs": 11380,
+        "pose": "u",
+        "sourceShape": "F"
+      },
+      {
+        "startMs": 11380,
+        "endMs": 11430,
+        "pose": "o",
+        "sourceShape": "E"
+      },
+      {
+        "startMs": 11430,
+        "endMs": 11610,
+        "pose": "aei",
+        "sourceShape": "C"
+      },
+      {
+        "startMs": 11610,
+        "endMs": 11820,
+        "pose": "cdnstxyz",
+        "sourceShape": "B"
+      },
+      {
+        "startMs": 11820,
+        "endMs": 12170,
+        "pose": "aei",
+        "sourceShape": "C"
+      },
+      {
+        "startMs": 12170,
+        "endMs": 12240,
+        "pose": "cdnstxyz",
+        "sourceShape": "B"
+      },
+      {
+        "startMs": 12240,
+        "endMs": 12300,
+        "pose": "bmp",
+        "sourceShape": "A"
+      },
+      {
+        "startMs": 12300,
+        "endMs": 12350,
+        "pose": "aei",
+        "sourceShape": "C"
+      },
+      {
+        "startMs": 12350,
+        "endMs": 12490,
+        "pose": "bmp",
+        "sourceShape": "A"
+      },
+      {
+        "startMs": 12490,
+        "endMs": 12550,
+        "pose": "cdnstxyz",
+        "sourceShape": "B"
+      },
+      {
+        "startMs": 12550,
+        "endMs": 12670,
+        "pose": "aei",
+        "sourceShape": "D"
+      },
+      {
+        "startMs": 12670,
+        "endMs": 12810,
+        "pose": "cdnstxyz",
+        "sourceShape": "B"
+      },
+      {
+        "startMs": 12810,
+        "endMs": 12880,
+        "pose": "aei",
+        "sourceShape": "C"
+      },
+      {
+        "startMs": 12880,
+        "endMs": 13190,
+        "pose": "cdnstxyz",
+        "sourceShape": "B"
+      },
+      {
+        "startMs": 13190,
+        "endMs": 13270,
+        "pose": "o",
+        "sourceShape": "E"
+      },
+      {
+        "startMs": 13270,
+        "endMs": 13350,
+        "pose": "bmp",
+        "sourceShape": "A"
+      },
+      {
+        "startMs": 13350,
+        "endMs": 13700,
+        "pose": "aei",
+        "sourceShape": "C"
+      },
+      {
+        "startMs": 13700,
+        "endMs": 13840,
+        "pose": "cdnstxyz",
+        "sourceShape": "B"
+      },
+      {
+        "startMs": 13840,
+        "endMs": 13980,
+        "pose": "o",
+        "sourceShape": "E"
+      },
+      {
+        "startMs": 13980,
+        "endMs": 14170,
+        "pose": "u",
+        "sourceShape": "F"
+      },
+      {
+        "startMs": 14170,
+        "endMs": 14220,
+        "pose": "o",
+        "sourceShape": "E"
+      },
+      {
+        "startMs": 14220,
+        "endMs": 14540,
+        "pose": "aei",
+        "sourceShape": "C"
+      },
+      {
+        "startMs": 14540,
+        "endMs": 14610,
+        "pose": "cdnstxyz",
+        "sourceShape": "B"
+      },
+      {
+        "startMs": 14610,
+        "endMs": 14750,
+        "pose": "o",
+        "sourceShape": "E"
+      },
+      {
+        "startMs": 14750,
+        "endMs": 14960,
+        "pose": "cdnstxyz",
+        "sourceShape": "B"
+      },
+      {
+        "startMs": 14960,
+        "endMs": 15240,
+        "pose": "u",
+        "sourceShape": "F"
+      },
+      {
+        "startMs": 15240,
+        "endMs": 15700,
+        "pose": "cdnstxyz",
+        "sourceShape": "B"
+      },
+      {
+        "startMs": 15700,
+        "endMs": 15780,
+        "pose": "aei",
+        "sourceShape": "C"
+      },
+      {
+        "startMs": 15780,
+        "endMs": 15930,
+        "pose": "bmp",
+        "sourceShape": "A"
+      },
+      {
+        "startMs": 15930,
+        "endMs": 16320,
+        "pose": "cdnstxyz",
+        "sourceShape": "B"
+      },
+      {
+        "startMs": 16320,
+        "endMs": 16400,
+        "pose": "bmp",
+        "sourceShape": "A"
+      },
+      {
+        "startMs": 16400,
+        "endMs": 16630,
+        "pose": "o",
+        "sourceShape": "E"
+      },
+      {
+        "startMs": 16630,
+        "endMs": 16770,
+        "pose": "aei",
+        "sourceShape": "C"
+      },
+      {
+        "startMs": 16770,
+        "endMs": 16880,
+        "pose": "bmp",
+        "sourceShape": "A"
+      },
+      {
+        "startMs": 16880,
+        "endMs": 17300,
+        "pose": "cdnstxyz",
+        "sourceShape": "B"
+      },
+      {
+        "startMs": 17300,
+        "endMs": 17360,
+        "pose": "u",
+        "sourceShape": "F"
+      },
+      {
+        "startMs": 17360,
+        "endMs": 17520,
+        "pose": "cdnstxyz",
+        "sourceShape": "B"
+      },
+      {
+        "startMs": 17520,
+        "endMs": 17790,
+        "pose": "u",
+        "sourceShape": "F"
+      },
+      {
+        "startMs": 17790,
+        "endMs": 17860,
+        "pose": "aei",
+        "sourceShape": "C"
+      },
+      {
+        "startMs": 17860,
+        "endMs": 18140,
+        "pose": "u",
+        "sourceShape": "F"
+      },
+      {
+        "startMs": 18140,
+        "endMs": 18210,
+        "pose": "aei",
+        "sourceShape": "C"
+      },
+      {
+        "startMs": 18210,
+        "endMs": 18280,
+        "pose": "o",
+        "sourceShape": "E"
+      },
+      {
+        "startMs": 18280,
+        "endMs": 18350,
+        "pose": "aei",
+        "sourceShape": "C"
+      },
+      {
+        "startMs": 18350,
+        "endMs": 18430,
+        "pose": "bmp",
+        "sourceShape": "A"
+      },
+      {
+        "startMs": 18430,
+        "endMs": 18550,
+        "pose": "aei",
+        "sourceShape": "C"
+      },
+      {
+        "startMs": 18550,
+        "endMs": 18690,
+        "pose": "cdnstxyz",
+        "sourceShape": "B"
+      },
+      {
+        "startMs": 18690,
+        "endMs": 18770,
+        "pose": "bmp",
+        "sourceShape": "A"
+      },
+      {
+        "startMs": 18770,
+        "endMs": 18900,
+        "pose": "cdnstxyz",
+        "sourceShape": "B"
+      },
+      {
+        "startMs": 18900,
+        "endMs": 19250,
+        "pose": "rest",
+        "sourceShape": "X"
+      },
+      {
+        "startMs": 19250,
+        "endMs": 19370,
+        "pose": "cdnstxyz",
+        "sourceShape": "B"
+      },
+      {
+        "startMs": 19370,
+        "endMs": 19510,
+        "pose": "aei",
+        "sourceShape": "C"
+      },
+      {
+        "startMs": 19510,
+        "endMs": 19590,
+        "pose": "bmp",
+        "sourceShape": "A"
+      },
+      {
+        "startMs": 19590,
+        "endMs": 19660,
+        "pose": "aei",
+        "sourceShape": "C"
+      },
+      {
+        "startMs": 19660,
+        "endMs": 19870,
+        "pose": "cdnstxyz",
+        "sourceShape": "B"
+      },
+      {
+        "startMs": 19870,
+        "endMs": 19960,
+        "pose": "bmp",
+        "sourceShape": "A"
+      },
+      {
+        "startMs": 19960,
+        "endMs": 20170,
+        "pose": "cdnstxyz",
+        "sourceShape": "B"
+      },
+      {
+        "startMs": 20170,
+        "endMs": 20460,
+        "pose": "rest",
+        "sourceShape": "X"
+      },
+      {
+        "startMs": 20460,
+        "endMs": 20530,
+        "pose": "cdnstxyz",
+        "sourceShape": "B"
+      },
+      {
+        "startMs": 20530,
+        "endMs": 20800,
+        "pose": "aei",
+        "sourceShape": "C"
+      },
+      {
+        "startMs": 20800,
+        "endMs": 20870,
+        "pose": "cdnstxyz",
+        "sourceShape": "B"
+      },
+      {
+        "startMs": 20870,
+        "endMs": 21330,
+        "pose": "u",
+        "sourceShape": "F"
+      },
+      {
+        "startMs": 21330,
+        "endMs": 21470,
+        "pose": "bmp",
+        "sourceShape": "A"
+      },
+      {
+        "startMs": 21470,
+        "endMs": 21520,
+        "pose": "cdnstxyz",
+        "sourceShape": "B"
+      },
+      {
+        "startMs": 21520,
+        "endMs": 21640,
+        "pose": "aei",
+        "sourceShape": "D"
+      },
+      {
+        "startMs": 21640,
+        "endMs": 22240,
+        "pose": "cdnstxyz",
+        "sourceShape": "B"
+      },
+      {
+        "startMs": 22240,
+        "endMs": 22300,
+        "pose": "u",
+        "sourceShape": "F"
+      },
+      {
+        "startMs": 22300,
+        "endMs": 22360,
+        "pose": "o",
+        "sourceShape": "E"
+      },
+      {
+        "startMs": 22360,
+        "endMs": 22570,
+        "pose": "cdnstxyz",
+        "sourceShape": "B"
+      },
+      {
+        "startMs": 22570,
+        "endMs": 22650,
+        "pose": "bmp",
+        "sourceShape": "A"
+      },
+      {
+        "startMs": 22650,
+        "endMs": 22830,
+        "pose": "cdnstxyz",
+        "sourceShape": "B"
+      },
+      {
+        "startMs": 22830,
+        "endMs": 22970,
+        "pose": "aei",
+        "sourceShape": "C"
+      },
+      {
+        "startMs": 22970,
+        "endMs": 23620,
+        "pose": "cdnstxyz",
+        "sourceShape": "B"
+      },
+      {
+        "startMs": 23620,
+        "endMs": 23760,
+        "pose": "o",
+        "sourceShape": "E"
+      },
+      {
+        "startMs": 23760,
+        "endMs": 23830,
+        "pose": "l",
+        "sourceShape": "H"
+      },
+      {
+        "startMs": 23830,
+        "endMs": 23900,
+        "pose": "aei",
+        "sourceShape": "C"
+      },
+      {
+        "startMs": 23900,
+        "endMs": 23970,
+        "pose": "cdnstxyz",
+        "sourceShape": "B"
+      },
+      {
+        "startMs": 23970,
+        "endMs": 24040,
+        "pose": "u",
+        "sourceShape": "F"
+      },
+      {
+        "startMs": 24040,
+        "endMs": 24390,
+        "pose": "cdnstxyz",
+        "sourceShape": "B"
+      },
+      {
+        "startMs": 24390,
+        "endMs": 24890,
+        "pose": "rest",
+        "sourceShape": "X"
+      },
+      {
+        "startMs": 24890,
+        "endMs": 25110,
+        "pose": "u",
+        "sourceShape": "F"
+      },
+      {
+        "startMs": 25110,
+        "endMs": 25460,
+        "pose": "cdnstxyz",
+        "sourceShape": "B"
+      },
+      {
+        "startMs": 25460,
+        "endMs": 25560,
+        "pose": "bmp",
+        "sourceShape": "A"
+      },
+      {
+        "startMs": 25560,
+        "endMs": 25730,
+        "pose": "cdnstxyz",
+        "sourceShape": "B"
+      },
+      {
+        "startMs": 25730,
+        "endMs": 25870,
+        "pose": "aei",
+        "sourceShape": "C"
+      },
+      {
+        "startMs": 25870,
+        "endMs": 26130,
+        "pose": "cdnstxyz",
+        "sourceShape": "B"
+      },
+      {
+        "startMs": 26130,
+        "endMs": 26330,
+        "pose": "u",
+        "sourceShape": "F"
+      },
+      {
+        "startMs": 26330,
+        "endMs": 26540,
+        "pose": "cdnstxyz",
+        "sourceShape": "B"
+      },
+      {
+        "startMs": 26540,
+        "endMs": 26610,
+        "pose": "u",
+        "sourceShape": "F"
+      },
+      {
+        "startMs": 26610,
+        "endMs": 26820,
+        "pose": "aei",
+        "sourceShape": "C"
+      },
+      {
+        "startMs": 26820,
+        "endMs": 26960,
+        "pose": "cdnstxyz",
+        "sourceShape": "B"
+      },
+      {
+        "startMs": 26960,
+        "endMs": 27100,
+        "pose": "o",
+        "sourceShape": "E"
+      },
+      {
+        "startMs": 27100,
+        "endMs": 27440,
+        "pose": "aei",
+        "sourceShape": "C"
+      },
+      {
+        "startMs": 27440,
+        "endMs": 27600,
+        "pose": "cdnstxyz",
+        "sourceShape": "B"
+      },
+      {
+        "startMs": 27600,
+        "endMs": 27740,
+        "pose": "aei",
+        "sourceShape": "C"
+      },
+      {
+        "startMs": 27740,
+        "endMs": 27810,
+        "pose": "l",
+        "sourceShape": "H"
+      },
+      {
+        "startMs": 27810,
+        "endMs": 27970,
+        "pose": "bmp",
+        "sourceShape": "A"
+      },
+      {
+        "startMs": 27970,
+        "endMs": 28040,
+        "pose": "u",
+        "sourceShape": "F"
+      },
+      {
+        "startMs": 28040,
+        "endMs": 28170,
+        "pose": "aei",
+        "sourceShape": "C"
+      },
+      {
+        "startMs": 28170,
+        "endMs": 28240,
+        "pose": "fv",
+        "sourceShape": "G"
+      },
+      {
+        "startMs": 28240,
+        "endMs": 28380,
+        "pose": "o",
+        "sourceShape": "E"
+      },
+      {
+        "startMs": 28380,
+        "endMs": 28520,
+        "pose": "u",
+        "sourceShape": "F"
+      },
+      {
+        "startMs": 28520,
+        "endMs": 28660,
+        "pose": "cdnstxyz",
+        "sourceShape": "B"
+      },
+      {
+        "startMs": 28660,
+        "endMs": 28800,
+        "pose": "u",
+        "sourceShape": "F"
+      },
+      {
+        "startMs": 28800,
+        "endMs": 29500,
+        "pose": "cdnstxyz",
+        "sourceShape": "B"
+      },
+      {
+        "startMs": 29500,
+        "endMs": 29990,
+        "pose": "aei",
+        "sourceShape": "C"
+      },
+      {
+        "startMs": 29990,
+        "endMs": 31500,
+        "pose": "rest",
+        "sourceShape": "X"
+      }
+    ],
+    "note": "Approximate visual mouth shapes, not a transcript or exact vowel labels. C and D share the preferred gentle open mouth. Nine recognizer shapes use eight existing poses; the other artwork remains available for manual refinement.",
+    "mouthOffsetMs": -30
+  },
+  "animations": {
+    "blink": {
+      "enabled": true,
+      "cycleMs": 4800,
+      "closeMs": 70,
+      "holdMs": 60,
+      "openMs": 100
+    },
+    "hair": {
+      "enabled": true,
+      "cycleMs": 7200
+    }
+  }
+}

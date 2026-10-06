@@ -1,0 +1,8 @@
+{
+  "schemaVersion": 1,
+  "id": "marju-anchored-v2",
+  "name": "Marju · anchored character",
+  "description": "Marju seated cross-legged, with gentle blinking, loose-hair movement and recorded speech mouth poses.",
+  "regions": "base/regions.compact.json",
+  "mouths": "mouths/mouth-map.compact.json"
+}

@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Marju · Audio-tour test</title>
+<link rel="stylesheet" href="../character-map/anchored.css"><link rel="stylesheet" href="tour.css">
+<script defer src="lip-sync-timeline.js"></script><script defer src="tour-config.js"></script><script defer src="tour-renderer.js?v=compact-patches-1"></script><script defer src="tour-player.js"></script></head>
+<body><header><div><p class="eyebrow">Reusable narration player</p><h1>Audio-tour test.</h1><p>One character package. One JSON per narration.</p></div><a href="../character-map/anchored.html">Back to workshop</a></header>
+<main><section class="stage"><div class="stage-heading"><h2>Anchored character</h2></div><canvas id="tour-character" role="img" aria-label="Audio-tour character loading"></canvas></section>
+<aside><h2 id="tour-title">Welcome preview</h2><p id="tour-status" role="status">Loading the example narration…</p>
+<label for="tour-saved">Saved narrations</label><select id="tour-saved" disabled><option value="">Loading saved narrations…</option></select><p class="small" id="tour-saved-status" role="status"></p>
+<label for="tour-file">Load exported narration JSON</label><input id="tour-file" type="file" accept=".json,application/json">
+<p class="small">Export in the workshop, then choose that JSON here. Paths are resolved as if it lives in <code>audio-tour-test/narrations/</code>.</p>
+<details><summary>Or paste narration JSON</summary><label for="tour-paste">Exported narration JSON</label><textarea id="tour-paste" rows="6" spellcheck="false"></textarea><button id="tour-load-paste" type="button">Load pasted narration</button></details>
+<label for="tour-audio-file">Optional audio replacement for this test</label><input id="tour-audio-file" type="file" accept="audio/*" disabled><p class="small">Use this for recordings not yet saved to the website. Replacement must match the mouth timing duration.</p>
+<audio id="tour-audio" controls preload="metadata" aria-label="Play audio-tour narration" hidden></audio>
+<label><input id="tour-animate" type="checkbox"> Animate hair, blinking and mouth</label>
+<details open><summary>Transcript</summary><p id="tour-transcript"></p></details>
+<details><summary>Narration configuration</summary><pre id="tour-details"></pre></details></aside></main>
+<footer><a href="../#cv-scene">Back to the CV</a><span>Separate test page · original portrait unchanged</span></footer></body></html>

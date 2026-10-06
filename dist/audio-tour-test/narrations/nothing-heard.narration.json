@@ -1,0 +1,345 @@
+{
+  "schemaVersion": 1,
+  "kind": "audio-tour-narration",
+  "title": "Nothing heard",
+  "character": "../anchored-character/character.json",
+  "audio": {
+    "src": "../../voice-tour/audio/narration/nothing-heard.mp3"
+  },
+  "transcript": "I didn’t hear a choice.\n\nTake your time. Use the listen button when you’re ready to speak, or choose a section using your keyboard.",
+  "mouthTiming": {
+    "schemaVersion": 1,
+    "audioFile": "nothing-heard.mp3",
+    "durationMs": 13500,
+    "engine": "Rhubarb Lip Sync 1.14.0",
+    "recognizer": "pocketSphinx",
+    "mapping": {
+      "A": "bmp",
+      "B": "cdnstxyz",
+      "C": "aei",
+      "D": "aei",
+      "E": "o",
+      "F": "u",
+      "G": "fv",
+      "H": "l",
+      "X": "rest"
+    },
+    "mouthCues": [
+      {
+        "startMs": 0,
+        "endMs": 350,
+        "pose": "rest",
+        "sourceShape": "X"
+      },
+      {
+        "startMs": 350,
+        "endMs": 420,
+        "pose": "aei",
+        "sourceShape": "C"
+      },
+      {
+        "startMs": 420,
+        "endMs": 700,
+        "pose": "cdnstxyz",
+        "sourceShape": "B"
+      },
+      {
+        "startMs": 700,
+        "endMs": 840,
+        "pose": "aei",
+        "sourceShape": "C"
+      },
+      {
+        "startMs": 840,
+        "endMs": 910,
+        "pose": "cdnstxyz",
+        "sourceShape": "B"
+      },
+      {
+        "startMs": 910,
+        "endMs": 1070,
+        "pose": "rest",
+        "sourceShape": "X"
+      },
+      {
+        "startMs": 1070,
+        "endMs": 1320,
+        "pose": "cdnstxyz",
+        "sourceShape": "B"
+      },
+      {
+        "startMs": 1320,
+        "endMs": 1390,
+        "pose": "aei",
+        "sourceShape": "C"
+      },
+      {
+        "startMs": 1390,
+        "endMs": 1600,
+        "pose": "cdnstxyz",
+        "sourceShape": "B"
+      },
+      {
+        "startMs": 1600,
+        "endMs": 1740,
+        "pose": "o",
+        "sourceShape": "E"
+      },
+      {
+        "startMs": 1740,
+        "endMs": 2510,
+        "pose": "cdnstxyz",
+        "sourceShape": "B"
+      },
+      {
+        "startMs": 2510,
+        "endMs": 2650,
+        "pose": "aei",
+        "sourceShape": "C"
+      },
+      {
+        "startMs": 2650,
+        "endMs": 2760,
+        "pose": "cdnstxyz",
+        "sourceShape": "B"
+      },
+      {
+        "startMs": 2760,
+        "endMs": 2860,
+        "pose": "u",
+        "sourceShape": "F"
+      },
+      {
+        "startMs": 2860,
+        "endMs": 2930,
+        "pose": "cdnstxyz",
+        "sourceShape": "B"
+      },
+      {
+        "startMs": 2930,
+        "endMs": 3210,
+        "pose": "aei",
+        "sourceShape": "D"
+      },
+      {
+        "startMs": 3210,
+        "endMs": 3350,
+        "pose": "cdnstxyz",
+        "sourceShape": "B"
+      },
+      {
+        "startMs": 3350,
+        "endMs": 3440,
+        "pose": "bmp",
+        "sourceShape": "A"
+      },
+      {
+        "startMs": 3440,
+        "endMs": 3920,
+        "pose": "rest",
+        "sourceShape": "X"
+      },
+      {
+        "startMs": 3920,
+        "endMs": 4060,
+        "pose": "u",
+        "sourceShape": "F"
+      },
+      {
+        "startMs": 4060,
+        "endMs": 4410,
+        "pose": "cdnstxyz",
+        "sourceShape": "B"
+      },
+      {
+        "startMs": 4410,
+        "endMs": 4480,
+        "pose": "aei",
+        "sourceShape": "C"
+      },
+      {
+        "startMs": 4480,
+        "endMs": 4560,
+        "pose": "bmp",
+        "sourceShape": "A"
+      },
+      {
+        "startMs": 4560,
+        "endMs": 4670,
+        "pose": "aei",
+        "sourceShape": "C"
+      },
+      {
+        "startMs": 4670,
+        "endMs": 4950,
+        "pose": "cdnstxyz",
+        "sourceShape": "B"
+      },
+      {
+        "startMs": 4950,
+        "endMs": 5020,
+        "pose": "aei",
+        "sourceShape": "C"
+      },
+      {
+        "startMs": 5020,
+        "endMs": 5300,
+        "pose": "u",
+        "sourceShape": "F"
+      },
+      {
+        "startMs": 5300,
+        "endMs": 5510,
+        "pose": "cdnstxyz",
+        "sourceShape": "B"
+      },
+      {
+        "startMs": 5510,
+        "endMs": 5720,
+        "pose": "u",
+        "sourceShape": "F"
+      },
+      {
+        "startMs": 5720,
+        "endMs": 5800,
+        "pose": "bmp",
+        "sourceShape": "A"
+      },
+      {
+        "startMs": 5800,
+        "endMs": 6130,
+        "pose": "cdnstxyz",
+        "sourceShape": "B"
+      },
+      {
+        "startMs": 6130,
+        "endMs": 6740,
+        "pose": "rest",
+        "sourceShape": "X"
+      },
+      {
+        "startMs": 6740,
+        "endMs": 6830,
+        "pose": "o",
+        "sourceShape": "E"
+      },
+      {
+        "startMs": 6830,
+        "endMs": 7180,
+        "pose": "u",
+        "sourceShape": "F"
+      },
+      {
+        "startMs": 7180,
+        "endMs": 7250,
+        "pose": "cdnstxyz",
+        "sourceShape": "B"
+      },
+      {
+        "startMs": 7250,
+        "endMs": 7320,
+        "pose": "aei",
+        "sourceShape": "C"
+      },
+      {
+        "startMs": 7320,
+        "endMs": 7560,
+        "pose": "u",
+        "sourceShape": "F"
+      },
+      {
+        "startMs": 7560,
+        "endMs": 7630,
+        "pose": "cdnstxyz",
+        "sourceShape": "B"
+      },
+      {
+        "startMs": 7630,
+        "endMs": 7700,
+        "pose": "aei",
+        "sourceShape": "C"
+      },
+      {
+        "startMs": 7700,
+        "endMs": 7910,
+        "pose": "cdnstxyz",
+        "sourceShape": "B"
+      },
+      {
+        "startMs": 7910,
+        "endMs": 8120,
+        "pose": "aei",
+        "sourceShape": "C"
+      },
+      {
+        "startMs": 8120,
+        "endMs": 8360,
+        "pose": "cdnstxyz",
+        "sourceShape": "B"
+      },
+      {
+        "startMs": 8360,
+        "endMs": 8470,
+        "pose": "u",
+        "sourceShape": "F"
+      },
+      {
+        "startMs": 8470,
+        "endMs": 8610,
+        "pose": "cdnstxyz",
+        "sourceShape": "B"
+      },
+      {
+        "startMs": 8610,
+        "endMs": 8750,
+        "pose": "u",
+        "sourceShape": "F"
+      },
+      {
+        "startMs": 8750,
+        "endMs": 8960,
+        "pose": "cdnstxyz",
+        "sourceShape": "B"
+      },
+      {
+        "startMs": 8960,
+        "endMs": 9040,
+        "pose": "bmp",
+        "sourceShape": "A"
+      },
+      {
+        "startMs": 9040,
+        "endMs": 9270,
+        "pose": "o",
+        "sourceShape": "E"
+      },
+      {
+        "startMs": 9270,
+        "endMs": 9480,
+        "pose": "cdnstxyz",
+        "sourceShape": "B"
+      },
+      {
+        "startMs": 9480,
+        "endMs": 13500,
+        "pose": "rest",
+        "sourceShape": "X"
+      }
+    ],
+    "note": "Approximate visual mouth shapes, not a transcript or exact vowel labels. C and D share the preferred gentle open mouth. Nine recognizer shapes use eight existing poses; the other artwork remains available for manual refinement.",
+    "mouthOffsetMs": -30
+  },
+  "animations": {
+    "blink": {
+      "enabled": true,
+      "cycleMs": 4800,
+      "closeMs": 70,
+      "holdMs": 60,
+      "openMs": 100
+    },
+    "hair": {
+      "enabled": true,
+      "cycleMs": 7200
+    }
+  }
+}

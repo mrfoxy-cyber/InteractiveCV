@@ -1,0 +1,355 @@
+{
+  "version": 2,
+  "status": "anchored-visual-draft-not-audio-synced",
+  "canvas": {
+    "width": 1261,
+    "height": 1247
+  },
+  "defaultPose": "aei",
+  "target": {
+    "bounds": [
+      556,
+      292,
+      105,
+      60
+    ],
+    "feather": 10,
+    "pivot": [
+      609,
+      320
+    ]
+  },
+  "notes": [
+    "Lossless crops of the registered full-frame artwork. Destination region and pose IDs are unchanged.",
+    "Original sources are retained for editing; playback loads only these compact patches."
+  ],
+  "cycle": {
+    "holdMs": 480,
+    "transitionMs": 120
+  },
+  "poses": [
+    {
+      "id": "aei",
+      "label": "A, E, I",
+      "description": "Original gentle open",
+      "index": 0,
+      "source": "mouth-aei.patch.png",
+      "sourceRect": [
+        0,
+        0,
+        105,
+        60
+      ],
+      "originalSourceRect": [
+        556,
+        292,
+        105,
+        60
+      ]
+    },
+    {
+      "id": "o",
+      "label": "O",
+      "description": "Rounded open vowel",
+      "index": 1,
+      "source": "mouth-o.patch.png",
+      "sourceRect": [
+        0,
+        0,
+        105,
+        60
+      ],
+      "registration": {
+        "dx": -3,
+        "dy": -1,
+        "method": "median best RGB match of three unchanged eye/nose feature patches; manual visual QA follows"
+      },
+      "originalSourceRect": [
+        553,
+        291,
+        105,
+        60
+      ]
+    },
+    {
+      "id": "u",
+      "label": "U",
+      "description": "Small puckered vowel",
+      "index": 2,
+      "source": "mouth-u.patch.png",
+      "sourceRect": [
+        0,
+        0,
+        105,
+        60
+      ],
+      "registration": {
+        "dx": -2,
+        "dy": 0,
+        "method": "median best RGB match of three unchanged eye/nose feature patches; manual visual QA follows"
+      },
+      "originalSourceRect": [
+        554,
+        292,
+        105,
+        60
+      ]
+    },
+    {
+      "id": "cdnstxyz",
+      "label": "C, D, N, S, T, X, Y, Z",
+      "description": "Narrow teeth opening",
+      "index": 3,
+      "source": "mouth-cdnstxyz.patch.png",
+      "sourceRect": [
+        0,
+        0,
+        105,
+        60
+      ],
+      "registration": {
+        "dx": -3,
+        "dy": -1,
+        "method": "median best RGB match of three unchanged eye/nose feature patches; manual visual QA follows"
+      },
+      "originalSourceRect": [
+        553,
+        291,
+        105,
+        60
+      ]
+    },
+    {
+      "id": "gk",
+      "label": "G, K",
+      "description": "Open back-mouth shape",
+      "index": 4,
+      "source": "mouth-gk.patch.png",
+      "sourceRect": [
+        0,
+        0,
+        105,
+        60
+      ],
+      "registration": {
+        "dx": -2,
+        "dy": -1,
+        "method": "median best RGB match of three unchanged eye/nose feature patches; manual visual QA follows"
+      },
+      "originalSourceRect": [
+        554,
+        291,
+        105,
+        60
+      ]
+    },
+    {
+      "id": "l",
+      "label": "L",
+      "description": "Raised tongue shape",
+      "index": 5,
+      "source": "mouth-l.patch.png",
+      "sourceRect": [
+        0,
+        0,
+        105,
+        60
+      ],
+      "registration": {
+        "dx": -3,
+        "dy": -1,
+        "method": "median best RGB match of three unchanged eye/nose feature patches; manual visual QA follows"
+      },
+      "originalSourceRect": [
+        553,
+        291,
+        105,
+        60
+      ]
+    },
+    {
+      "id": "bmp",
+      "label": "B, M, P",
+      "description": "Closed lips",
+      "index": 6,
+      "source": "mouth-bmp.patch.png",
+      "sourceRect": [
+        0,
+        0,
+        105,
+        60
+      ],
+      "registration": {
+        "dx": -1,
+        "dy": 0,
+        "method": "median best RGB match of three unchanged eye/nose feature patches; manual visual QA follows"
+      },
+      "originalSourceRect": [
+        555,
+        292,
+        105,
+        60
+      ]
+    },
+    {
+      "id": "fv",
+      "label": "F, V",
+      "description": "Upper teeth against lower lip",
+      "index": 7,
+      "source": "mouth-fv.patch.png",
+      "sourceRect": [
+        0,
+        0,
+        105,
+        60
+      ],
+      "originalSourceRect": [
+        556,
+        292,
+        105,
+        60
+      ]
+    },
+    {
+      "id": "ee",
+      "label": "EE",
+      "description": "Wide narrow vowel",
+      "index": 8,
+      "source": "mouth-ee.patch.png",
+      "sourceRect": [
+        0,
+        0,
+        105,
+        60
+      ],
+      "registration": {
+        "dx": -2,
+        "dy": -1,
+        "method": "median best RGB match of three unchanged eye/nose feature patches; manual visual QA follows"
+      },
+      "originalSourceRect": [
+        554,
+        291,
+        105,
+        60
+      ]
+    },
+    {
+      "id": "th",
+      "label": "T, H",
+      "description": "Tongue between teeth",
+      "index": 9,
+      "source": "mouth-th.patch.png",
+      "sourceRect": [
+        0,
+        0,
+        105,
+        60
+      ],
+      "originalSourceRect": [
+        556,
+        292,
+        105,
+        60
+      ]
+    },
+    {
+      "id": "chjsh",
+      "label": "CH, J, SH",
+      "description": "Slightly rounded consonant",
+      "index": 10,
+      "source": "mouth-chjsh.patch.png",
+      "sourceRect": [
+        0,
+        0,
+        105,
+        60
+      ],
+      "registration": {
+        "dx": -3,
+        "dy": -1,
+        "method": "median best RGB match of three unchanged eye/nose feature patches; manual visual QA follows"
+      },
+      "originalSourceRect": [
+        553,
+        291,
+        105,
+        60
+      ]
+    },
+    {
+      "id": "qw",
+      "label": "Q, W",
+      "description": "Rounded pursed shape",
+      "index": 11,
+      "source": "mouth-qw.patch.png",
+      "sourceRect": [
+        0,
+        0,
+        105,
+        60
+      ],
+      "registration": {
+        "dx": -2,
+        "dy": -1,
+        "method": "median best RGB match of three unchanged eye/nose feature patches; manual visual QA follows"
+      },
+      "originalSourceRect": [
+        554,
+        291,
+        105,
+        60
+      ]
+    }
+  ],
+  "sources": {
+    "mouth-aei.patch.png": {
+      "width": 105,
+      "height": 60
+    },
+    "mouth-o.patch.png": {
+      "width": 105,
+      "height": 60
+    },
+    "mouth-u.patch.png": {
+      "width": 105,
+      "height": 60
+    },
+    "mouth-cdnstxyz.patch.png": {
+      "width": 105,
+      "height": 60
+    },
+    "mouth-gk.patch.png": {
+      "width": 105,
+      "height": 60
+    },
+    "mouth-l.patch.png": {
+      "width": 105,
+      "height": 60
+    },
+    "mouth-bmp.patch.png": {
+      "width": 105,
+      "height": 60
+    },
+    "mouth-fv.patch.png": {
+      "width": 105,
+      "height": 60
+    },
+    "mouth-ee.patch.png": {
+      "width": 105,
+      "height": 60
+    },
+    "mouth-th.patch.png": {
+      "width": 105,
+      "height": 60
+    },
+    "mouth-chjsh.patch.png": {
+      "width": 105,
+      "height": 60
+    },
+    "mouth-qw.patch.png": {
+      "width": 105,
+      "height": 60
+    }
+  }
+}

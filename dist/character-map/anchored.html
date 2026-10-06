@@ -8,7 +8,8 @@
   <script defer src="lip-sync-timeline.js?v=audio-offset-1"></script>
   <script defer src="anchored.js?v=audio-workshop-1"></script>
   <script defer src="narration-script-match.js?v=narration-script-1"></script>
-  <script defer src="audio-workshop.js?v=narration-script-1"></script>
+  <script defer src="../audio-tour-test/tour-config.js"></script>
+  <script defer src="audio-workshop.js?v=tour-export-1"></script>
 </head>
 <body>
   <header><div><p class="eyebrow">Audio-tour workshop · version 2</p><h1>A little life. A steady base.</h1><p>Only hair, eyes and mouth. Your original CV portrait stays untouched.</p></div><a href="../#cv-scene">Back to the CV</a></header>
@@ -39,7 +40,7 @@
         <details class="script-option" id="script-option"><summary>English script · filled from your narration script</summary><label for="speech-script">Words spoken in the recording (editable)</label><textarea id="speech-script" rows="4" maxlength="50000" disabled placeholder="The matching narration text will appear here."></textarea><p id="script-status" class="small">Matching narration text loads automatically. You can edit it or clear it to test audio only. Used only with the English recognizer.</p></details>
         <button id="generate-timing" type="button" disabled>Generate mouth timing</button>
         <label for="mouth-offset">Mouth timing offset (ms)</label>
-        <input id="mouth-offset" type="number" value="0" min="-5000" max="5000" step="1" required aria-describedby="mouth-offset-help">
+        <input id="mouth-offset" type="number" value="-30" min="-5000" max="5000" step="1" required aria-describedby="mouth-offset-help">
         <p id="mouth-offset-help" class="small">Positive = mouth later; negative = mouth earlier. For example, 200 delays it by 0.2 seconds. Adjust before or after generating; saved with your timing JSON. Audio stays unchanged.</p>
         <progress id="analysis-progress" aria-label="Analysing speech sounds" hidden></progress>
         <p id="audio-status" role="status">Checking the local recognizer…</p>
@@ -47,6 +48,15 @@
         <label><input id="audio-animate" type="checkbox"> Animate the character during audio</label>
         <p id="audio-clock" class="small">0 ms · rest</p>
         <p class="small">Approximate mouth shapes—not exact vowel labels. Silence returns to rest. You can listen without animation.</p>
+        <details open><summary>Audio-tour narration export</summary>
+          <p class="small">Generate mouth timing first. This JSON includes the timing, transcript, character reference, sound path and your Eyes/Hair checkbox settings.</p>
+          <label for="tour-character-path">Character package path</label><input id="tour-character-path" value="../anchored-character/character.json">
+          <label for="tour-audio-path">Sound path · relative to narrations folder</label><input id="tour-audio-path" placeholder="Filled when you select audio">
+          <p class="small">Save the exported JSON in <code>dist/audio-tour-test/narrations/</code>. The sound must exist at its specified path.</p>
+          <a id="download-tour" hidden>Download audio-tour narration JSON</a><p id="tour-export-status" role="status">Generate or load mouth timing to enable the complete export.</p>
+          <details><summary>Copyable narration JSON</summary><label for="tour-json">Audio-tour narration JSON</label><textarea id="tour-json" rows="6" readonly spellcheck="false"></textarea></details>
+          <p><a href="../audio-tour-test/">Open audio-tour test page</a></p>
+        </details>
         <details><summary>Timing list &amp; export</summary><p id="timing-summary">No timing generated yet.</p><a id="download-timing" hidden>Download mouth timing JSON</a><label for="timeline-file">Load saved timing for this recording</label><input id="timeline-file" type="file" accept=".json,application/json" disabled><div class="timing-scroll"><table><caption>Mouth movements in milliseconds</caption><thead><tr><th scope="col">Start (ms)</th><th scope="col">End (ms)</th><th scope="col">Mouth pose</th></tr></thead><tbody id="timing-list"></tbody></table></div><details><summary>Copyable JSON · download fallback</summary><label for="timing-json">Generated mouth timing JSON</label><textarea id="timing-json" rows="5" readonly spellcheck="false"></textarea></details></details>
       </section>
       <h2>Small movements</h2>

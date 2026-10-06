@@ -1,0 +1,85 @@
+{
+  "schemaVersion": 1,
+  "narrations": [
+    {
+      "file": "welcome.narration.json",
+      "title": "Welcome"
+    },
+    {
+      "file": "about-me.narration.json",
+      "title": "About Me"
+    },
+    {
+      "file": "next-choice.narration.json",
+      "title": "After an answer"
+    },
+    {
+      "file": "not-understood.narration.json",
+      "title": "Didn’t recognise the answer"
+    },
+    {
+      "file": "education-courses.narration.json",
+      "title": "Education Courses"
+    },
+    {
+      "file": "education.narration.json",
+      "title": "Education menu"
+    },
+    {
+      "file": "goodbye.narration.json",
+      "title": "End of tour"
+    },
+    {
+      "file": "frog-game.narration.json",
+      "title": "Frog Game"
+    },
+    {
+      "file": "goatly.narration.json",
+      "title": "Goatly"
+    },
+    {
+      "file": "gymnasium.narration.json",
+      "title": "Gymnasium"
+    },
+    {
+      "file": "komvux.narration.json",
+      "title": "Komvux"
+    },
+    {
+      "file": "languages.narration.json",
+      "title": "Languages menu"
+    },
+    {
+      "file": "help.narration.json",
+      "title": "Main menu and help"
+    },
+    {
+      "file": "mental-model-graph.narration.json",
+      "title": "Mental Model Graph"
+    },
+    {
+      "file": "microphone-unavailable.narration.json",
+      "title": "Microphone unavailable"
+    },
+    {
+      "file": "nothing-heard.narration.json",
+      "title": "Nothing heard"
+    },
+    {
+      "file": "projects.narration.json",
+      "title": "Projects menu"
+    },
+    {
+      "file": "skills.narration.json",
+      "title": "Skills"
+    },
+    {
+      "file": "education-skövde.narration.json",
+      "title": "University of Skövde"
+    },
+    {
+      "file": "work-experience.narration.json",
+      "title": "Work experience"
+    }
+  ]
+}
