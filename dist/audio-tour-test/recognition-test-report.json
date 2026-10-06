@@ -1,0 +1,1690 @@
+{
+  "testType": "in-sample reference checks, not independent accuracy",
+  "training": 73,
+  "heldOut": 0,
+  "checked": 73,
+  "acceptedCorrect": 73,
+  "rejected": 0,
+  "acceptedWrong": 0,
+  "tests": [
+    {
+      "file": "about-me-1.mp3",
+      "expected": "about-me",
+      "id": "about-me",
+      "score": 0.00028509903582065273,
+      "margin": 0.9997182851575542,
+      "accepted": true,
+      "reason": "Template match.",
+      "alternatives": [
+        {
+          "id": "about-me",
+          "score": 0.00028509903582065273
+        },
+        {
+          "id": "goatly",
+          "score": 1.012012833067519
+        },
+        {
+          "id": "tartu",
+          "score": 1.0317414693422888
+        }
+      ]
+    },
+    {
+      "file": "about-me-2.mp3",
+      "expected": "about-me",
+      "id": "about-me",
+      "score": 0.00028553853448746856,
+      "margin": 0.9997008182444459,
+      "accepted": true,
+      "reason": "Template match.",
+      "alternatives": [
+        {
+          "id": "about-me",
+          "score": 0.00028553853448746856
+        },
+        {
+          "id": "tartu",
+          "score": 0.954398218429522
+        },
+        {
+          "id": "estonian",
+          "score": 0.9735206429735118
+        }
+      ]
+    },
+    {
+      "file": "about-me-3.mp3",
+      "expected": "about-me",
+      "id": "about-me",
+      "score": 0.00028722838429749573,
+      "margin": 0.999700426668984,
+      "accepted": true,
+      "reason": "Template match.",
+      "alternatives": [
+        {
+          "id": "about-me",
+          "score": 0.00028722838429749573
+        },
+        {
+          "id": "stop",
+          "score": 0.958791569741327
+        },
+        {
+          "id": "tartu",
+          "score": 0.9866620321696706
+        }
+      ]
+    },
+    {
+      "file": "back-1.mp3",
+      "expected": "back",
+      "id": "back",
+      "score": 0.0002865076964286904,
+      "margin": 0.9996582445715477,
+      "accepted": true,
+      "reason": "Template match.",
+      "alternatives": [
+        {
+          "id": "back",
+          "score": 0.0002865076964286904
+        },
+        {
+          "id": "stop",
+          "score": 0.8383413183110637
+        },
+        {
+          "id": "tartu",
+          "score": 0.8655146913850935
+        }
+      ]
+    },
+    {
+      "file": "back-2.mp3",
+      "expected": "back",
+      "id": "back",
+      "score": 0.00028919372884826525,
+      "margin": 0.9996522578040589,
+      "accepted": true,
+      "reason": "Template match.",
+      "alternatives": [
+        {
+          "id": "back",
+          "score": 0.00028919372884826525
+        },
+        {
+          "id": "stop",
+          "score": 0.8316325491234083
+        },
+        {
+          "id": "tartu",
+          "score": 0.867732099762396
+        }
+      ]
+    },
+    {
+      "file": "back-3.mp3",
+      "expected": "back",
+      "id": "back",
+      "score": 0.00029245142628029253,
+      "margin": 0.9996742169472075,
+      "accepted": true,
+      "reason": "Template match.",
+      "alternatives": [
+        {
+          "id": "back",
+          "score": 0.00029245142628029253
+        },
+        {
+          "id": "menu",
+          "score": 0.897687659850726
+        },
+        {
+          "id": "skills",
+          "score": 0.9836796021221742
+        }
+      ]
+    },
+    {
+      "file": "education-1.mp3",
+      "expected": "education",
+      "id": "education",
+      "score": 0.00028851376454778723,
+      "margin": 0.9996882758156816,
+      "accepted": true,
+      "reason": "Template match.",
+      "alternatives": [
+        {
+          "id": "education",
+          "score": 0.00028851376454778723
+        },
+        {
+          "id": "gymnasium",
+          "score": 0.9255418060638674
+        },
+        {
+          "id": "tartu",
+          "score": 0.940187824156765
+        }
+      ]
+    },
+    {
+      "file": "education-2.mp3",
+      "expected": "education",
+      "id": "education",
+      "score": 0.00028466611054623773,
+      "margin": 0.9996741825841386,
+      "accepted": true,
+      "reason": "Template match.",
+      "alternatives": [
+        {
+          "id": "education",
+          "score": 0.00028466611054623773
+        },
+        {
+          "id": "gymnasium",
+          "score": 0.873698263776541
+        },
+        {
+          "id": "repeat",
+          "score": 0.8924225537628074
+        }
+      ]
+    },
+    {
+      "file": "education-3.mp3",
+      "expected": "education",
+      "id": "education",
+      "score": 0.00029178260237906057,
+      "margin": 0.9996954648954484,
+      "accepted": true,
+      "reason": "Template match.",
+      "alternatives": [
+        {
+          "id": "education",
+          "score": 0.00029178260237906057
+        },
+        {
+          "id": "skovde",
+          "score": 0.958124689134487
+        },
+        {
+          "id": "gymnasium",
+          "score": 0.9710810143290787
+        }
+      ]
+    },
+    {
+      "file": "english-1.mp3",
+      "expected": "english",
+      "id": "english",
+      "score": 0.00028397527342037516,
+      "margin": 0.9997051072776532,
+      "accepted": true,
+      "reason": "Template match.",
+      "alternatives": [
+        {
+          "id": "english",
+          "score": 0.00028397527342037516
+        },
+        {
+          "id": "menu",
+          "score": 0.9629782354764164
+        },
+        {
+          "id": "swedish",
+          "score": 0.9643185599164575
+        }
+      ]
+    },
+    {
+      "file": "english-2.mp3",
+      "expected": "english",
+      "id": "english",
+      "score": 0.00028815062036488244,
+      "margin": 0.9997172978733987,
+      "accepted": true,
+      "reason": "Template match.",
+      "alternatives": [
+        {
+          "id": "english",
+          "score": 0.00028815062036488244
+        },
+        {
+          "id": "menu",
+          "score": 1.0192729139646266
+        },
+        {
+          "id": "education",
+          "score": 1.0412776167271045
+        }
+      ]
+    },
+    {
+      "file": "english-3.mp3",
+      "expected": "english",
+      "id": "english",
+      "score": 0.00028231314548052256,
+      "margin": 0.9997162768568011,
+      "accepted": true,
+      "reason": "Template match.",
+      "alternatives": [
+        {
+          "id": "english",
+          "score": 0.00028231314548052256
+        },
+        {
+          "id": "stop",
+          "score": 0.9950303746728935
+        },
+        {
+          "id": "education",
+          "score": 1.0058470833030446
+        }
+      ]
+    },
+    {
+      "file": "estonian-1.mp3",
+      "expected": "estonian",
+      "id": "estonian",
+      "score": 0.00028792394571590754,
+      "margin": 0.9996965878846212,
+      "accepted": true,
+      "reason": "Template match.",
+      "alternatives": [
+        {
+          "id": "estonian",
+          "score": 0.00028792394571590754
+        },
+        {
+          "id": "tartu",
+          "score": 0.9489533578988057
+        },
+        {
+          "id": "stop",
+          "score": 0.9544730892384289
+        }
+      ]
+    },
+    {
+      "file": "estonian-2.mp3",
+      "expected": "estonian",
+      "id": "estonian",
+      "score": 0.00028904536649733344,
+      "margin": 0.9997054484517427,
+      "accepted": true,
+      "reason": "Template match.",
+      "alternatives": [
+        {
+          "id": "estonian",
+          "score": 0.00028904536649733344
+        },
+        {
+          "id": "education",
+          "score": 0.9813065597770289
+        },
+        {
+          "id": "menu",
+          "score": 0.9944939154734163
+        }
+      ]
+    },
+    {
+      "file": "estonian-3.mp3",
+      "expected": "estonian",
+      "id": "estonian",
+      "score": 0.00028561893431233845,
+      "margin": 0.9996765791242953,
+      "accepted": true,
+      "reason": "Template match.",
+      "alternatives": [
+        {
+          "id": "estonian",
+          "score": 0.00028561893431233845
+        },
+        {
+          "id": "tartu",
+          "score": 0.8831184248387707
+        },
+        {
+          "id": "stop",
+          "score": 0.9091803089786534
+        }
+      ]
+    },
+    {
+      "file": "frog-game-1.mp3",
+      "expected": "frog-game",
+      "id": "frog-game",
+      "score": 0.00028845154397574396,
+      "margin": 0.9996923845688723,
+      "accepted": true,
+      "reason": "Template match.",
+      "alternatives": [
+        {
+          "id": "frog-game",
+          "score": 0.00028845154397574396
+        },
+        {
+          "id": "projects",
+          "score": 0.9377018016238785
+        },
+        {
+          "id": "goatly",
+          "score": 0.9424213250085667
+        }
+      ]
+    },
+    {
+      "file": "frog-game-2.mp3",
+      "expected": "frog-game",
+      "id": "frog-game",
+      "score": 0.0002913724750651784,
+      "margin": 0.9997099103785119,
+      "accepted": true,
+      "reason": "Template match.",
+      "alternatives": [
+        {
+          "id": "frog-game",
+          "score": 0.0002913724750651784
+        },
+        {
+          "id": "stop",
+          "score": 1.00442226636907
+        },
+        {
+          "id": "goatly",
+          "score": 1.0157724225562836
+        }
+      ]
+    },
+    {
+      "file": "frog-game-3.mp3",
+      "expected": "frog-game",
+      "id": "frog-game",
+      "score": 0.00028920687052769585,
+      "margin": 0.9996855457717857,
+      "accepted": true,
+      "reason": "Template match.",
+      "alternatives": [
+        {
+          "id": "frog-game",
+          "score": 0.00028920687052769585
+        },
+        {
+          "id": "stop",
+          "score": 0.9197105479231504
+        },
+        {
+          "id": "tartu",
+          "score": 0.9592198102968794
+        }
+      ]
+    },
+    {
+      "file": "german-1.mp3",
+      "expected": "german",
+      "id": "german",
+      "score": 0.0002826599617488294,
+      "margin": 0.9997218119759717,
+      "accepted": true,
+      "reason": "Template match.",
+      "alternatives": [
+        {
+          "id": "german",
+          "score": 0.0002826599617488294
+        },
+        {
+          "id": "estonian",
+          "score": 1.0160752344970267
+        },
+        {
+          "id": "skovde",
+          "score": 1.0297089174420826
+        }
+      ]
+    },
+    {
+      "file": "german-2.mp3",
+      "expected": "german",
+      "id": "german",
+      "score": 0.00028319011456025576,
+      "margin": 0.9997011385672643,
+      "accepted": true,
+      "reason": "Template match.",
+      "alternatives": [
+        {
+          "id": "german",
+          "score": 0.00028319011456025576
+        },
+        {
+          "id": "skovde",
+          "score": 0.9475632635765612
+        },
+        {
+          "id": "stop",
+          "score": 0.9999305294352937
+        }
+      ]
+    },
+    {
+      "file": "german-3.mp3",
+      "expected": "german",
+      "id": "german",
+      "score": 0.0002870060355825785,
+      "margin": 0.9996968516404919,
+      "accepted": true,
+      "reason": "Template match.",
+      "alternatives": [
+        {
+          "id": "german",
+          "score": 0.0002870060355825785
+        },
+        {
+          "id": "stop",
+          "score": 0.9467510761012198
+        },
+        {
+          "id": "skovde",
+          "score": 0.9724773216053916
+        }
+      ]
+    },
+    {
+      "file": "goatly-1.mp3",
+      "expected": "goatly",
+      "id": "goatly",
+      "score": 0.00028732065975100104,
+      "margin": 0.9996951251089957,
+      "accepted": true,
+      "reason": "Template match.",
+      "alternatives": [
+        {
+          "id": "goatly",
+          "score": 0.00028732065975100104
+        },
+        {
+          "id": "frog-game",
+          "score": 0.9424215251200372
+        },
+        {
+          "id": "tartu",
+          "score": 0.9539707854510125
+        }
+      ]
+    },
+    {
+      "file": "goatly-2.mp3",
+      "expected": "goatly",
+      "id": "goatly",
+      "score": 0.0002878206236579774,
+      "margin": 0.9997089808614261,
+      "accepted": true,
+      "reason": "Template match.",
+      "alternatives": [
+        {
+          "id": "goatly",
+          "score": 0.0002878206236579774
+        },
+        {
+          "id": "mental-model-graph",
+          "score": 0.9890092626496906
+        },
+        {
+          "id": "about-me",
+          "score": 1.0087697923252266
+        }
+      ]
+    },
+    {
+      "file": "goatly-3.mp3",
+      "expected": "goatly",
+      "id": "goatly",
+      "score": 0.0002899199691673011,
+      "margin": 0.9996914074636034,
+      "accepted": true,
+      "reason": "Template match.",
+      "alternatives": [
+        {
+          "id": "goatly",
+          "score": 0.0002899199691673011
+        },
+        {
+          "id": "mental-model-graph",
+          "score": 0.9394911897502277
+        },
+        {
+          "id": "about-me",
+          "score": 1.006144978206965
+        }
+      ]
+    },
+    {
+      "file": "gymnaisum-1.mp3",
+      "expected": "gymnasium",
+      "id": "gymnasium",
+      "score": 0.00028566965554210677,
+      "margin": 0.9997051763132604,
+      "accepted": true,
+      "reason": "Template match.",
+      "alternatives": [
+        {
+          "id": "gymnasium",
+          "score": 0.00028566965554210677
+        },
+        {
+          "id": "education",
+          "score": 0.9689508285484797
+        },
+        {
+          "id": "estonian",
+          "score": 1.0169914863794571
+        }
+      ]
+    },
+    {
+      "file": "gymnasium-2.mp3",
+      "expected": "gymnasium",
+      "id": "gymnasium",
+      "score": 0.0002824769920918131,
+      "margin": 0.9996948063361387,
+      "accepted": true,
+      "reason": "Template match.",
+      "alternatives": [
+        {
+          "id": "gymnasium",
+          "score": 0.0002824769920918131
+        },
+        {
+          "id": "education",
+          "score": 0.9255663715882778
+        },
+        {
+          "id": "skovde",
+          "score": 1.033667754364755
+        }
+      ]
+    },
+    {
+      "file": "gymnasium-3.mp3",
+      "expected": "gymnasium",
+      "id": "gymnasium",
+      "score": 0.00028489248666188497,
+      "margin": 0.9996739283777317,
+      "accepted": true,
+      "reason": "Template match.",
+      "alternatives": [
+        {
+          "id": "gymnasium",
+          "score": 0.00028489248666188497
+        },
+        {
+          "id": "education",
+          "score": 0.873711378745586
+        },
+        {
+          "id": "tartu",
+          "score": 0.9181301485110426
+        }
+      ]
+    },
+    {
+      "file": "help-1.mp3",
+      "expected": "help",
+      "id": "help",
+      "score": 0.0002877264702575367,
+      "margin": 0.999668867158895,
+      "accepted": true,
+      "reason": "Template match.",
+      "alternatives": [
+        {
+          "id": "help",
+          "score": 0.0002877264702575367
+        },
+        {
+          "id": "tartu",
+          "score": 0.8689155364276779
+        },
+        {
+          "id": "skovde",
+          "score": 0.9188851919341109
+        }
+      ]
+    },
+    {
+      "file": "help-2.mp3",
+      "expected": "help",
+      "id": "help",
+      "score": 0.00028742229036291244,
+      "margin": 0.9996686398327219,
+      "accepted": true,
+      "reason": "Template match.",
+      "alternatives": [
+        {
+          "id": "help",
+          "score": 0.00028742229036291244
+        },
+        {
+          "id": "tartu",
+          "score": 0.8674014523952792
+        },
+        {
+          "id": "skovde",
+          "score": 0.8862592502390058
+        }
+      ]
+    },
+    {
+      "file": "help-3.mp3",
+      "expected": "help",
+      "id": "help",
+      "score": 0.0002847743260414522,
+      "margin": 0.9996770045862843,
+      "accepted": true,
+      "reason": "Template match.",
+      "alternatives": [
+        {
+          "id": "help",
+          "score": 0.0002847743260414522
+        },
+        {
+          "id": "tartu",
+          "score": 0.8816667789965957
+        },
+        {
+          "id": "skovde",
+          "score": 0.9188758722135829
+        }
+      ]
+    },
+    {
+      "file": "komvux-1.mp3",
+      "expected": "komvux",
+      "id": "komvux",
+      "score": 0.0002918512150183666,
+      "margin": 0.9996929658238642,
+      "accepted": true,
+      "reason": "Template match.",
+      "alternatives": [
+        {
+          "id": "komvux",
+          "score": 0.0002918512150183666
+        },
+        {
+          "id": "stop",
+          "score": 0.9505496055571349
+        },
+        {
+          "id": "back",
+          "score": 0.951497813359672
+        }
+      ]
+    },
+    {
+      "file": "komvux-2.mp3",
+      "expected": "komvux",
+      "id": "komvux",
+      "score": 0.0002864629124784309,
+      "margin": 0.999708409280055,
+      "accepted": true,
+      "reason": "Template match.",
+      "alternatives": [
+        {
+          "id": "komvux",
+          "score": 0.0002864629124784309
+        },
+        {
+          "id": "stop",
+          "score": 0.9824143667276484
+        },
+        {
+          "id": "back",
+          "score": 1.0279620895093629
+        }
+      ]
+    },
+    {
+      "file": "komvux-3.mp3",
+      "expected": "komvux",
+      "id": "komvux",
+      "score": 0.0002917773191446489,
+      "margin": 0.9996999648079272,
+      "accepted": true,
+      "reason": "Template match.",
+      "alternatives": [
+        {
+          "id": "komvux",
+          "score": 0.0002917773191446489
+        },
+        {
+          "id": "stop",
+          "score": 0.9724769855460104
+        },
+        {
+          "id": "menu",
+          "score": 1.008936576805333
+        }
+      ]
+    },
+    {
+      "file": "languages-1.mp3",
+      "expected": "languages",
+      "id": "languages",
+      "score": 0.0002874100291631923,
+      "margin": 0.999699199663962,
+      "accepted": true,
+      "reason": "Template match.",
+      "alternatives": [
+        {
+          "id": "languages",
+          "score": 0.0002874100291631923
+        },
+        {
+          "id": "education",
+          "score": 0.9554844018755059
+        },
+        {
+          "id": "back",
+          "score": 0.9879129454234593
+        }
+      ]
+    },
+    {
+      "file": "languages-2.mp3",
+      "expected": "languages",
+      "id": "languages",
+      "score": 0.0002898149180105856,
+      "margin": 0.9996920201309705,
+      "accepted": true,
+      "reason": "Template match.",
+      "alternatives": [
+        {
+          "id": "languages",
+          "score": 0.0002898149180105856
+        },
+        {
+          "id": "back",
+          "score": 0.9410190312888369
+        },
+        {
+          "id": "skills",
+          "score": 0.9738381741286851
+        }
+      ]
+    },
+    {
+      "file": "languages-3.mp3",
+      "expected": "languages",
+      "id": "languages",
+      "score": 0.0002922407586717687,
+      "margin": 0.9996947297578411,
+      "accepted": true,
+      "reason": "Template match.",
+      "alternatives": [
+        {
+          "id": "languages",
+          "score": 0.0002922407586717687
+        },
+        {
+          "id": "education",
+          "score": 0.9573181997858746
+        },
+        {
+          "id": "menu",
+          "score": 0.9677326310572743
+        }
+      ]
+    },
+    {
+      "file": "lexicon-1.mp3",
+      "expected": "lexicon",
+      "id": "lexicon",
+      "score": 0.00028303652265073234,
+      "margin": 0.9996964991130393,
+      "accepted": true,
+      "reason": "Template match.",
+      "alternatives": [
+        {
+          "id": "lexicon",
+          "score": 0.00028303652265073234
+        },
+        {
+          "id": "tartu",
+          "score": 0.9325723080583733
+        },
+        {
+          "id": "stop",
+          "score": 0.9380528685592011
+        }
+      ]
+    },
+    {
+      "file": "lexicon-2.mp3",
+      "expected": "lexicon",
+      "id": "lexicon",
+      "score": 0.0002880164678602704,
+      "margin": 0.9996853501570055,
+      "accepted": true,
+      "reason": "Template match.",
+      "alternatives": [
+        {
+          "id": "lexicon",
+          "score": 0.0002880164678602704
+        },
+        {
+          "id": "estonian",
+          "score": 0.9153555111270089
+        },
+        {
+          "id": "tartu",
+          "score": 0.9256138886996175
+        }
+      ]
+    },
+    {
+      "file": "lexicon-3.mp3",
+      "expected": "lexicon",
+      "id": "lexicon",
+      "score": 0.00028630900817888595,
+      "margin": 0.9996789569721877,
+      "accepted": true,
+      "reason": "Template match.",
+      "alternatives": [
+        {
+          "id": "lexicon",
+          "score": 0.00028630900817888595
+        },
+        {
+          "id": "tartu",
+          "score": 0.8918088336314812
+        },
+        {
+          "id": "mental-model-graph",
+          "score": 0.9004449643371163
+        }
+      ]
+    },
+    {
+      "file": "mental-model-graph-1.mp3",
+      "expected": "mental-model-graph",
+      "id": "mental-model-graph",
+      "score": 0.0002888169453420091,
+      "margin": 0.9997044289476514,
+      "accepted": true,
+      "reason": "Template match.",
+      "alternatives": [
+        {
+          "id": "mental-model-graph",
+          "score": 0.0002888169453420091
+        },
+        {
+          "id": "skovde",
+          "score": 0.9771489563917682
+        },
+        {
+          "id": "back",
+          "score": 1.0004860967355402
+        }
+      ]
+    },
+    {
+      "file": "mental-model-graph-2.mp3",
+      "expected": "mental-model-graph",
+      "id": "mental-model-graph",
+      "score": 0.0002872633497774405,
+      "margin": 0.9997347303562548,
+      "accepted": true,
+      "reason": "Template match.",
+      "alternatives": [
+        {
+          "id": "mental-model-graph",
+          "score": 0.0002872633497774405
+        },
+        {
+          "id": "estonian",
+          "score": 1.0829107534571825
+        },
+        {
+          "id": "skovde",
+          "score": 1.0977355123798254
+        }
+      ]
+    },
+    {
+      "file": "mental-model-graph-3.mp3",
+      "expected": "mental-model-graph",
+      "id": "mental-model-graph",
+      "score": 0.0002871000610511837,
+      "margin": 0.9996886023660319,
+      "accepted": true,
+      "reason": "Template match.",
+      "alternatives": [
+        {
+          "id": "mental-model-graph",
+          "score": 0.0002871000610511837
+        },
+        {
+          "id": "tartu",
+          "score": 0.9219725191633967
+        },
+        {
+          "id": "lexicon",
+          "score": 0.9350436128772387
+        }
+      ]
+    },
+    {
+      "file": "mental-model-graph-4.mp3",
+      "expected": "mental-model-graph",
+      "id": "mental-model-graph",
+      "score": 0.00028970656703958443,
+      "margin": 0.9996782564161858,
+      "accepted": true,
+      "reason": "Template match.",
+      "alternatives": [
+        {
+          "id": "mental-model-graph",
+          "score": 0.00028970656703958443
+        },
+        {
+          "id": "lexicon",
+          "score": 0.9004268666533002
+        },
+        {
+          "id": "repeat",
+          "score": 0.917397234867581
+        }
+      ]
+    },
+    {
+      "file": "menu-1.mp3",
+      "expected": "menu",
+      "id": "menu",
+      "score": 0.00029194043553872165,
+      "margin": 0.9996963282453205,
+      "accepted": true,
+      "reason": "Template match.",
+      "alternatives": [
+        {
+          "id": "menu",
+          "score": 0.00029194043553872165
+        },
+        {
+          "id": "back",
+          "score": 0.9613684217907704
+        },
+        {
+          "id": "english",
+          "score": 0.9629724431140609
+        }
+      ]
+    },
+    {
+      "file": "menu-2.mp3",
+      "expected": "menu",
+      "id": "menu",
+      "score": 0.0002866924786748716,
+      "margin": 0.9996951097288668,
+      "accepted": true,
+      "reason": "Template match.",
+      "alternatives": [
+        {
+          "id": "menu",
+          "score": 0.0002866924786748716
+        },
+        {
+          "id": "education",
+          "score": 0.9403136335222491
+        },
+        {
+          "id": "languages",
+          "score": 0.9677257460035734
+        }
+      ]
+    },
+    {
+      "file": "menu-3.mp3",
+      "expected": "menu",
+      "id": "menu",
+      "score": 0.0002835807926479719,
+      "margin": 0.9996840956345251,
+      "accepted": true,
+      "reason": "Template match.",
+      "alternatives": [
+        {
+          "id": "menu",
+          "score": 0.0002835807926479719
+        },
+        {
+          "id": "back",
+          "score": 0.8976792461279715
+        },
+        {
+          "id": "stop",
+          "score": 0.919753302617588
+        }
+      ]
+    },
+    {
+      "file": "projects-1.mp3",
+      "expected": "projects",
+      "id": "projects",
+      "score": 0.00028998130110273256,
+      "margin": 0.9996900416120741,
+      "accepted": true,
+      "reason": "Template match.",
+      "alternatives": [
+        {
+          "id": "projects",
+          "score": 0.00028998130110273256
+        },
+        {
+          "id": "skovde",
+          "score": 0.9355491330405347
+        },
+        {
+          "id": "frog-game",
+          "score": 0.937682520510478
+        }
+      ]
+    },
+    {
+      "file": "projects-2.mp3",
+      "expected": "projects",
+      "id": "projects",
+      "score": 0.00028770786327122816,
+      "margin": 0.9997082658018756,
+      "accepted": true,
+      "reason": "Template match.",
+      "alternatives": [
+        {
+          "id": "projects",
+          "score": 0.00028770786327122816
+        },
+        {
+          "id": "education",
+          "score": 0.9861986188827914
+        },
+        {
+          "id": "skovde",
+          "score": 0.9897206299504291
+        }
+      ]
+    },
+    {
+      "file": "projects-3.mp3",
+      "expected": "projects",
+      "id": "projects",
+      "score": 0.0002894523042585029,
+      "margin": 0.9996828494929583,
+      "accepted": true,
+      "reason": "Template match.",
+      "alternatives": [
+        {
+          "id": "projects",
+          "score": 0.0002894523042585029
+        },
+        {
+          "id": "stop",
+          "score": 0.912665431180979
+        },
+        {
+          "id": "skills",
+          "score": 0.9403335641889482
+        }
+      ]
+    },
+    {
+      "file": "repeat-1.mp3",
+      "expected": "repeat",
+      "id": "repeat",
+      "score": 0.00028564620595428094,
+      "margin": 0.9996799128442903,
+      "accepted": true,
+      "reason": "Template match.",
+      "alternatives": [
+        {
+          "id": "repeat",
+          "score": 0.00028564620595428094
+        },
+        {
+          "id": "education",
+          "score": 0.8924013377571592
+        },
+        {
+          "id": "lexicon",
+          "score": 0.9275648388238954
+        }
+      ]
+    },
+    {
+      "file": "repeat-2.mp3",
+      "expected": "repeat",
+      "id": "repeat",
+      "score": 0.00029048458565840034,
+      "margin": 0.9996833558742426,
+      "accepted": true,
+      "reason": "Template match.",
+      "alternatives": [
+        {
+          "id": "repeat",
+          "score": 0.00029048458565840034
+        },
+        {
+          "id": "mental-model-graph",
+          "score": 0.9173850453203487
+        },
+        {
+          "id": "education",
+          "score": 0.9584511302208742
+        }
+      ]
+    },
+    {
+      "file": "repeat-3.mp3",
+      "expected": "repeat",
+      "id": "repeat",
+      "score": 0.0002915972188634271,
+      "margin": 0.9996988406667615,
+      "accepted": true,
+      "reason": "Template match.",
+      "alternatives": [
+        {
+          "id": "repeat",
+          "score": 0.0002915972188634271
+        },
+        {
+          "id": "tartu",
+          "score": 0.9682489854380619
+        },
+        {
+          "id": "mental-model-graph",
+          "score": 0.9704627800115053
+        }
+      ]
+    },
+    {
+      "file": "skills-1.mp3",
+      "expected": "skills",
+      "id": "skills",
+      "score": 0.00029023249910043543,
+      "margin": 0.9996900566255862,
+      "accepted": true,
+      "reason": "Template match.",
+      "alternatives": [
+        {
+          "id": "skills",
+          "score": 0.00029023249910043543
+        },
+        {
+          "id": "back",
+          "score": 0.9364049147665602
+        },
+        {
+          "id": "skovde",
+          "score": 0.9597302589957366
+        }
+      ]
+    },
+    {
+      "file": "skills-2.mp3",
+      "expected": "skills",
+      "id": "skills",
+      "score": 0.0002857947366529778,
+      "margin": 0.9996885685383857,
+      "accepted": true,
+      "reason": "Template match.",
+      "alternatives": [
+        {
+          "id": "skills",
+          "score": 0.0002857947366529778
+        },
+        {
+          "id": "skovde",
+          "score": 0.9176810049042565
+        },
+        {
+          "id": "back",
+          "score": 0.9363699596108767
+        }
+      ]
+    },
+    {
+      "file": "skills-3.mp3",
+      "expected": "skills",
+      "id": "skills",
+      "score": 0.00029210477046148867,
+      "margin": 0.9996563156688455,
+      "accepted": true,
+      "reason": "Template match.",
+      "alternatives": [
+        {
+          "id": "skills",
+          "score": 0.00029210477046148867
+        },
+        {
+          "id": "tartu",
+          "score": 0.8499216984384317
+        },
+        {
+          "id": "stop",
+          "score": 0.8765807528290452
+        }
+      ]
+    },
+    {
+      "file": "skövde-1.mp3",
+      "expected": "skovde",
+      "id": "skovde",
+      "score": 0.0002906942321778692,
+      "margin": 0.9996720007574074,
+      "accepted": true,
+      "reason": "Template match.",
+      "alternatives": [
+        {
+          "id": "skovde",
+          "score": 0.0002906942321778692
+        },
+        {
+          "id": "help",
+          "score": 0.88626494951661
+        },
+        {
+          "id": "tartu",
+          "score": 0.8910299072891046
+        }
+      ]
+    },
+    {
+      "file": "skövde-2.mp3",
+      "expected": "skovde",
+      "id": "skovde",
+      "score": 0.00028479392403454244,
+      "margin": 0.9996772497531496,
+      "accepted": true,
+      "reason": "Template match.",
+      "alternatives": [
+        {
+          "id": "skovde",
+          "score": 0.00028479392403454244
+        },
+        {
+          "id": "back",
+          "score": 0.8823972307187875
+        },
+        {
+          "id": "tartu",
+          "score": 0.8870214038169227
+        }
+      ]
+    },
+    {
+      "file": "skövde-3.mp3",
+      "expected": "skovde",
+      "id": "skovde",
+      "score": 0.00029171838105049286,
+      "margin": 0.99967237647736,
+      "accepted": true,
+      "reason": "Template match.",
+      "alternatives": [
+        {
+          "id": "skovde",
+          "score": 0.00029171838105049286
+        },
+        {
+          "id": "tartu",
+          "score": 0.8904073147730935
+        },
+        {
+          "id": "stop",
+          "score": 0.9095643193067227
+        }
+      ]
+    },
+    {
+      "file": "standalone-courses-1.mp3",
+      "expected": "standalone-courses",
+      "id": "standalone-courses",
+      "score": 0.000289266569930651,
+      "margin": 0.9997089684199807,
+      "accepted": true,
+      "reason": "Template match.",
+      "alternatives": [
+        {
+          "id": "standalone-courses",
+          "score": 0.000289266569930651
+        },
+        {
+          "id": "stop",
+          "score": 0.9939353313871893
+        },
+        {
+          "id": "skills",
+          "score": 0.9958495771118635
+        }
+      ]
+    },
+    {
+      "file": "standalone-courses-2.mp3",
+      "expected": "standalone-courses",
+      "id": "standalone-courses",
+      "score": 0.0002911605308303625,
+      "margin": 0.9997049395997328,
+      "accepted": true,
+      "reason": "Template match.",
+      "alternatives": [
+        {
+          "id": "standalone-courses",
+          "score": 0.0002911605308303625
+        },
+        {
+          "id": "languages",
+          "score": 0.9867828097796139
+        },
+        {
+          "id": "skills",
+          "score": 1.0057707480190095
+        }
+      ]
+    },
+    {
+      "file": "standalone-courses-3.mp3",
+      "expected": "standalone-courses",
+      "id": "standalone-courses",
+      "score": 0.00028855208408313306,
+      "margin": 0.9996889184893648,
+      "accepted": true,
+      "reason": "Template match.",
+      "alternatives": [
+        {
+          "id": "standalone-courses",
+          "score": 0.00028855208408313306
+        },
+        {
+          "id": "skills",
+          "score": 0.9275770954500369
+        },
+        {
+          "id": "tartu",
+          "score": 0.9722465472741907
+        }
+      ]
+    },
+    {
+      "file": "stop-1.mp3",
+      "expected": "stop",
+      "id": "stop",
+      "score": 0.0002784540879023152,
+      "margin": 0.9996681275955961,
+      "accepted": true,
+      "reason": "Template match.",
+      "alternatives": [
+        {
+          "id": "stop",
+          "score": 0.0002784540879023152
+        },
+        {
+          "id": "back",
+          "score": 0.839039595360144
+        },
+        {
+          "id": "tartu",
+          "score": 0.879143583319529
+        }
+      ]
+    },
+    {
+      "file": "stop-2.mp3",
+      "expected": "stop",
+      "id": "stop",
+      "score": 0.0002859331364038751,
+      "margin": 0.999704588251437,
+      "accepted": true,
+      "reason": "Template match.",
+      "alternatives": [
+        {
+          "id": "stop",
+          "score": 0.0002859331364038751
+        },
+        {
+          "id": "back",
+          "score": 0.9679138957568931
+        },
+        {
+          "id": "help",
+          "score": 0.9685199249651659
+        }
+      ]
+    },
+    {
+      "file": "stop-3.mp3",
+      "expected": "stop",
+      "id": "stop",
+      "score": 0.0002915942447218099,
+      "margin": 0.999575730127058,
+      "accepted": true,
+      "reason": "Template match.",
+      "alternatives": [
+        {
+          "id": "stop",
+          "score": 0.0002915942447218099
+        },
+        {
+          "id": "tartu",
+          "score": 0.6872848234541292
+        },
+        {
+          "id": "back",
+          "score": 0.8316250446736736
+        }
+      ]
+    },
+    {
+      "file": "swedish-1.mp3",
+      "expected": "swedish",
+      "id": "swedish",
+      "score": 0.0002836539788332665,
+      "margin": 0.9997058450240738,
+      "accepted": true,
+      "reason": "Template match.",
+      "alternatives": [
+        {
+          "id": "swedish",
+          "score": 0.0002836539788332665
+        },
+        {
+          "id": "english",
+          "score": 0.9643011407169735
+        },
+        {
+          "id": "menu",
+          "score": 0.9771409401833194
+        }
+      ]
+    },
+    {
+      "file": "swedish-2.mp3",
+      "expected": "swedish",
+      "id": "swedish",
+      "score": 0.0002805113919398105,
+      "margin": 0.9997112778407645,
+      "accepted": true,
+      "reason": "Template match.",
+      "alternatives": [
+        {
+          "id": "swedish",
+          "score": 0.0002805113919398105
+        },
+        {
+          "id": "repeat",
+          "score": 0.9715617002958316
+        },
+        {
+          "id": "goatly",
+          "score": 1.0323324518904784
+        }
+      ]
+    },
+    {
+      "file": "swedish-3.mp3",
+      "expected": "swedish",
+      "id": "swedish",
+      "score": 0.0002867257166681673,
+      "margin": 0.9997125704200769,
+      "accepted": true,
+      "reason": "Template match.",
+      "alternatives": [
+        {
+          "id": "swedish",
+          "score": 0.0002867257166681673
+        },
+        {
+          "id": "mental-model-graph",
+          "score": 0.9975511801704763
+        },
+        {
+          "id": "menu",
+          "score": 1.0161349109716766
+        }
+      ]
+    },
+    {
+      "file": "tartu-1.mp3",
+      "expected": "tartu",
+      "id": "tartu",
+      "score": 0.00028838866750252617,
+      "margin": 0.9996229084554231,
+      "accepted": true,
+      "reason": "Template match.",
+      "alternatives": [
+        {
+          "id": "tartu",
+          "score": 0.00028838866750252617
+        },
+        {
+          "id": "stop",
+          "score": 0.7647709731230973
+        },
+        {
+          "id": "back",
+          "score": 0.8654821319728131
+        }
+      ]
+    },
+    {
+      "file": "tartu-2.mp3",
+      "expected": "tartu",
+      "id": "tartu",
+      "score": 0.0002874665859047804,
+      "margin": 0.9996536894033378,
+      "accepted": true,
+      "reason": "Template match.",
+      "alternatives": [
+        {
+          "id": "tartu",
+          "score": 0.0002874665859047804
+        },
+        {
+          "id": "stop",
+          "score": 0.8300831354147927
+        },
+        {
+          "id": "help",
+          "score": 0.8901106155134536
+        }
+      ]
+    },
+    {
+      "file": "tartu-3.mp3",
+      "expected": "tartu",
+      "id": "tartu",
+      "score": 0.0002860194405286391,
+      "margin": 0.9995838526840324,
+      "accepted": true,
+      "reason": "Template match.",
+      "alternatives": [
+        {
+          "id": "tartu",
+          "score": 0.0002860194405286391
+        },
+        {
+          "id": "stop",
+          "score": 0.6873033407978633
+        },
+        {
+          "id": "skills",
+          "score": 0.8499189697563684
+        }
+      ]
+    },
+    {
+      "file": "work-experience-1.mp3",
+      "expected": "work-experience",
+      "id": "work-experience",
+      "score": 0.0002802156251236925,
+      "margin": 0.9997072041865157,
+      "accepted": true,
+      "reason": "Template match.",
+      "alternatives": [
+        {
+          "id": "work-experience",
+          "score": 0.0002802156251236925
+        },
+        {
+          "id": "stop",
+          "score": 0.9570342614844669
+        },
+        {
+          "id": "tartu",
+          "score": 0.9603923002828822
+        }
+      ]
+    },
+    {
+      "file": "work-experience-2.mp3",
+      "expected": "work-experience",
+      "id": "work-experience",
+      "score": 0.00028957582026212047,
+      "margin": 0.9997056994989698,
+      "accepted": true,
+      "reason": "Template match.",
+      "alternatives": [
+        {
+          "id": "work-experience",
+          "score": 0.00028957582026212047
+        },
+        {
+          "id": "education",
+          "score": 0.9839460661755872
+        },
+        {
+          "id": "lexicon",
+          "score": 0.9936755027160601
+        }
+      ]
+    },
+    {
+      "file": "work-experience-3.mp3",
+      "expected": "work-experience",
+      "id": "work-experience",
+      "score": 0.00028350568538341905,
+      "margin": 0.9997001023100534,
+      "accepted": true,
+      "reason": "Template match.",
+      "alternatives": [
+        {
+          "id": "work-experience",
+          "score": 0.00028350568538341905
+        },
+        {
+          "id": "projects",
+          "score": 0.9453413443556846
+        },
+        {
+          "id": "tartu",
+          "score": 0.9568377894237943
+        }
+      ]
+    }
+  ]
+}

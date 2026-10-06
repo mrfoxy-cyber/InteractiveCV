@@ -2,13 +2,28 @@
 (() => {
   const $=id=>document.getElementById(id), audio=$("tour-audio"), reduced=matchMedia("(prefers-reduced-motion: reduce)");
   let config=null, renderer=null, version=0, raf=0, last=-Infinity, blobUrl=null;
+  let audioReady=false;
+  const microphone=$("tour-microphone");
+  const syncMicrophone=()=>{
+    const playing=!audio.paused&&!audio.ended, label=playing?"Pause narration":"Play narration";
+    microphone.disabled=!audioReady; microphone.dataset.playing=String(playing);
+    microphone.setAttribute("aria-label",label); $("tour-microphone-label").textContent=label;
+  };
+  microphone.addEventListener("click",async()=>{
+    if(!audioReady)return;
+    if(!audio.paused){audio.pause();return;}
+    try {if(audio.ended)audio.currentTime=0;await audio.play();}
+    catch(error){status("Could not play narration: "+error.message);syncMicrophone();}
+  });
+  audio.addEventListener("emptied",()=>{audioReady=false;syncMicrophone();});
+  for(const event of ["play","pause","ended"])audio.addEventListener(event,syncMicrophone);
   const status=text=>$("tour-status").textContent=text;
   $("tour-animate").checked=!reduced.matches;
   const frame=()=>{if (renderer && config) renderer.frame(audio.currentTime*1000,config,MouthTimeline.sample(config.mouthTiming,audio.currentTime*1000),$("tour-animate").checked&&!audio.ended);};
   const tick=now=>{if(now-last>1000/30){last=now;frame();} if(!audio.paused&&!audio.ended)raf=requestAnimationFrame(tick);};
   const stop=()=>{audio.pause();cancelAnimationFrame(raf);if(renderer)renderer.render({});};
   async function load(value, baseUrl) {
-    const id=++version;stop();config=null;renderer=null; audio.hidden=true;audio.removeAttribute("src");audio.load();$("tour-audio-file").disabled=true;
+    const id=++version;stop();audioReady=false;syncMicrophone();config=null;renderer=null; audio.hidden=true;audio.removeAttribute("src");audio.load();$("tour-audio-file").disabled=true;
     if(blobUrl){URL.revokeObjectURL(blobUrl);blobUrl=null;}
     try {
       const checked=AudioTourConfig.validate(value);
@@ -28,9 +43,11 @@
     }catch(error){if(id===version)status("Could not load narration: "+error.message);}
   }
   audio.addEventListener("loadedmetadata",()=>{
-    if(config?.mouthTiming && (!Number.isFinite(audio.duration)||Math.abs(audio.duration*1000-config.mouthTiming.durationMs)>150)){stop();audio.hidden=true;status("Audio duration does not match the mouth timing. Choose the original recording or regenerate timing.");}
+    if(config?.mouthTiming && (!Number.isFinite(audio.duration)||Math.abs(audio.duration*1000-config.mouthTiming.durationMs)>150)){stop();audioReady=false;audio.hidden=true;status("Audio duration does not match the mouth timing. Choose the original recording or regenerate timing.");}
+    else audioReady=!!config;
+    syncMicrophone();
   });
-  audio.addEventListener("error",()=>{if(config){stop();status("Audio file not found or unsupported. Save it at the JSON audio path, or choose an audio replacement below.");}});
+  audio.addEventListener("error",()=>{audioReady=false;syncMicrophone();if(config){stop();status("Audio file not found or unsupported. Save it at the JSON audio path, or choose an audio replacement below.");}});
   audio.addEventListener("play",()=>{cancelAnimationFrame(raf);last=-Infinity;raf=requestAnimationFrame(tick);});
   audio.addEventListener("pause",()=>{cancelAnimationFrame(raf);frame();});audio.addEventListener("seeked",frame);audio.addEventListener("ended",()=>{cancelAnimationFrame(raf);renderer?.render({});});
   $("tour-animate").addEventListener("change",frame);
@@ -44,12 +61,12 @@
     try {const text=$("tour-paste").value;if(text.length>8*1024*1024)throw new Error("JSON is too large.");load(JSON.parse(text),new URL("narrations/pasted.narration.json",location.href));}catch(error){status("Could not load pasted JSON: "+error.message);}
   });
   $("tour-audio-file").addEventListener("change",event=>{
-    const file=event.target.files[0];if(!file||!config)return;stop();if(blobUrl)URL.revokeObjectURL(blobUrl);blobUrl=URL.createObjectURL(file);audio.src=blobUrl;audio.hidden=false;audio.load();status("Testing your chosen audio replacement. Nothing was uploaded.");
+    const file=event.target.files[0];if(!file||!config)return;stop();audioReady=false;syncMicrophone();if(blobUrl)URL.revokeObjectURL(blobUrl);blobUrl=URL.createObjectURL(file);audio.src=blobUrl;audio.hidden=false;audio.load();status("Testing your chosen audio replacement. Nothing was uploaded.");
   });
   let savedLoadVersion=0;
   const loadSaved=async file=>{
     const id=++savedLoadVersion;
-    stop(); status("Loading saved narration…");
+    stop(); audioReady=false;syncMicrophone();status("Loading saved narration…");
     try {
       if(!/^[^/\\]+\.narration\.json$/u.test(file)) throw new Error("Invalid saved narration filename.");
       const url=new URL("narrations/"+encodeURIComponent(file),location.href), response=await fetch(url);

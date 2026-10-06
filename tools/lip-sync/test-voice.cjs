@@ -1,0 +1,11 @@
+const assert=require('node:assert/strict'),path=require('node:path');
+const M=require(path.join(process.argv[2],'dist/audio-tour-test/voice-matcher.js'));
+assert.throws(()=>M.features(new Float32Array(16000)),/No clear speech/);
+assert.throws(()=>M.features(new Float32Array(16000*16)),/shorter than 15/);
+let seed=123;const noise=Float32Array.from({length:32000},()=>{seed=(Math.imul(seed,1664525)+1013904223)>>>0;return(seed/4294967296-.5)*.2;});
+assert.throws(()=>M.features(noise),/steady noise/);
+const tone=Float32Array.from({length:32000},(_,i)=>.1*Math.sin(2*Math.PI*440*i/16000));assert.throws(()=>M.features(tone),/steady tone/);
+assert.equal(M.distance([[1,2],[2,3]],[[1,2],[2,3]]),0);
+const bank={scale:{mean:[0,0],std:[1,1]},templates:[{id:'a',frames:[[1,2],[2,3]]},{id:'b',frames:[[1,2],[2,3]]}],thresholds:{a:1,b:1},minMargin:.08};
+assert.equal(M.recognize([[1,2],[2,3]],bank).accepted,false);
+console.log('Silence, noise, tone, oversize input and ambiguous-template rejection passed.');

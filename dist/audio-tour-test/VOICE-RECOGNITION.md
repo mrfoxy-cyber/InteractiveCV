@@ -1,0 +1,13 @@
+# Experimental local speech commands
+
+The audio-tour test has **Say your choice** controls. Click Listen, grant microphone access and say one command during the five-second recording. The microphone turns off after capture; audio is decoded and matched locally in a worker. Nothing is uploaded, persisted or continuously monitored. Cancel, hidden tabs and page exit stop capture. HTTPS or localhost is required. Browser microphone support and permission must be tested by the user; agent verification uses the recorded-sample mode.
+
+All **73 takes for 24 commands** are reference templates, as requested. Filename aliases include `skövde` → `skovde` and the recorded typo `gymnaisum-1` → `gymnasium`. The extra Mental Model Graph take is included. Text aliases in the original plan are not treated as recorded acoustic templates.
+
+Implementation: 16 kHz mono, activity trimming, 25 ms Hamming windows / 10 ms hops, 26 mel filters, twelve cepstral coefficients plus deltas, training-set feature scaling and banded dynamic time warping. Thresholds use within-command training distances and a minimum best/second-best margin. Silence and uncertain matches are rejected. Scores are distances, not confidence probabilities. A confirmed match selects the narration; playback remains a separate user action. Back/repeat/help/menu/stop have basic test-page actions. Tartu, Lexicon and language-specific commands can be identified but currently report that their separate tour narration is unavailable rather than selecting a wrong recording.
+
+This is an experimental template recognizer, **not a speaker-independent speech-to-text service**. All reference takes passed in-sample consistency checks; this is not unseen-speaker accuracy. The earlier two-reference/one-held-out prototype accepted 19/25 held-out takes correctly, rejected six and accepted zero incorrectly. Final thresholds and bank were rebuilt with all takes; evaluate them using fresh user recordings, different speakers, noise and unknown words before making accessibility/reliability claims. Keep buttons, keyboard access, visible transcripts and uncertainty confirmation available.
+
+`command-bank.json` stores features, not visitor audio. `recognition-test-report.json` labels the final tests as in-sample. Source recordings remain under `voice-tour/audio/commands/`. The batch helpers use the optional `miniaudio` decoder and the shared matcher; the browser does not need Python, Rhubarb or this decoder for recognition.
+
+Technical references: [MFCC/DTW voice recognition paper](https://arxiv.org/abs/1003.4083), [browser microphone security and permission](https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices/getUserMedia).

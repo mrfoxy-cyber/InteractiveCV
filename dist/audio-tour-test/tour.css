@@ -1,1 +1,10 @@
 #tour-character {display:block;width:100%;height:auto} #tour-audio {width:100%;margin:18px 0} #tour-transcript {white-space:pre-wrap} #tour-details {white-space:pre-wrap;overflow-wrap:anywhere;font-size:12px} aside input[type=file] {width:100%;margin:12px 0} .stage {position:static} #tour-status {min-height:3em} code {overflow-wrap:anywhere} #tour-paste {width:100%;resize:vertical;padding:10px}
+#tour-microphone {display:flex;align-items:center;gap:14px;margin:8px 0 22px;padding:8px 14px 8px 4px;background:transparent;color:#4d422d;border:1px solid transparent;border-radius:14px;cursor:pointer;font:inherit;font-weight:600;min-height:100px;box-shadow:none}
+#tour-microphone img {width:90px;height:auto;display:block;transition:transform .18s ease,filter .18s ease}
+#tour-microphone:hover:not(:disabled) {background:#eee9dd}
+#tour-microphone:hover:not(:disabled) img {transform:translateY(-2px)}
+#tour-microphone[data-playing="true"] {color:#37543f;background:#e9eee3}
+#tour-microphone:focus-visible {outline:3px solid #8a6835;outline-offset:4px}
+#tour-microphone:disabled {opacity:.45;cursor:wait}
+@media(prefers-reduced-motion:reduce){#tour-microphone img{transition:none}#tour-microphone:hover:not(:disabled) img{transform:none}}
+.voice-command-panel {padding:20px 0;margin-bottom:20px;border-top:1px solid #d8dfd0;border-bottom:1px solid #d8dfd0}.voice-actions{display:flex;flex-wrap:wrap;gap:10px}.voice-command-panel select{width:100%;margin-bottom:12px}#voice-status{color:#37543f}#voice-result{overflow-wrap:anywhere}
