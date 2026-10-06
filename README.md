@@ -28,7 +28,9 @@ From the repository folder, with Python installed:
 python -m http.server 4173 --bind 127.0.0.1 --directory dist
 ```
 
-Open [http://127.0.0.1:4173/](http://127.0.0.1:4173/). The Frog Game is at `/frog-game/`.
+Open [http://127.0.0.1:4173/](http://127.0.0.1:4173/). The Frog Game is at `/frog-game/`, and the visitor-facing audio tour is at `/audio-tour-v2/`, also linked from the CV header.
+
+Saved narration playback works on a static server. Voice input additionally requires a supported browser, microphone permission and an installed English speech pack. Use localhost when testing, or HTTPS when hosting. For local mouth-timing generation and automatic chunk-report saving, use the separate workshop server described below.
 
 For hosting, publish the contents of `dist/` as the website root.
 
@@ -42,8 +44,11 @@ dist/
   image-hit-areas.js    Image-shaped pointer targeting
   assets/               Website artwork and recordings
   frog-game/            Playable browser game and its assets
-  voice-tour/           Planned voice-tour templates and recording guide
+  voice-tour/           Narration recordings, command examples, and recording guide
   character-map/        Separate anchored character and audio timing workshop
+  chunk-analysis/       Experimental pitch/chunk visualisation and comparison
+  audio-tour-test/      Original audio-tour sandbox and sound-pattern experiments
+  audio-tour-v2/        Visitor-facing, class-based conversational audio tour
 tools/
   lip-sync/             Local-only audio-to-mouth authoring pipeline
 ```
@@ -54,11 +59,54 @@ The current files in `dist/` are the editable website source, not generated buil
 
 The original game was made in Unity. The browser version recreates similar gameplay in JavaScript using the remaining game assets. The latest Unity version was unfortunately lost.
 
-## Voice-tour experiment
+## Audio and interaction experiments
 
-The voice-tour folder contains a recording plan and command templates. Visitor voice-command recognition and the conversational audio tour are not implemented yet. Existing language recordings are separate from this planned experiment.
+This CV is also a playground for exploring spoken navigation, sound-pattern recognition and a lightly animated guide. These are practical experiments, not a claim of production-grade speech recognition or a completed accessibility solution. Accessible buttons, keyboard navigation and narration text remain available alongside voice controls.
 
-The separate character workshop can now analyse recordings locally with Rhubarb Lip Sync and export millisecond mouth-pose timelines. Double-click `tools/lip-sync/start-workshop.cmd` and open http://127.0.0.1:4180/character-map/anchored.html. A transcript is not required; English mode accepts an optional script. See [setup and privacy details](tools/lip-sync/README.md). Timing is approximate; it is not a transcript or exact vowel identification. Saved timelines can be replayed on the static workshop without the recognizer. The original CV portrait is not replaced or animated, and the local authoring server must not be publicly hosted.
+### Recorded narration and anchored animation
+
+Instead of video, the guide combines a fixed character image with small masked patches for eyes, mouth and loose hair. The body, hands and feet remain anchored. Animation follows the recording's playback clock, and visitors can disable it; reduced-motion preferences are respected. The original portrait in the illustrated CV stays unchanged.
+
+Each narration JSON describes its audio, transcript, character package, mouth cues, blinking and hair movement. The twenty generated narration configurations use a **−30 ms mouth offset**, so the mouth animation runs slightly ahead of the sound. Compact cropped patches reduce image loading without changing their alignment. Existing language samples can also be played, but do not yet have transcripts or lip-sync timing.
+
+The [character workshop](dist/character-map/anchored.html) generates approximate mouth-pose timelines locally with Rhubarb Lip Sync. It does not require a transcript; English mode accepts an optional script. Double-click `tools/lip-sync/start-workshop.cmd` and open [the local workshop](http://127.0.0.1:4180/character-map/anchored.html). See [setup and privacy details](tools/lip-sync/README.md). Generated timing is visual guidance, not speech transcription, precise vowel identification or a lip-reading aid.
+
+### Sound templates, pitch patterns and chunk analysis
+
+Earlier experiments tried recognising short commands by comparing recordings rather than using full speech recognition:
+
+- Frequency-based templates use MFCC audio features and dynamic time warping to compare examples with different speaking speeds.
+- Pitch-pattern experiments split the sound into rising, falling, stable and discontinuity-related segments. Chunk count, types and relative ranks were explored instead of relying on exact pitch or duration.
+- A hybrid approach shortlisted candidates using chunks, then compared their frequency features.
+
+These approaches were not reliable enough for general spoken navigation. The recognisers, analysis tools and recorded examples remain useful for experimentation, but they are not the command engine used by Audio Tour v2.
+
+The separate [chunk-analysis page](dist/chunk-analysis/index.html) shows pitch and energy traces, chunk boundaries, split reasons and duration ranks. Recordings and individual chunks can be played back for inspection. Pitch chunks are **not** syllables, vowels or recognised words. With the local workshop server, completed analyses save audio and JSON reports into the private, Git-ignored `chunktest/` working folder; they are not sent to a third-party service. Older labelled command captures are kept separately in the ignored `voice-commands/` working folder.
+
+### Audio Tour v2: spoken navigation
+
+The [visitor-facing audio tour](dist/audio-tour-v2/index.html) uses the browser's on-device English speech recognition, not the earlier template matcher. It explicitly requests local processing and has no deliberate online recognition fallback. The browser may need a one-time English language-pack download before it can listen.
+
+Start the tour, allow microphone access, and say a mapped choice such as “education”, “projects”, “skills”, “languages”, “help”, “back”, “menu” or “repeat”. The current experiment accepts **all 22 mapped commands during narration as well as between recordings**. A recognised choice interrupts the current recording and opens its corresponding narration. Ordinary choices wait for a final recognised phrase; “stop” can respond to an interim match, interrupts to the goodbye recording, then closes the microphone. Nothing-heard plays a reminder and listens again. Pause, Escape, leaving the page or hiding its tab cancels playback and microphone capture.
+
+Microphone input requests echo cancellation, noise suppression and automatic gain control, and supplies the filtered audio track to local recognition. This aims to keep speaker playback from triggering voice commands; it is not perfect subtraction of the narration. Audio-track recognition and on-device processing depend on browser support. **Headphones are recommended**, especially with all-command interruption enabled. Button-only mode needs no microphone. The tour does not save microphone recordings or recognised words.
+
+Known gaps: Tartu and Lexicon do not yet have individual narrations; language samples lack transcripts and mouth timing; the older nothing-heard recording still mentions a Listen button that the automatic tour no longer uses. Recognition accuracy, echo rejection and assistive-technology behaviour still need wider real-device testing.
+
+Version 2 keeps responsibilities in small classes: `NarrationLibrary`, `NarrationPlayer`, `TourView`, `SpeechInput` and `TourController`. JSON mappings and character definitions are separate from playback and navigation logic. See the [version 2 architecture and content guide](dist/audio-tour-v2/README.md).
+
+The original tour sandbox, character workshop and chunk-analysis page are retained separately. Only static website files should be published; **never expose the local authoring server to the internet**.
+
+### Checks
+
+The version 2 checks cover narration contracts and paths, −30 ms offsets, cached JSON, goodbye cleanup, button-only mode, cancelled microphone requests, all-command interruption and rejection of stale recognition callbacks:
+
+```sh
+node dist/audio-tour-v2/test-v2.mjs
+node dist/audio-tour-v2/test-all-commands.cjs
+```
+
+These automated checks use controlled inputs; they do not establish real microphone accuracy, browser compatibility or a complete accessibility audit.
 
 ## Credits and public demos
 
