@@ -4,6 +4,15 @@
   const audio = $("speech-audio"), status = $("audio-status"), reduced = matchMedia("(prefers-reduced-motion: reduce)");
   let timeline = null, sourceName = "", sourceBytes = null, audioUrl = null, downloadUrl = null;
   let ready = false, token = null, busy = false, raf = 0, lastFrame = -Infinity, loadVersion = 0;
+  let catalogueLoading = false;
+  let sourceReady = false;
+  const scriptCatalogue = fetch("narration-scripts.json", { cache: "no-store" }).then(response => {
+    if (!response.ok) throw new Error("Narration script unavailable"); return response.json();
+  }).catch(() => null);
+  const narrationRoot = "../voice-tour/audio/narration/";
+  const narrationSelect = $("narration-select");
+  const validNarrationFile = file => typeof file === "string" && file.length <= 255 && !file.startsWith(".") && !/[\\/\x00-\x1f]/.test(file) && /\.(mp3|wav|ogg|m4a|aac|flac)$/i.test(file);
+  const narrationLabel = file => file.replace(/\.[^.]+$/, "").replace(/-/g, " ").replace(/\b\w/g, character => character.toUpperCase());
   $("audio-animate").checked = !reduced.matches;
   const message = text => { status.textContent = text; };
   const offsetInput = $("mouth-offset");
@@ -12,9 +21,12 @@
     return offsetInput.valueAsNumber;
   };
   const controls = () => {
-    $("generate-timing").disabled = !ready || !sourceBytes || !token || busy || !offsetInput.validity.valid;
+    $("generate-timing").disabled = !ready || !sourceBytes || !sourceReady || !token || busy || !offsetInput.validity.valid;
     offsetInput.disabled = busy;
     $("audio-file").disabled = $("audio-example").disabled = $("load-example").disabled = busy;
+    narrationSelect.disabled = busy || catalogueLoading || narrationSelect.options.length < 2;
+    $("load-narration").disabled = busy || catalogueLoading || !narrationSelect.value;
+    $("refresh-narrations").disabled = busy || catalogueLoading;
     $("timeline-file").disabled = busy || !sourceBytes;
     $("speech-recognizer").disabled = busy;
     $("speech-script").disabled = busy || $("speech-recognizer").value !== "pocketSphinx";
@@ -68,15 +80,30 @@
     audioUrl = URL.createObjectURL(new Blob([bytes], { type: mime || "audio/mpeg" }));
     audio.src = audioUrl; audio.load();
     $("selected-audio").textContent = name;
+    const catalogue = await scriptCatalogue;
+    if (version !== loadVersion) return;
+    const clip = NarrationScript.match(catalogue, name);
+    $("speech-script").value = clip ? clip.text : "";
+    if (clip) {
+      $("speech-recognizer").value = "pocketSphinx";
+      $("script-option").open = true;
+      $("script-status").textContent = `Loaded automatically from ${catalogue.source || "your narration script"}: ${clip.title || clip.file}. Edit or clear the text if your recording differs. Used only in English mode.`;
+    } else {
+      $("script-status").textContent = catalogue ? "No matching script for this filename. Enter text yourself, or generate from audio only." : "The saved narration script could not load. Enter text yourself, or generate from audio only.";
+    }
+    sourceReady = true;
     message(token ? "Audio selected. Generate the mouth timing, or load an existing JSON timeline." : "Audio selected. Load existing timing, or open the local generator on port 4180.");
     controls();
   };
   const clearAudio = () => {
-    stop(); resetTimeline(); sourceBytes = null; sourceName = "";
+    stop(); resetTimeline(); sourceBytes = null; sourceName = ""; sourceReady = false;
+    $("speech-script").value = "";
+    $("script-status").textContent = "Choose a narration to load its matching script automatically.";
     if (audioUrl) URL.revokeObjectURL(audioUrl); audioUrl = null;
     audio.removeAttribute("src"); audio.load(); $("selected-audio").textContent = "No recording selected."; controls();
   };
   $("audio-file").addEventListener("change", async event => {
+    narrationSelect.value = "";
     const file = event.target.files[0], version = ++loadVersion; clearAudio();
     if (!file) return;
     try {
@@ -85,6 +112,7 @@
     } catch (error) { message(error.message); }
   });
   $("load-example").addEventListener("click", async () => {
+    narrationSelect.value = "";
     const name = $("audio-example").value, version = ++loadVersion; clearAudio();
     message("Loading the existing " + name + " recording…");
     try {
@@ -95,6 +123,66 @@
     } catch (error) { if (version === loadVersion) message(error.message); }
   });
   $("speech-recognizer").addEventListener("change", controls);
+
+  const loadCatalogue = async () => {
+    if (catalogueLoading || busy) return;
+    catalogueLoading = true; controls();
+    $("narration-status").textContent = "Finding your narration recordings…";
+    try {
+      let files = null, live = false;
+      // The local static server lists the real folder, including newly added files.
+      // Public static hosts often disable directory listings: use the checked-in
+      // catalogue there, without contacting a visitor's local computer.
+      if (["127.0.0.1", "localhost"].includes(location.hostname)) {
+        try {
+          const response = await fetch(narrationRoot, { cache: "no-store" });
+          if (response.ok) {
+            const listing = new DOMParser().parseFromString(await response.text(), "text/html");
+            const found = [...listing.querySelectorAll("a[href]")].flatMap(link => {
+              try { const file = decodeURIComponent(link.getAttribute("href")); return validNarrationFile(file) ? [file] : []; }
+              catch { return []; }
+            });
+            if (found.length) { files = found; live = true; }
+          }
+        } catch { /* A bundled catalogue keeps the picker usable without a listing. */ }
+      }
+      if (!files) {
+        const response = await fetch("narration-recordings.json", { cache: "no-store" });
+        if (!response.ok) throw new Error("The narration list could not be loaded.");
+        const catalogue = await response.json();
+        if (catalogue.version !== 1 || !Array.isArray(catalogue.files)) throw new Error("The narration list is invalid.");
+        files = catalogue.files.filter(validNarrationFile);
+      }
+      files = [...new Set(files)].sort((a, b) => a === "welcome.mp3" ? -1 : b === "welcome.mp3" ? 1 : a.localeCompare(b));
+      const previous = narrationSelect.value;
+      narrationSelect.replaceChildren(new Option("Choose a narration…", ""));
+      for (const file of files) narrationSelect.append(new Option(narrationLabel(file) + " · " + file, file));
+      if (files.includes(previous)) narrationSelect.value = previous;
+      $("narration-status").textContent = `${files.length} narrations available${live ? " · from your local folder" : " · saved catalogue"}.`;
+    } catch (error) {
+      $("narration-status").textContent = error.message + " You can still choose an audio file below.";
+    } finally { catalogueLoading = false; controls(); }
+  };
+  const loadNarration = async () => {
+    const file = narrationSelect.value;
+    if (busy || !validNarrationFile(file)) return;
+    const version = ++loadVersion; clearAudio(); $("audio-file").value = "";
+    message("Loading narration: " + narrationLabel(file) + "…");
+    try {
+      const response = await fetch(narrationRoot + encodeURIComponent(file), { cache: "no-store" });
+      if (!response.ok) throw new Error("This narration could not be loaded. Refresh the list or choose the file below.");
+      const size = Number(response.headers.get("Content-Length"));
+      if (size > 40 * 1024 * 1024) throw new Error("Use an audio file smaller than 40 MB.");
+      await selectAudio(await response.arrayBuffer(), file, response.headers.get("Content-Type"), version);
+      if (version === loadVersion) {
+        // The current CV narration script is English; the mode remains adjustable.
+        $("speech-recognizer").value = "pocketSphinx"; controls();
+      }
+    } catch (error) { if (version === loadVersion) message(error.message); }
+  };
+  narrationSelect.addEventListener("change", loadNarration);
+  $("load-narration").addEventListener("click", loadNarration);
+  $("refresh-narrations").addEventListener("click", loadCatalogue);
 
   const base64Wav = async bytes => {
     const AudioContextClass = window.AudioContext || window.webkitAudioContext;
@@ -156,7 +244,7 @@
     message("Timing ready. Press Play in the audio player to hear the recording and see the matched mouth movements.");
   };
   $("generate-timing").addEventListener("click", async () => {
-    if (busy || !sourceBytes || !token || !ready || !offsetInput.validity.valid) return;
+    if (busy || !sourceBytes || !sourceReady || !token || !ready || !offsetInput.validity.valid) return;
     busy = true; stop(); resetTimeline(); controls(); $("analysis-progress").hidden = false;
     message("Preparing audio locally…");
     try {
@@ -181,6 +269,7 @@
     finally { event.target.value = ""; }
   });
   controls();
+  loadCatalogue();
   // No attempt to reach a visitor's localhost from a deployed site.
   if (["127.0.0.1", "localhost"].includes(location.hostname) && location.port === "4180") {
     fetch("/api/status").then(response => {

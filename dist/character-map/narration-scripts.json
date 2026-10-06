@@ -1,0 +1,117 @@
+{
+  "version": 1,
+  "language": "en",
+  "source": "script.odt",
+  "clips": [
+    {
+      "file": "welcome.mp3",
+      "title": "Welcome",
+      "text": "Hello! Welcome to my page. I’m Marju, and this is my interactive CV.\n\nOn the page, my education lives in a stack of books, my work experience is packed into an old suitcase, and my projects are potatoes!\n\nYou don’t need to see those objects to explore them.\n\nWhat would you like to know about me? Say “about me,” “education,” “projects,” “work experience,” “skills,” or “languages.”\n\nSay “help” whenever you need to hear the choices again."
+    },
+    {
+      "file": "about-me.mp3",
+      "title": "About me",
+      "text": "I’m Marju, a junior software developer with professional experience in software testing, application support, and Microsoft Dynamics NAV-based finance systems.\n\nIn my personal projects, I work with C plus plus, C sharp, dot net, Go, Python, and databases.\n\nTwo of my ongoing projects are Mental Model Graph, a tool for understanding complex software systems, and Goatly, a learning platform for children.\n\nOutside software development, I also create children’s stories for my son."
+    },
+    {
+      "file": "education.mp3",
+      "title": "Education menu",
+      "text": "Welcome to my bookshelf!\n\nEach book represents a part of my education. There’s the University of Skövde, the University of Tartu, Lexicon, Komvux, and my gymnasium education in Estonia.\n\nThere are also some loose papers representing standalone courses in art, design, and three-dimensional modelling.\n\nWhich would you like to hear about?\n\nSay “Skövde,” “Tartu,” “Lexicon,” “Komvux,” “gymnasium,” or “standalone courses.”"
+    },
+    {
+      "file": "education-skovde.mp3",
+      "title": "University of Skövde",
+      "text": "I have a bachelor’s degree in Informatics from the University of Skövde, comprising one hundred and eighty university credits.\n\nThe degree combined transferred studies from Estonia with additional coursework in Sweden.\n\nMy thesis explored email classification using Latent Dirichlet Allocation and a Random Forest classifier. I investigated how additional information affected classification accuracy.\n\nMy courses included software testing, algorithms and data structures, systems thinking, quantitative methods, and English."
+    },
+    {
+      "file": "education-tartu.mp3",
+      "title": "University of Tartu",
+      "text": "I studied Informatics at the University of Tartu in Estonia between two thousand and seven and two thousand and ten.\n\nMy studies covered programming, mathematics, databases, software engineering, artificial intelligence, operating systems, and software testing.\n\nI also studied drawing, painting, user interface design, digital painting, and multimedia.\n\nIt was a combination of technical and creative subjects."
+    },
+    {
+      "file": "education-lexicon.mp3",
+      "title": "Lexicon",
+      "text": "My CV currently lists an ongoing full-stack developer programme through Lexicon and Luleå University of Technology.\n\nIt is a forty-five-week, full-time remote programme combining practical programming, an academic phase, and a workplace placement.\n\nThe subjects include C sharp and dot net, object-oriented programming, relational databases, software testing, web development, REST APIs, and Agile development."
+    },
+    {
+      "file": "education-komvux.mp3",
+      "title": "Komvux",
+      "text": "Between two thousand and thirteen and two thousand and fifteen, I studied at Komvux.\n\nI completed English six and seven, as well as Swedish as a Second Language, levels one through three."
+    },
+    {
+      "file": "education-gymnasium.mp3",
+      "title": "Gymnasium",
+      "text": "I completed my upper secondary education in Estonia in two thousand and seven.\n\nMy subjects included mathematics, physics, chemistry, biology, and natural science."
+    },
+    {
+      "file": "education-courses.mp3",
+      "title": "Standalone courses",
+      "text": "In two thousand and sixteen, I took additional university courses in creative subjects.\n\nAt Luleå University of Technology, I studied digital painting and idea visualisation, as well as game design.\n\nAt Uppsala University, I studied three-dimensional modelling and visualisation with ZBrush.\n\nAt the University of Gävle, I studied three-dimensional modelling and animation in an open-source environment."
+    },
+    {
+      "file": "projects.mp3",
+      "title": "Projects menu",
+      "text": "You’ve reached my potato bag!\n\nEach potato is a different project. There’s Goatly, Mental Model Graph, and Frog Game.\n\nGoatly is a children’s learning platform. Mental Model Graph helps developers understand source code. Frog Game is a playful puzzle game.\n\nWhich potato would you like to explore?\n\nSay “Goatly,” “Mental Model Graph,” or “Frog Game.”"
+    },
+    {
+      "file": "project-goatly.mp3",
+      "title": "Goatly",
+      "text": "Goatly is my ongoing concept-based language-learning platform for children with language delays and multilingual backgrounds.\n\nIt connects educators, caregivers, and the languages spoken at home.\n\nThe idea is to make visual communication support more engaging through personalised characters, voices, playful activities, and learning journeys connected to real-world experiences.\n\nThe project began with Go and Encore. I’m now rebuilding it in C sharp and dot net using Clean Architecture.\n\nMy work includes permissions, child-safe access to media, databases, automated testing, and maintainable system boundaries.\n\nA public code example and a live demo are linked in the project section."
+    },
+    {
+      "file": "project-mmg.mp3",
+      "title": "Mental Model Graph",
+      "text": "Mental Model Graph, or M M G, is my ongoing source-code analysis project.\n\nIt turns C plus plus codebases into navigable graphs, helping developers explore components, relationships, tests, and supporting evidence.\n\nI use C plus plus twenty, CMake, Python, and Tree-sitter.\n\nThe project currently runs as a locally built command-line application.\n\nI also created a custom testing framework to keep required behaviours visible and support systematic testing.\n\nA public code example is linked in the project section."
+    },
+    {
+      "file": "project-frog.mp3",
+      "title": "Frog Game",
+      "text": "Frog Game is a silly, soothing puzzle game for children and adults.\n\nIt offers a little logical challenge and a calm escape during stressful moments.\n\nI originally built it from scratch in Unity and C sharp and released it as an Android application.\n\nUnfortunately, I lost the latest version of the original game.\n\nUsing the visual and audio assets I still had, I created a similar browser game with JavaScript, HTML, and CSS.\n\nThe browser version recreates the core puzzle logic rather than being a direct Unity export.\n\nYou can find the playable version in the project section."
+    },
+    {
+      "file": "work-experience.mp3",
+      "title": "Work experience",
+      "text": "Let’s open my work-experience suitcase.\n\nFrom twenty twenty-four to twenty twenty-five, I worked as a QA Engineer at Silverspin in Skövde. I created Playwright tests and manually tested a sportsbook, finding defects that were corrected before release.\n\nFrom twenty twenty to twenty twenty-four, I was an Application Support Consultant at Aptic. I handled support requests, wrote documentation, and investigated errors in Microsoft Dynamics NAV export files.\n\nFrom twenty seventeen to twenty twenty, I worked as a System Developer at Asitis. My work included manual testing, requirements, investigating defects in C slash A L code, and improving testing methods.\n\nEarlier, I worked at a garden nursery, caring for plants and selling products at markets.\n\nI also worked as a playhost for Tallink, organising children’s activities and hosting karaoke for adults."
+    },
+    {
+      "file": "skills.mp3",
+      "title": "Skills",
+      "text": "My skills combine development, testing, and application support.\n\nIn software testing, I have experience with manual, functional, regression, unit, and integration testing. I also work with test planning, debugging, requirements, and defect investigation.\n\nMy development work includes C plus plus twenty, C sharp and dot net, Python, and SQL.\n\nThrough my projects, I work with software architecture, web APIs, databases, authentication, and automated testing.\n\nI have used Playwright for browser testing and Git and GitHub for version control.\n\nMy application-support experience includes customer communication, technical documentation, troubleshooting, and Microsoft Dynamics NAV-based finance systems."
+    },
+    {
+      "file": "languages.mp3",
+      "title": "Languages menu",
+      "text": "I speak four languages.\n\nEstonian is my native language. I have professional proficiency in English and Swedish, and elementary proficiency in German.\n\nYou can hear a recording of me speaking each language.\n\nSay “Estonian,” “English,” “Swedish,” or “German.”"
+    },
+    {
+      "file": "next-choice.mp3",
+      "title": "After an answer",
+      "text": "What would you like to explore next?\n\nSay “back” to return to the previous menu, “menu” for all sections, or “repeat” to hear this again.\n\nSay “stop” to end the audio tour."
+    },
+    {
+      "file": "help.mp3",
+      "title": "Main menu and help",
+      "text": "You can explore about me, education, projects, work experience, skills, or languages.\n\nSay the name of the section you want.\n\nYou can also say “back,” “menu,” “repeat,” or “stop.”"
+    },
+    {
+      "file": "not-understood.mp3",
+      "title": "Didn’t recognise the answer",
+      "text": "Sorry, I didn’t catch that.\n\nPlease say your choice again, or say “help” to hear the available options.\n\nYou can also choose using the page’s buttons or your keyboard."
+    },
+    {
+      "file": "nothing-heard.mp3",
+      "title": "Nothing heard",
+      "text": "I didn’t hear a choice.\n\nTake your time. Use the listen button when you’re ready to speak, or choose a section using your keyboard."
+    },
+    {
+      "file": "microphone-unavailable.mp3",
+      "title": "Microphone unavailable",
+      "text": "Voice input isn’t available right now.\n\nYou can still explore the tour using the page’s buttons or your keyboard and listen to the recordings."
+    },
+    {
+      "file": "goodbye.mp3",
+      "title": "End of tour",
+      "text": "Thank you for exploring my CV!\n\nYou can continue browsing the page, visit my LinkedIn or GitHub, or start the audio tour again.\n\nGoodbye for now!"
+    }
+  ]
+}

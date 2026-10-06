@@ -12,6 +12,10 @@ main { display:grid; grid-template-columns:minmax(0,1.6fr) minmax(280px,1fr); ga
 .stage { background:#e9eee3; border-radius:20px; overflow:hidden; align-self:start; border:1px solid #d6ddcf; }
 .stage { position:sticky; top:16px; }
 .audio-workshop { padding-bottom:24px; margin-bottom:26px; border-bottom:1px solid #d8dfd0; }
+.narration-picker { margin:18px 0; padding:14px 0; border-top:1px solid #d8dfd0; border-bottom:1px solid #d8dfd0; }
+.narration-picker label { margin-top:0; }
+.narration-actions { display:flex; flex-wrap:wrap; gap:8px; margin-top:10px; }
+.narration-actions button { padding:9px 12px; }
 .audio-workshop input[type="file"] { width:100%; height:auto; font:inherit; font-size:12px; }
 .audio-workshop textarea { width:100%; resize:vertical; font:inherit; padding:10px; border:1px solid #aab7a1; border-radius:8px; }
 .example-row { display:grid; grid-template-columns:1fr auto; gap:8px; }

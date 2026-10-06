@@ -1,0 +1,25 @@
+{
+  "version": 1,
+  "files": [
+    "welcome.mp3",
+    "about-me.mp3",
+    "education.mp3",
+    "education-skövde.mp3",
+    "education-courses.mp3",
+    "komvux.mp3",
+    "gymnasium.mp3",
+    "projects.mp3",
+    "goatly.mp3",
+    "mental-model-graph.mp3",
+    "frog-game.mp3",
+    "work-experience.mp3",
+    "skills.mp3",
+    "languages.mp3",
+    "help.mp3",
+    "next-choice.mp3",
+    "nothing-heard.mp3",
+    "not-understood.mp3",
+    "microphone-unavailable.mp3",
+    "goodbye.mp3"
+  ]
+}

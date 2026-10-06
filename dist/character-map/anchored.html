@@ -4,10 +4,11 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Marju · Anchored audio-tour character</title>
-  <link rel="stylesheet" href="anchored.css?v=audio-offset-1">
+  <link rel="stylesheet" href="anchored.css?v=narration-picker-1">
   <script defer src="lip-sync-timeline.js?v=audio-offset-1"></script>
   <script defer src="anchored.js?v=audio-workshop-1"></script>
-  <script defer src="audio-workshop.js?v=audio-offset-1"></script>
+  <script defer src="narration-script-match.js?v=narration-script-1"></script>
+  <script defer src="audio-workshop.js?v=narration-script-1"></script>
 </head>
 <body>
   <header><div><p class="eyebrow">Audio-tour workshop · version 2</p><h1>A little life. A steady base.</h1><p>Only hair, eyes and mouth. Your original CV portrait stays untouched.</p></div><a href="layers.html">Previous character parts</a></header>
@@ -22,13 +23,20 @@
         <p class="eyebrow">Record once · let the mouth follow</p>
         <h2 id="audio-title">Audio → mouth timing</h2>
         <p>Choose a recording. Sound recognition creates a millisecond timing list—no script required. Everything is processed on this computer.</p>
-        <label for="audio-file">Your recording · MP3 or WAV</label>
+        <div class="narration-picker">
+          <label for="narration-select">Test a CV narration</label>
+          <select id="narration-select" aria-describedby="narration-help" disabled><option value="">Loading narrations…</option></select>
+          <div class="narration-actions"><button id="load-narration" type="button" disabled>Load narration</button><button id="refresh-narrations" type="button" class="secondary">Refresh list</button></div>
+          <p id="narration-help" class="small">Choose a narration to load it, then generate timing and press Play. Nothing plays automatically.</p>
+          <p id="narration-status" class="small" role="status">Finding your narration recordings…</p>
+        </div>
+        <label for="audio-file">Or choose any audio file · MP3 or WAV</label>
         <input id="audio-file" type="file" accept="audio/*,.mp3,.wav,.ogg,.m4a,.flac">
         <p id="selected-audio" class="small">No recording selected.</p>
         <div class="example-row"><label for="audio-example">Or try a recording</label><select id="audio-example"><option>English</option><option>Estonian</option><option>Swedish</option><option>German</option></select><button id="load-example" type="button" class="secondary">Use example</button></div>
         <label for="speech-recognizer">Speech recognition</label>
         <select id="speech-recognizer"><option value="phonetic">Any language · speech sounds</option><option value="pocketSphinx">English · word-assisted</option></select>
-        <details class="script-option"><summary>Optional English script</summary><label for="speech-script">Words spoken in the recording (optional)</label><textarea id="speech-script" rows="4" maxlength="50000" disabled placeholder="Leave empty to analyse just the audio."></textarea><p class="small">Used only with the English recognizer; it may improve matching.</p></details>
+        <details class="script-option" id="script-option"><summary>English script · filled from your narration script</summary><label for="speech-script">Words spoken in the recording (editable)</label><textarea id="speech-script" rows="4" maxlength="50000" disabled placeholder="The matching narration text will appear here."></textarea><p id="script-status" class="small">Matching narration text loads automatically. You can edit it or clear it to test audio only. Used only with the English recognizer.</p></details>
         <button id="generate-timing" type="button" disabled>Generate mouth timing</button>
         <label for="mouth-offset">Mouth timing offset (ms)</label>
         <input id="mouth-offset" type="number" value="0" min="-5000" max="5000" step="1" required aria-describedby="mouth-offset-help">
