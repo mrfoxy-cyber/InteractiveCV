@@ -1,0 +1,15 @@
+const assert=require('node:assert/strict');require(process.argv[2]||'./command-matcher.js');const M=CommandMatcher;
+const fp=n=>({vector:Array.from({length:24},(_,i)=>i===0?n:0)});
+assert.deepEqual(M.settings,{method:'amplitude',sensitivity:'sensitive',deadZone:0.075});
+const t=(id,name,n)=>({id,name,chunkingMethod:'amplitude',parameters:{sensitivity:M.settings.sensitivity,deadZone:M.settings.deadZone},audioHash:id,chunks:[{direction:'rising',fingerprint:fp(n)},{direction:'falling',fingerprint:fp(n+1)}],recordingFingerprint:fp(n)});
+const a=t('a','education',2),b=t('b','education',4),help=t('c','help',10);
+const library=M.buildReferences([a,b,{...a,id:'duplicate'},help]);
+assert.equal(library.references.length,2);assert.equal(library.duplicates,1);
+const ref=library.references.find(r=>r.name==='education');assert.equal(ref.exampleCount,2);assert.equal(ref.recordingFingerprint.vector[0],3);assert.equal(ref.chunks[0].fingerprint.vector[0],3);assert.equal(ref.chunks[1].fingerprint.vector[0],4);
+const query={pattern:{chunks:ref.chunks},frequency:{mfcc:{recordingFingerprint:fp(3)}}};
+const result=M.rank([a,b,help],new Map([[M.key(M.settings),query]]));assert.equal(result.ranked[0].name,'education');assert.equal(result.ranked[0].score,0);
+const reversed=ref.chunks.slice().reverse();assert.ok(M.align(ref.chunks,reversed,true).distance>0);
+const extra={...b,chunks:[b.chunks[0],{direction:'stable',fingerprint:fp(20)},b.chunks[1]]};
+assert.equal(M.buildReferences([a,extra]).references[0].exampleCount,2);
+assert.equal(M.buildReferences([{...a,recordingFingerprint:null}]).skipped,1);
+console.log('PASS: aligned averaging, duplicate exclusion, ordered matching, insertions and invalid examples');

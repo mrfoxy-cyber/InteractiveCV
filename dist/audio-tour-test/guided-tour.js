@@ -49,7 +49,7 @@
     const group=['education','projects','languages'].includes(command.id)?command.id:command.group==='controls'?'main':command.group||'main';
     const choices=commands.filter(c=>(c.group===group&&c.id!=='menu')||c.group==='controls'||(group!=='main'&&c.id==='menu'));
     $('tour-choices').replaceChildren(...choices.map(c=>{const button=document.createElement('button');button.type='button';button.textContent=c.phrase;button.addEventListener('click',()=>choose(c));return button;}));
-    $('tour-missing').textContent=group==='education'?'Tartu and Lexicon recordings are not available yet.':group==='languages'?'Original language recordings play without mouth timing for now.':'';
+    $('tour-missing').textContent=group==='languages'?'Original language recordings play without mouth timing for now.':'';
   }
   function state(kind,value){
     if(['stopped','waiting','speech-error','error'].includes(kind)||(kind==='loading'&&value?.terminal)){++startVersion;microphoneInput.close();}

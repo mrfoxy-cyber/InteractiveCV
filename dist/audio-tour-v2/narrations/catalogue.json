@@ -80,6 +80,14 @@
     {
       "file": "work-experience.narration.json",
       "title": "Work experience"
+    },
+    {
+      "file": "education-tartu.narration.json",
+      "title": "University of Tartu"
+    },
+    {
+      "file": "education-lexicon.narration.json",
+      "title": "Lexicon"
     }
   ]
 }

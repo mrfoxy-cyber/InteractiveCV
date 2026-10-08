@@ -1,0 +1,34 @@
+'use strict';
+const assert=require('node:assert/strict');require('./amplitude-chunks.js');
+const rate=16000;
+const carrier=(envelope,seconds=2)=>Float32Array.from({length:rate*seconds},(_,i)=>envelope(i/rate)*Math.sin(2*Math.PI*500*i/rate));
+const constant=AmplitudeChunks.analyze(carrier(()=>.5));
+assert.equal(constant.chunks.length,0);assert.equal(constant.noiseChunks[0].direction,'stable');
+const silence=AmplitudeChunks.analyze(new Float32Array(rate));assert.equal(silence.chunks.length,0);assert.equal(silence.noiseChunks.length,1);assert.equal(silence.peakAmplitude,0);
+const samples=carrier(t=>t<1?.05+.8*t:.85-.8*(t-1));
+const result=AmplitudeChunks.analyze(samples);
+assert.ok(result.chunks.some(c=>c.direction==='rising'));assert.ok(result.chunks.some(c=>c.direction==='falling'));
+assert.deepEqual(AmplitudeChunks.analyze(Float32Array.from(samples,s=>-s)),result,'Rectification makes polarity irrelevant');
+assert.ok(result.trace.every(f=>f.amplitude>=0));
+assert.equal(result.chunks[0].startMs,0);assert.equal(result.chunks.at(-1).endMs,2000);
+for(let i=1;i<result.chunks.length;i++)assert.equal(result.chunks[i].startMs,result.chunks[i-1].endMs);
+assert.ok(result.chunks.length<10,'Carrier waves must not each become a chunk');
+const subtle=carrier(t=>.5+.008*Math.sin(8*Math.PI*t));
+const balanced=AmplitudeChunks.analyze(subtle,'balanced'),sensitive=AmplitudeChunks.analyze(subtle,'sensitive');
+assert.ok(sensitive.chunks.length+ sensitive.noiseChunks.length>balanced.chunks.length+balanced.noiseChunks.length,'Sensitive should find smaller changes');
+for(const preset of ['balanced','sensitive','verySensitive']){
+  const measured=AmplitudeChunks.analyze(samples,preset);assert.equal(measured.parameters.sensitivity,preset);
+  assert.ok(measured.chunks.length<=300);assert.equal(measured.chunks.at(-1).endMs,2000);
+}
+const gated=AmplitudeChunks.analyze(carrier(()=>.05),'sensitive',.1);
+assert.equal(gated.peakAmplitude,0);assert.equal(gated.chunks.length,0);assert.equal(gated.noiseChunks[0].direction,'stable');
+const boundary=AmplitudeChunks.analyze(Float64Array.from({length:1600},(_,i)=>i%2?.1:-.1),'sensitive',.1);
+assert.equal(boundary.peakAmplitude,0,'Both exact threshold boundaries must be ignored');
+const above=AmplitudeChunks.analyze(new Float64Array(1600).fill(.2),'sensitive',.1);assert.ok(above.peakAmplitude>.19,'Values above threshold retain their amplitude');
+assert.deepEqual(AmplitudeChunks.analyze(samples,'sensitive',0),result,'Zero leaves the original calculation unchanged');
+assert.equal(gated.trace.length,AmplitudeChunks.analyze(carrier(()=>.05)).trace.length,'Filter must preserve time');
+for(const invalid of [-1,1.1,NaN,Infinity])assert.throws(()=>AmplitudeChunks.analyze(samples,'sensitive',invalid),/Dead zone/);
+const filtered=AmplitudeChunks.omitLongStable([{direction:'stable',startMs:0,endMs:75},{direction:'stable',startMs:100,endMs:176},{direction:'rising',startMs:200,endMs:400},{direction:'falling',startMs:400,endMs:900}],1000);
+assert.equal(filtered.chunks.length,3);assert.equal(filtered.noiseChunks.length,1);assert.equal(filtered.noiseChunks[0].startMs,100);
+assert.equal(filtered.chunks[0].endMs,75,'Exactly 7.5% remains Stable');
+console.log('PASS: amplitude rectification, rise/fall detection, constant tone, silence, sign invariance and contiguous boundaries.');

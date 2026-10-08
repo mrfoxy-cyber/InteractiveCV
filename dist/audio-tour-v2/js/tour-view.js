@@ -21,8 +21,7 @@ export class TourView {
       button.addEventListener('click', () => onChoose(item));
       return button;
     }));
-    this.message('tour-missing', group === 'education' ? 'Tartu and Lexicon recordings are not available yet.'
-      : group === 'languages' ? 'Language samples currently play without lip sync.' : '');
+    this.message('tour-missing', group === 'languages' ? 'Language samples currently play without lip sync.' : '');
   }
 
   state(kind, value, active, voiceEnabled) {

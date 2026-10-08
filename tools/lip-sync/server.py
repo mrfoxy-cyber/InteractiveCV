@@ -15,6 +15,30 @@ import re
 from datetime import datetime, timezone
 
 
+def save_blueprint(report, data, root, test_id):
+    mfcc = (report.get('frequencyAnalysis') or {}).get('mfcc')
+    if not isinstance(mfcc, dict):
+        return None
+    label = (report.get('source') or {}).get('command') or report.get('commandId') or report.get('label') or 'sound'
+    slug = re.sub(r'[^a-z0-9_-]+', '-', str(label).lower()).strip('-')[:80] or 'sound'
+    folder = root.resolve().parent / 'commands' / 'blueprints' / (slug + '-' + test_id)
+    folder.mkdir(parents=True, exist_ok=False)
+    pattern = report.get('pattern') or {}
+    blueprint = {'schemaVersion': 1, 'kind': 'sound-blueprint', 'name': label,
+                 'audioFile': 'recording.wav', 'durationMs': report.get('durationMs'),
+                 'chunkingMethod': report.get('chunkingMethod', 'pitch'),
+                 'parameters': report.get('parameters', {}), 'chunks': pattern.get('chunks', []),
+                 'noiseChunks': pattern.get('noiseChunks', []), 'chunkCount': len(pattern.get('chunks', [])),
+                 'mfccMethod': mfcc.get('method'), 'fingerprintDefinition': mfcc.get('fingerprintDefinition'),
+                 'recordingScope': mfcc.get('recordingScope'),
+                 'recordingFingerprint': mfcc.get('recordingFingerprint'),
+                 'regionFingerprints': mfcc.get('chunks', []), 'source': report.get('source'),
+                 'analyzedAt': report.get('analyzedAt')}
+    (folder / 'recording.wav').write_bytes(data)
+    (folder / 'blueprint.json').write_text(json.dumps(blueprint, ensure_ascii=False, allow_nan=False, indent=2), encoding='utf-8')
+    return 'commands/blueprints/' + folder.name
+
+
 def save_chunk_test(payload, root, folder_name='chunktest', report_name='analysis.json'):
     report = payload.get('report')
     if not isinstance(report, dict) or report.get('schemaVersion') != 1:
@@ -51,7 +75,8 @@ def save_chunk_test(payload, root, folder_name='chunktest', report_name='analysi
     report['durationMs'] = round(duration * 1000)
     (folder / 'recording.wav').write_bytes(data)
     (folder / report_name).write_text(json.dumps(report, ensure_ascii=False, allow_nan=False, indent=2), encoding='utf-8')
-    return {'saved': True, 'folder': folder_name + '/' + test_id, 'report': report_name, 'audio': 'recording.wav'}
+    blueprint_folder = save_blueprint(report, data, root, test_id) if folder_name == 'chunktest' and report.get('kind') != 'command-match-test' else None
+    return {'saved': True, 'folder': folder_name + '/' + test_id, 'report': report_name, 'audio': 'recording.wav', 'blueprintFolder': blueprint_folder}
 
 
 def save_command_sample(payload, root):
@@ -184,7 +209,24 @@ def make_handler(root, executable, port, token):
                 return self.send_json(403, {"error": "Local workshop access only."})
             if self.path == "/api/status":
                 return self.send_json(200, {"ready": executable.is_file(), "token": token,
-                                            "maxSeconds": MAX_SECONDS, "chunkTests": True, "commandSaving": True, "engine": "Rhubarb Lip Sync 1.14.0"})
+                                            "maxSeconds": MAX_SECONDS, "chunkTests": True, "blueprintSaving": True, "commandSaving": True, "engine": "Rhubarb Lip Sync 1.14.0"})
+            if self.path == '/api/blueprints':
+                if not secrets.compare_digest(self.headers.get('X-Workshop-Token', '').encode(), token.encode()):
+                    return self.send_json(403, {'error': 'Open the local workshop first.'})
+                folder = root.resolve().parent / 'commands' / 'blueprints'
+                items, skipped = [], 0
+                for file in sorted(folder.glob('*/blueprint.json')):
+                    try:
+                        if not file.resolve().is_relative_to(folder.resolve()) or file.stat().st_size > 1_000_000:
+                            raise ValueError('Invalid blueprint file')
+                        item = json.loads(file.read_text(encoding='utf-8'))
+                        if item.get('kind') != 'sound-blueprint' or not isinstance(item.get('chunks'), list):
+                            raise ValueError('Invalid blueprint')
+                        item['id'] = file.parent.name
+                        items.append(item)
+                    except (ValueError, OSError):
+                        skipped += 1
+                return self.send_json(200, {'blueprints': items, 'skipped': skipped})
             return super().do_GET()
 
         def do_HEAD(self):
