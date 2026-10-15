@@ -188,6 +188,22 @@ def make_handler(root, executable, port, token):
     busy = threading.Lock()
 
     class Handler(SimpleHTTPRequestHandler):
+        # Windows MIME registrations may label .mjs as text/plain. ES modules
+        # require a JavaScript MIME type regardless of the machine's registry.
+        extensions_map = {
+            **SimpleHTTPRequestHandler.extensions_map,
+            '.js': 'text/javascript',
+            '.mjs': 'text/javascript',
+            '.wasm': 'application/wasm',
+        }
+
+        def end_headers(self):
+            # Scope threaded WASM requirements to the separate Moonshine test.
+            if self.path.split('?', 1)[0].startswith('/moonshine-test/'):
+                self.send_header('Cross-Origin-Opener-Policy', 'same-origin')
+                self.send_header('Cross-Origin-Embedder-Policy', 'require-corp')
+            super().end_headers()
+
         def __init__(self, *args, **kwargs):
             super().__init__(*args, directory=str(root), **kwargs)
 
